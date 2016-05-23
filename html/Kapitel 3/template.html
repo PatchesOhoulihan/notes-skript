@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="css/master.css">
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav>
+
+        </nav>
+        <h1>
+            Kapitel 3 Textformatierung
+        </h1>
+        <main>
+           <section>
+            <article>
+                <h3>Trivia</h3>
+                <ul>
+                    <li>
+                        <p>Besonderheiten bei der Textformatiuerung mit HTML</p>
+                        <ul>
+                            <li>
+                                <p>Tabulatoren und Zeilenumbrüche um Code werden im Browser wie Leerzeichen behandelt.</p>
+                            </li>
+                            <li>
+                                <p>Mehrere aufeinanderfolgende Leerzeichen, Tabulatoren und Zeilenumbrüche werden im Browser immer nur als ein <strong>einziges Leerzeichen</strong> angezeigt.</p>
+                            </li>
+                            <li>
+                                <p>Deshalb werden diese Zeichen zusammenfassend als white space bezeichnet.</p>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+            </article>
+            </section>
+            <section>
+                <h2>Blockelemente</h2>
+                   <article>
+                        <h3>Absätze</h3>
+                    <ul>
+                        <li>
+                            <p>Die einfachste und effektivste Methode zur Strukturierung von Fließtexten ist die Verwendung von Absätzen.</p>
+                        </li>
+                        <code>
+                             &lt;p&gt; Lorem ipsum dolor sit amet. &lt;/p&gt;
+                        </code>
+                    </ul>
+                   </article>
+                    <article>
+                        <h3>Überschriften</h3>
+                        <ul>
+                            <li>
+                                <p>Die sechs h-Tags können für hierarchische Überschriften benutzt werden. Überschriften werden als eigener Absatz behandelt. </p>
+                            </li>
+                            <code>
+                            &lt;h1-h6&gt; Lorem ipsum. &lt;/h1-h6&gt;
+                        </code>
+                        </ul>
+                    </article>
+                    <p>NOTE: Sowohl Überschriften als auch Absätze dürfen keine weiteren Blockelemente enthalten.</p>
+                    <article>
+                        <h3>Trennlinien</h3>
+                        <ul>
+                            <li><p>Ein weiteres Element zur Abgrenzung von thematisch nicht zusammenhängenden Textbereichen ist die Trennlinie, die einen eigenen Absatz erzeugt und mit dem Tag </p></li>
+                            <code>
+                                Syntax: &lt;hr&gt;
+                            </code>
+                        </ul>
+                    </article>
+                    <article>
+                        <h3>Weitere Blockelemente zur Strukturierung von Dokumenten</h3>
+                        <table border="1">
+                                <tr>
+                                    <td>Tag</td>
+                                    <td>Beschreibung</td>
+                                </tr>
+                                <tr>
+                                    <td>&lt;article&gt;</td>
+                                    <td>Neu in HTML5. Unabhängiger Abschnitt.(z.b ein Blog-Beitrag.)</td>
+                                </tr>
+                                <tr>
+                                    <td>&lt;aside&gt;</td>
+                                    <td>Neu in HTML5. Inhalt, der zum Thema passt, aber nicht direkt dazugehärt, Randbemerkung, Marginalie. Wird auch gerne für Seitenleisten(sidebars) verwendet</td>
+                                </tr>
+                                <tr>
+                                    <td>&lt;blockquote&gt;</td>
+                                    <td>Langes Zitat. Bildet im Gegensatz zu &lt;q&gt; einen eigenen Absatz.</td>
+                                </tr>
+                                <tr>
+                                    <td>&lt;div&gt;</td>
+                                    <td>Vielseitig einsetzbar zur Kennzeichnung eines Abschnitts oder Bereichs. Sollte aber nur verwendet werden, wenn keines der anderen Elemente(article, section, aside, main, header,                                             footer usw.)passt</td>
+                                </tr>
+                                <tr>
+                                    <td>&lt;footer&gt;</td>
+                                    <td>Neu in HTML5. Fußzeile eines Abschnitts oder einer Seite.</td>
+                                </tr>
+                                <tr>
+                                    <td>&lt;header&gt;</td>
+                                    <td>Neu in HTML5. Einleitung/Kopfbeeich eines Textes oder einer Seite(nicht mit head verwechseln.)</td>
+                                </tr>
+                                <tr>
+                                    <td>&lt;main&gt;</td>
+                                    <td>Neu in HTML5. Kennzeichnet den Haupt-Inhaltsbereich.</td>
+                                </tr>
+                                <tr>
+                                    <td>&lt;nav&gt;</td>
+                                    <td>Neu in HTML5. Kennzeichent die darin enthaltenen elemente(i.d.R. Links) als Navigationselemente.</td>
+                                </tr>
+                                <tr>
+                                    <td>&lt;section&gt;</td>
+                                    <td>Neu in HTML5. Abschnitt;Sektion eines Textes. Kann z.B. zur weiteren Unterteilung von main oder articel verwendet werden.</td>
+                                </tr>
+                        </table>
+                        <p>Viele dieser Tags - vor allem die in HTML5 neu hinzugekommenen - erzeugen im Browser jedoch keine sichtbare Veränderung! Sie sind daher erst im Zusammenspiel mit CSS wirklich interessant.</p>
+                        <p>Die meisten der oben genannten Tags sind optional, und für ihre Verwendung gibt es kaum feste Regeln. Es ist also auch Ihrer Kreativität überlassen, wann Sie welchen Tag für sinnvoll halten.                                  Lassen Sie jedoch Ihre Dokumente regelmäßig validieren, um zu sehen, ob Sie einen Tag evtl. doch einmal im falschen Zusammenhang verwendet haben.</p>
+                    </article>
+                </section>
+                <section>
+                   <h2>Inline-Elemente</h2>
+                   <article>
+                    <h3>Fettschrift</h3>
+                    <p>Zur Auszeichnung stark betonter Textbereiche nutzen Sie den Tag &lt;strong&gt;fetter text &lt;/strong&gt;</p>
+                    <code>Syntax: dies ist ein &lt;strong&gt;fetter text &lt;/strong&gt;</code>
+                    <p>Alternativ dazu bietet HTML5 auch den Tag &lt;b&gt; für bold. Dieser sollte jodoch nur in Ausnahmefällen benutzt werden, wenn Textbereiche vom umgebenden Text abgegrenzt werden sollen, ohne sie                             dadurch wichtiger erscheinen zu lassen oder stärker zu betonen. Beispiele dafür wären etwa die Namen der Sprecher in Interviews oder Theaterstücken Diese werden optisch hervorgehoben, sind dadurch aber                       nicht wichtiger.</p>
+                   </article>
+                   <article>
+                       <h3>Kursivschrift</h3>
+                       <p>Zur Auszeichnung betonter Textbereiche nutzen sie den Tag &lt;em&gt;&lt;/em&gt;.Dieser wird in allen gängigen Browsern kursiv angezeigt.</p>
+                       <code>
+                           Dies ist ein <em>kursiver</em> Text.
+                       </code>
+                   </article>
+                   <article>
+                       <h3>Weitere Tags zur Textauszeichnung</h3>
+                       <table border="1">
+                           <tr>
+                               <td>&lt;abbr&gt;</td>
+                               <td>Kenzeichnet einen Textbereich als Abkürzung</td>
+                           </tr>
+                           <tr>
+                               <td>&lt;address&gt;</td>
+                               <td>Kennzeichnet einen Textbereich als Kontaktinformation, i.d.R des Autors eines Dokuments oder Artikels.</td>
+                           </tr>
+                           <tr>
+                               <td>&lt;cite&gt;</td>
+                               <td>Kennzeichnet einen Textbereich als Titel eines Werkes, das im Text zitiert wird</td>
+                           </tr>
+                           <tr>
+                               <td>&lt;code&gt;</td>
+                               <td>Kennzeichnet einen Textbereich als Quelltext, z.B. zur Visualisierung von PHP-Code auf einer Webseite.</td>
+                           </tr>
+                           <tr>
+                               <td>&lt;del&gt;</td>
+                               <td>Kennzeichnet einen Textbereich als gelöscht. Der Text wird in der Regel durchgestrichen angezeigt. Wrid oft zusammen mit &lt;ins&gt;+</td>
+                           </tr>
+                           <tr>
+                               <td>&lt;ins&gt;</td>
+                               <td>Kennzeichnet einene Textbereich als nachträglich eingefügt. Wrid oft zusammen mit &lt;del&gt; der Text wird in der Regel unterstrichen angezeigt. Dies sollten sie auf jedenfall mit css                                     ändern, da der Text sonst als Link missverstanden werden kann!</td>
+                           </tr>
+                           <tr>
+                               <td>&lt;mark&gt;</td>
+                               <td>Neu in HTML5. Markiert einen Textbereich wie mit einem Edding</td>
+                           </tr>
+                           <tr>
+                               <td>&lt;q&gt;</td>
+                               <td>Kurzes Zitat im Fließtext. Zur Kennzeichnung eines ganzen Absatzes als Zitat nutzen Sie stattdessen das Block-Element &</td>
+                           </tr>
+                           <tr>
+                               <td>&lt;s&gt;</td>
+                               <td>Kennzeichnet einen Textbereich als falsch(engl. strikethrough) bzw. nicht mehr korrekt. Ähnlich, aber nicht zu verwechseln mit &lt;del&gt;. Der Text wird in der Regel durchgestrichen                                       durchgestrichen angezeigt</td>
+                           </tr>
+                           <tr>
+                               <td>&lt;sub&gt;</td>
+                               <td>Tiefgestellter Text(Subscript)</td>
+                           </tr>
+                           <tr>
+                               <td>&lt;sup&gt;</td>
+                               <td>Hochgestellter Text(Superscript)</td>
+                           </tr>
+                       </table>
+                   </article>
+                </section>
+        </main>
+    </div>
+</body>
+
+</html>
