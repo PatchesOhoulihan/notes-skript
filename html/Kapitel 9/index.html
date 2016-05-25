@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/master.css">
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+        <nav>
+            
+        </nav>
+        <h1>
+            Kapitel 9.
+        </h1>
+        <nav class="row">
+            <ul>
+                <li><a href="#trivia">Trivia</a></li>
+                <li><a href="#inframes">Inline Frames</a></li>
+                <li><a href="#linkframe">Iframes erzeugen</a></li>
+            </ul>
+        </nav>
+        <main>
+            <article id="trivia">
+                <h2>Trivia</h2>
+                <ul>
+                    <li>
+                        <p>In früheren HTML-Versionen gab es die Möglichkeit, mehrere HTML-Seiten gleichzeitig in einem einzigen BrowserFenster in mehrere Bereiche aufgeteilt und in jeden dieser Bereiche eine andere HTML-Seite geladen.</p>
+                    </li>
+                    <li>
+                        <p>Diese Bereiche wurden als Frames beszeichnet. Zusammen ergaben diese Bereiche ein sogenanntes Frameset.</p>
+                    </li>
+                    <li>
+                        <p>Frames wruden meist dazu benutzt, Navigationen u ä unabhängig vom Inhalt der Seite zu platzieren.</p>
+                    </li>
+                    <li>
+                        <p>In den Anfangszeiten des WWW wurde von Frames auch intensiver Gebrauch gemacht, und bis heute gibt es noch immer ein paar Websites, die Frames verwenden. Im Laufe der Zeit hat sich aber gezeigt, dass Framesetsmehr Nachteile als Vorteile haben:</p>
+                        <h4>Nachteile</h4>
+                        <ul>
+                            <li>
+                                <p>Probleme beim Indizieren des Inhalts durch Suchmachinen.</p>
+                            </li>
+                            <li>
+                                <p>Drucken der Website.</p>
+                            </li>
+                            <li>
+                                <p>Framesets wurden aus der HTML5 spezifikation entfernt.</p>
+                            </li>
+                            <li>
+                                <p>Wer heutzutage noch Framestes verwendet, gilt als äußert unprofessionell.</p>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </article>
+            <article id="inframes">
+                <h3>Inline Frames</h3>
+                <ul>
+                    <li>
+                        <p>Das einzige, was von den Frames in HTML5 noch übrig ist, sind die sogenannten iframes(inline frames), eine vereinfachte Sonderform von Frames. Trotz ihres Namens haben iFrames nichts mit iPhone, iPod und  co zutun.</p>
+                    </li>
+                    <li>
+                        <p>Mit iframes ist es möglich, einen Bereich auf ihrer HTML-Seite zu definieren, innerhalb dessen eine andere HTML-Siete angezeigt wird.</p>
+                    </li>
+                    <li>
+                        <p>Diese kann entwder auf dem selben oder einem beliebigen anderen Webserver liegen.</p>
+                    </li>
+                    <li>
+                        <p>In der Praxis werden iFrames hauptsächlich zur Einbindung von Distleistungen von Drittanbietern verwendet. </p>
+                    </li>
+                    <li>
+                        <p>So kann man z.B Google Maps oder YouTube-Videos via iFrame auf seiner Seite einbinden. </p>
+                    </li>
+                    <li>
+                        <p>Auch Social Plug-ins wie der Like-Button von Facebook oder der Tweet-Button von Twitter können in iFrames auf der eigenen Website angezeigt werden. In desem Fall besteht die HTML-Seite innerhalb des iFrames lediglich aus dem Button.</p>
+                    </li>
+                    <li>
+                        <p>Mit CSS können iFrames so gestaltet werden, dass sie für den Anwender nicht als solche erkennbar sind.</p>
+                    </li>
+                </ul>
+                        <p>NOTE: Generell gelten auch iFrames als äußerst unelegant und sollten nur in Ausnahmefällen verwendet werden.</p>
+            </article>  
+            <article>
+                <h3>iFrames erzeugen.</h3>
+                    <ul>
+                        <li>
+                            <p>Ein iframe erzugen Sie an einer beliebigen Stelle innerhalb des bodys mit dem gleichnamigen Tag &lt;iframe&gt;</p>
+                            <code>
+                                Beispiel: &lg;iframe src="link-auf-die-Seite width="weite" height="höhe" &gt; &lt;/iframe&gt;
+                            </code>
+                        </li>
+                        <li>
+                            <p>Wenn auf externen Content verlinkt wird muss die vollständige URL eingegeben werden. Inclusive http:</p>
+                        </li>
+                        <li>
+                            <p>IFrames werden om Browser genauso behandelt wie separate Browserfenster.</p>
+                        </li>
+                        <li>
+                           <h4>Alternativeinhalt für iFrames</h4>
+                            <p>Zwischen &lt;iframe&gt; und &lt;/iframe&gt; können Sie beliebigen HTML-Code platzieren, der nur angezeigt wird, wenn der Browser iFrames nicht darstellen kann.</p>
+                        </li>
+                        </ul>
+            </article> 
+            <article id="linkframe">
+                <h3>Links auf iFrames setzen.</h3>
+            <ul>
+                <li>
+                    <p>Sie können auf ihrer Seite Links setzen , die den Inhalt des iFrames dynamisch austauschen. Dazu müssen Sie zunächst dem iFrame mit dem Attribut name einen eindeutigen Namen geben. Der Name ist frei wählbar, darf aber keine Leer- oder Sonderzeichen enthalte.</p>
+                </li>
+                <li>
+                    <p>&lt;iframe src="http://....." width="700" height="500" <mark>name="wikifenster"</mark>&gt;Text wenn nicht angezeigt werden kann&lt;/iframe&gt; </p>
+                </li>
+                <li>
+                    <p>Platzieren sie danach wie gewohnt die Links auf Ihrer Seite:</p>
+                </li>
+                <li>
+                    <p>Damit sich die Links jedoch nicht - wie sonst üblich - im gesamten Browserfenster öffnen, sondern stattdessen den Inhalt des iFrames austauschen, benötigt jeder Link das Attribut target.</p>
+                </li>
+                <li>
+                    <p>&lt;a href="http://de......." <mark>target="wikifenster"</mark>&gt;</p>
+                </li>
+            </ul>
+            </article>
+        </main>
+    </div>
+</body>
+</html>
