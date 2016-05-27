@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/master.css">
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>
+            Kapitel 3.
+        </h1>
+        <nav>
+            <ul>
+                <li><a href="#">unterpunkt1</a></li>
+                <li><a href="#">unterpunkt2</a></li>
+                <li><a href="#">unterpunkt3</a></li>
+                <li><a href="#">unterpunkt4</a></li>
+                <li><a href="#">unterpunkt5</a></li>
+            </ul>
+        </nav>
+        <main class="clear-fix">
+            <article>
+                <details>
+                	<summary>
+                		Was ist das Besondere an Tabellen in HTML?
+                	</summary>
+                	<p>Bei der Entwickelung von Html stand anfangs nur der Austausch Dokumenten im Vordergrund.. Dabei kümmerte sich niemand sonderlich um Layout oder Design - der Inhalt war wichtig, nicht die äußere Form. Deshalb ist es bis heute mit den Bordmitteln von HTML nicht möglich, Objekte(texboxen oder Bilder ) exakt auf einer Seite zu positionieren.</p>
+                	<p>Als es im Zuge der Kommerizialisierung des Internets plötzich notwendig wurde, HTML-Seiten an das Corporate Design von Unternehmen anzupassen lag die Lösung in Tabellen. Ursprünglich schlicht für tabellarische Auflistungen konzpiert, kann eine in HTML erzeugte Tabelle praktisch jede Art von Elementen enthalten: Text, Bilder, Animationen, Flash Videos, und sogar weitere Tabellen.</p>
+                	<p>
+                		Der erhebliche Nachteil von Tabellen liegt allerdings darin, dass ihre Bearbeitung äußerst zeitaufwändig is. Sollen die Seiten aktualisiert werden, müssen Sie u.U. die komplette Tabellenkonstruktion umbauen.
+                	</p>
+                	<p>
+                		Diese Zeiten sind zum Glück vorbei. Heutzutage können Sie mit Css jedes Element beliebig auf Ihreer Seite platzieren.
+                	</p>
+                </details>
+                <details>
+                	<summary>
+                		Das Grundprinzip
+                	</summary>
+                	<p>Eine Tabelle in HTML beginnt stets mit dem Tag &lt;table&gt; und endet mit &lt;/table&gt; Danach werden die einzelnen Zeilen de Tabelle notiert. Eine Zeile wird durch &lt;tr&gt; definiert und mit &lt;/tr&gt; abgeschlossen.</p>
+                	<p>Innerhalb jeder Zeile notieren Sie dann die einzelnen Zellen dieser Zeile mit &lt;td&gt;&lt;/td&gt;. <mark>Dabei muss jede Zeile zwingend dieselbe  Anzahl an Zellen haben!</mark> Erst zwischen diesen td-Tags steht die eigentliche Information(Text, Bilder u,ä), die in dieser Zelle erscheinen soll.</p>
+                	<p>Für eine Tabelle mit zwei Reihen und zwei Spalten ergibt sich also folgender Code:</p>
+                	<img src="img/table-base.png" alt="Basic Table">
+                	<p>Damit Sie diese Tabelle im Browse sehen können, müssen Sie ihr allerdings noch eine sichtbare Kontur geben und beliebigen Inhalt in den Zellen platzieren, denn leere Zellen werden von vielen Browsern nicht angezeigt.</p>
+                	<figure>
+                		<img src="img/table-border.png" alt="Table with border">
+                		<figcaption>
+                			Das Attribut border ist nach der HTML5-Spezifikation offiziell nitcht mehr erlaubt! In der Praxis steuern Sie Tabellenkonturen später mit CSS.
+                		</figcaption>
+                	</figure>
+                </details>
+            </article>
+        </main>
+    </div>
+</body>
+</html>

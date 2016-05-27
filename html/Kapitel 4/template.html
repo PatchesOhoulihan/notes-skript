@@ -23,36 +23,90 @@
             </ul>
         </nav>
         <main>
-            <Details>
+            <details>
               <summary>Punktlisten</summary>
-              <h2></h2>
-              <p></p>
-              <code></code>
-            </Details>
-            <Details>
+              <p>Punktelisten sind ungeordnete Listen. Als Aufzählungszeichen dient ein Spiegelpunkt. Folgender Code erzeugt eine solche Liste:</p>
+              <code>
+             		<p>&lt;ul&gt;</p>
+             		<p>&lt;li&gt;London&lt;/li&gt;</p>
+             		<p>&lt;li&gt;Berlin&lt;/li&gt;</p>
+             		<p>&lt;li&gt;Monaco&lt;/li&gt;</p>
+             		<p>&lt;li&gt;San Paulo&lt;/li&gt;</p>
+             		<p>&lt;/ul&gt;</p>		
+              </code>
+              <p>Die Liste wird mit dem Start-Tag&lt;ul&gt;(für unordered list) eingeleitet. Dieser Tag ist ein Blockelement und erzeugt einen Absatz. Die einzelnen Listenelemente selbst werden mit &lt;li&gt; der endtag &lt;/li&gt; ist ebenfalls erforderlich. Die Listenelemente werden im Browser automatisch eingerückt.</p>
+            </details>
+            <details>
               <summary>Nummerierte Listen</summary>
-              <h2></h2>
-              <p></p>
-              <code></code>
-            </Details>
-            <Details>
+              <p>Nummerierte Listen sind analog zu Aufzählungslisten aufgebaut, lediglich der Tag ändert sich in &lt;ol&gt;</p>
+              <p>Die liste wird im Browser automatisch durchnummeriert. die voreingestellte Nummerierung erfolgt mit arabischen Ziffern(1,2,3,4). <mark>Sie kann jedoch mit dem type-Attribut geändert werden:</mark></p>
+              <code>
+              	<p>&lt;ol type="A" = A,B,C,D,E ......</p>
+              	<p>&lt;ol type="a" = a,b,c,d,e ......</p>
+              	<p>&lt;ol type="I" = I, II, III, IV, V..........</p>
+              	<p>&lt;ol type="i" = i, ii , iii, iv, v.........</p>
+              </code>
+              <hr>
+              <p>Mit dem Attribute start können Sie den Anfoangswert Anfangswert für die Listennummerierung ändern:</p>
+              <code>
+              	<mark>&lt;ol start="6"&gt;</mark>
+              </code>
+              <p>Sie können auch die Attribute type und start auch kombinieren:</p>
+              <code>
+              	<mark>&lt;ol start="6" type="a"&gt;</mark>
+              </code>
+              <p>Die Liste beginnt so mit dem Buchstaben f.</p>
+              <hr>
+              <p>Sie können die Nummerierung auch innerhalb in der Liste wechseln. Notieren Sie dazu das Attribut value innerhalb des betreffenden li-Tags</p>
+              <code>
+				  <p>&lt;li&gt;London&lt;/li&gt;</p>
+				  <p>&lt;li value="22"&gt;Berlin&lt;/li&gt;</p>
+				  <p>&lt;li&gt;Köln&lt;/li&gt;</p>
+				  <p>&lt;li&gt;Münster&lt;/li&gt;</p>    	
+              </code>
+              <p>
+              	Note: Verwehseln Sie nicht die Attribue start und value. Das Attribut start gehört in den ol-tag und ändert den Anfangswert der Aufzählung, value gehört in den li-tag und ändert den Wert innerhalb einer Liste.
+              </p>
+              <p>
+              	Listen und Listenelemete können mit CSS umfangreich formatiert werden, sodass es z.B möglich ist, damit Navigationsmenüs zu erstellen.
+              </p>
+            </details>
+            <details>
               <summary>Definitionslisten</summary>
-              <h2></h2>
-              <p></p>
-              <code></code>
-            </Details>
-            <Details>
+              <p>definitionslisten gehen eine Stufe tiefer in der Hierarchie: Auf der ersten Ebene können Sie Hauptkategorien (Schlagwörter)aufzählen, denen Sie dann auf der zweiten Ebene Unterkategorien zuordnen können. Definitionslisten verzichten auf Aufzählungszeichen, die Definitionen werden im Browser lediglich eingerückt dargestellt.</p>
+              <p>Mit &lt;dl&gt; leiten Sie eine Definitionsliste ein. Danach folgt mit dem Tag&lt;dt&gt; der este definition term, also die erste hauptkategorie. Nun folgt eine beliebige Anzahl an definition data &lt;dd&gt;,bevor das nächste &lt;dt&gt; genannt wird.</p>
+              <code>
+				  <p>&lt;dl&gt;</p>
+				  <p>&nbsp;&lt;dt&gt;Kino&lt;/dt&gt;</p>
+				  <p>&nbsp; &nbsp;&lt;dd&gt;Hulk&lt;/dd&gt;</p>
+				  <p>&nbsp; &nbsp;&lt;dd&gt;Mulan&lt;/dd&gt;</p>
+				  <p>&nbsp; &nbsp;&lt;dd&gt;Nintendo&lt;/dd&gt;</p>
+				  <p>&nbsp;&lt;dt&gt;DVD&lt;/dt&gt;</p>
+				  <p>&nbsp; &nbsp;&lt;dd&gt;Revolver&lt;/dd&gt;</p>
+				  <p>&nbsp; &nbsp;&lt;dd&gt;Peter&lt;/dd&gt;</p>
+				  <p>&nbsp; &nbsp;&lt;dd&gt;Ghots Nachricht von Sam&lt;/dd&gt;</p>
+				  <p>&lt;/dl&gt;</p>
+              </code>
+            </details>
+            <details>
               <summary>Verschachtelte Listen</summary>
-              <h2></h2>
-              <p></p>
-              <code></code>
-            </Details>
-            <Details>
+              <p>Alternativ zu Definitionslisten können Sie auch Punkt- oder nummerierte Listen ineinander verschachteln. Dazu erstellen Sie innerhalb eines li-Tags einfach eine komplette neue Liste.</p>
+            </details>
+            <details>
               <summary>Ausklapp-Texte</summary>
-              <h2></h2>
-              <p></p>
-              <code></code>
-            </Details>
+              <p>Aufklapp-Texte können in einigen Fällen evtl. als Alternative zu Definitions- oder erschachtelten Listen verwendet werden.</p>
+              <p>Diese Elemente mussten in der Vergangenheit aufwendig mit CSS und JavaScript selbst programmiert werden. HTML5 bietet diese Funktionalität nun vorgefertigt.</p>
+              <p>Ein Ausklapp-Text besteht aus zwei Teilen: dem umgebenden Tag &lt;details&gt; und dem darin enthaltenen Tag &lt;summary&gt;. Der &lt;summary&gt;-Tag enthält die sichtbare Überschrift. Danach folgt der - zunächst unsichtbare - Inhalt (der mit beliebigen weiteren Tags formatiert werden kann)</p>
+              <code>
+              	<p>&lt;details&gt;</p>
+				  <p>&nbsp;&lt;summary&gt;Kino&lt;/summary&gt;</p>
+				  <p>&nbsp; &nbsp;&lt;dd&gt;Hulk&lt;/dd&gt;</p>
+				  <p>&nbsp; &nbsp;&lt;dd&gt;Mulan&lt;/dd&gt;</p>
+             	  <p>&lt;/details&gt;</p>
+              </code>
+              <h4>Standardmäßig ausgeklappter Text</h4>
+              <p>Sie können aber auch festlegen, dass der Inhalt bereits von vornherein ausgeklappt erscheint. Fügen Sie dazu einfach dem einleitenden details-Tag <mark>das attribute <code>open</code> hinzu</mark></p>
+            </details>
         </main>
     </div>
 </body>
