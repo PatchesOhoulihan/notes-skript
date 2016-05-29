@@ -1,0 +1,33 @@
+{
+  "name": "html-stuff",
+  "version": "0.0.1",
+  "description": "Notes I take while researching",
+  "main": "index.html",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PatchesOhoulihan/notes-skript.git"
+  },
+  "keywords": [
+    "german",
+    "webdevelopment",
+    "researcher"
+  ],
+  "author": "Schmalte",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PatchesOhoulihan/notes-skript/issues"
+  },
+  "homepage": "https://github.com/PatchesOhoulihan/notes-skript#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.12.10",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-eslint": "^2.0.0",
+    "gulp-jasmine-phantom": "^3.0.0",
+    "gulp-sass": "^2.3.1"
+  }
+}

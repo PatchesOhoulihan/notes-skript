@@ -3,12 +3,12 @@
 <head>
     <link rel="stylesheet" href="css/master.css">
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Kapitel 7.</title>
 </head>
 <body>
     <div id="wrapper">
         <h1>
-            Kapitel 3.
+            Kapitel 7.
         </h1>
         <nav>
             <ul>
@@ -20,7 +20,6 @@
             </ul>
         </nav>
         <main class="clear-fix">
-            <article>
                 <details>
                 	<summary>
                 		Was ist das Besondere an Tabellen in HTML?
@@ -41,16 +40,112 @@
                 	<p>Eine Tabelle in HTML beginnt stets mit dem Tag &lt;table&gt; und endet mit &lt;/table&gt; Danach werden die einzelnen Zeilen de Tabelle notiert. Eine Zeile wird durch &lt;tr&gt; definiert und mit &lt;/tr&gt; abgeschlossen.</p>
                 	<p>Innerhalb jeder Zeile notieren Sie dann die einzelnen Zellen dieser Zeile mit &lt;td&gt;&lt;/td&gt;. <mark>Dabei muss jede Zeile zwingend dieselbe  Anzahl an Zellen haben!</mark> Erst zwischen diesen td-Tags steht die eigentliche Information(Text, Bilder u,ä), die in dieser Zelle erscheinen soll.</p>
                 	<p>Für eine Tabelle mit zwei Reihen und zwei Spalten ergibt sich also folgender Code:</p>
-                	<img src="img/table-base.png" alt="Basic Table">
+                  <figure>
+                    	<img src="img/table-base.png" alt="Basic Table">
+                      <figcaption>
+                        Basic table in html.
+                      </figcaption>
+                  </figure>
                 	<p>Damit Sie diese Tabelle im Browse sehen können, müssen Sie ihr allerdings noch eine sichtbare Kontur geben und beliebigen Inhalt in den Zellen platzieren, denn leere Zellen werden von vielen Browsern nicht angezeigt.</p>
                 	<figure>
                 		<img src="img/table-border.png" alt="Table with border">
                 		<figcaption>
-                			Das Attribut border ist nach der HTML5-Spezifikation offiziell nitcht mehr erlaubt! In der Praxis steuern Sie Tabellenkonturen später mit CSS.
+                			NOTE: Das Attribut border ist nach der HTML5-Spezifikation offiziell nitcht mehr erlaubt! In der Praxis steuern Sie Tabellenkonturen später mit CSS.
                 		</figcaption>
                 	</figure>
+                  <h3>Kopfzeilen einfügen.</h3>
+                  <figure>
+                    <img src="img/tablehead.png" alt="Table mit einem th tag">
+                    <figcaption>
+                      <p>Sie können in der ersten Zeile auch Kopzeilen für die Spalten definieren. In einer Kopfzeile wird der enthaltene Text automatisch fett und zentiert dargestellt. Ersetzen Sie dazu einfach den Tag &lt;td&gt; durch &lt;th&gt;</p>
+                    </figcaption>
+                  </figure>
+                  <details>
+                    <summary>
+                      Tabellenbeschriftung
+                    </summary>
+                    <p>
+                      Sie können eine optisch von der Tabelle getrennte, aber mit ihr verbundene Über- oder Unterschrift definieren. Dazu benutzen Sie dierekt nach dem einleitenden <em>table</em>-Tag den Tag &lt;caption&gt;, den Sie am Ende wieder mit &lt;/caption&gt; schließen.
+                      <figure>
+                        <img src="img/tablecaption.png" alt="table mit beschreibung." />
+                        <figcaption>
+                          <p>
+                            Tabelle mit tabellen überschrift.
+                          </p>
+                        </figcaption>
+                      </figure>
+                    </p>
+                  </details>
                 </details>
-            </article>
+                <article class="">
+                  <details>
+                    <summary>
+                      Verbinden von Zellen
+                    </summary>
+                    <p>Um eine Tabelle zu erzeugen, deren Zeilen und Spalten nicht die gleiche Anzahl an Zellen haben, müssen Sie einzelne Zellen verbinden. Da man dabei sehr schnell die Orientierung verlieren kann, empfiehlt es sich, die Tabelle zuerst wie gewohnt mit allen Zellen zu erzeugen:</p>
+                    <figure>
+                      <img src="img/tablebefore.png" alt="Tabelle bevor die Zellen geteilt wird.">
+                      <figcaption>
+                        <p>Tabelle bevor die Zellen geteilt wird.</p>
+                      </figcaption>
+                    </figure>
+                    <details>
+                      <summary>
+                        Horizontale Verbindung von Zellen.
+                      </summary>
+                      <p>Um nun die ersten beiden Zellen in der ersten Reihe zu verbinden, <mark>löschen Sie im ersten Schritt das &lt;td&gt;-Tagpaar für die zweite Zelle</mark> , danach <mark>notieren Sie im ersten <em>td</em>-tag das Attribut colspan(column span, Umfang der Spalten, über den sich eine Zelle erstreckt), wobei Sie als Wert die Anzahl der Zellen angeben, die Sie verbinden wollen, hier also <code>colspan="2"</code></mark></p>
+                      <figure>
+                        <img src="img/table-colspan-code.png" alt="Code einer Tabelle mit Colspan." />
+                        <figcaption>
+                          <p>Code einer Tabelle mit Colspan.</p>
+                        </figcaption>
+                      </figure>
+                      <figure>
+                        <img src="img/table-colspan-result.png" alt="Foto wie die Tabelle im Browser angezeigt wird." />
+                        <figcaption>
+                          <p>Foto wie die Tabelle im Browser angezeigt wird.</p>
+                        </figcaption>
+                      </figure>
+                  </details>
+                  <details>
+                    <summary>
+                      Vertikale Verbindung von Zellen
+                    </summary>
+                    <p>Wenn Sie zwei oder mehr Zellen in einer Spalte verbinden wollen, gehen Sie analog vor. Löschen Sie zuerst <mark>die erste Zelle in Reihe 2</mark>, dannach notieren Sie in der <mark>ersten Zelle in Reihe 1</mark> das Attribute <mark>rowspan</mark> und als Wert die Anzahl der Zellen, die verbunden werden sollen.</p>
+                    <figure>
+                      <img src="img/table-rowspan-code.png" alt="Table mit einem Rowspan von 2." />
+                      <figcaption>
+                        <p>
+                          Table mit einem Rowspan von 2.
+                        </p>
+                      </figcaption>
+                    </figure>
+                    <figure>
+                      <img src="img/table-rowspan-result.png" alt="Resultat des Rowspan wie er im Browser angezeigt wird.">
+                      <figcaption>
+                        <p>Resultat des Rowspan wie er im Browser angezeigt wird.</p>
+                      </figcaption>
+                    </figure>
+                  </details>
+                  <details >
+                    <summary>
+                      Kombinationen von Col and Rowspans
+                    </summary>
+                    <p>Mit dieser Methode ist es natürlich auch möglich, Zellen gleichzeitig über Zeilen und Spalten hinweg zu verbinden. Löschen Sie dazu zuerst alle Zellen in Ihrer Tabelle, die von der ersten Zelle "überlagert" werden sollen. In der verblieben Zelle werden die Attribute rowspan und colspan kombiniert.</p>
+                    <figure>
+                      <img src="img/col-and-row-code.png" alt="Kombination von Col and Rowspans" />
+                      <figcaption>
+                        <p>Kombination von Col and Rowspans</p>
+                      </figcaption>
+                    </figure>
+                    <figure>
+                      <img src="img/col-and-row-result.png" alt="Kombination von col and row im Browser." />
+                      <figcaption>
+                        <p>Kombination von col and row im Browser</p>
+                      </figcaption>
+                    </figure>
+                  </details>
+                </article>
         </main>
     </div>
 </body>

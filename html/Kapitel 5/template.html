@@ -8,7 +8,7 @@
 <body>
     <div id="wrapper">
         <nav>
-            
+
         </nav>
         <h1>
             Kapitel 3.
@@ -32,15 +32,63 @@
                 	<p>Sie können in HTML-Seitn Pixelbilder und - seit einiger Zeit - endlich auch Vektorgrafiken einbinden. Gerade im Web kommen die Vorteile von Vektorgrafiken besonders zum Tragen: geringe Dateigröße und verlustfreie Skalierbarkeit(besonders wichtig im bezug auf Responsive Webdesign)</p>
                 	<p>Vektorgrafiken für Websites müssen im SVG-Format vorliegen, das Sie aus nahezu allen Vektorgrafikprogrammen exportieren können.</p>
                 	<p>Pixelbilder müssen im RGB-Farbraum oder indizierten Farben vorliegen. Geeignete Datei-formate für das Einbinden von Pixelbildern in Webseiten sind JPEG, GIF und PNG.</p>
+                  <table border="1">
+                    <tr>
+                      <th></th>
+                      <th>JPEG</th>
+                      <th>GIF</th>
+                      <th>PNG</th>
+                    </tr>
+                    <tr>
+                      <td>Kompression</td>
+                      <td>Sehr hohe Kompression, daher <mark>sehr kleine Dateien</mark>möglich, allerdings auf Kosten der Bildqualität.</td>
+                      <td>Gute Kompression durch <mark>entfernen von Farben</mark> Das Entfernen zuvieler Farben führt allerdings zu Qualitätverlusten und unerwünschten optischen Effekten wie Dithering(Streuraster) bzw. Banding(Streifenbildung).</td>
+                      <td><mark>Verlustfreie Kompression</mark>, daher nicht so effizient wie JPEG(größere Dateien), aber exellente Bildqualität.</td>
+                    </tr>
+                    <tr>
+                      <td>Farbe</td>
+                      <td>unterstützt den <mark>vollen RGB Farbraum,</mark> daher am besten geeignet für Fotos und andere Bilder mit vielen Farbübergängen.</td>
+                      <td>unterstützt nur eine Untermenge des RGB-Farb-raums von <mark>max. 256 Farben</mark>(indizierte Farben) daher am ehesten geeignet für Grafiken mit wenigen vollflächigen Farben wie etwa Firmenlogos, Diagramme oder Comics</td>
+                      <td>PNG-24 unterstützt wie JPEG den <mark>vollen RGB-Farbraum,</mark> daher gut geeignet für Fotos und andere Bilder mit vielen Farbübergängen. Es ist jedoch auch eine Farbreduktion wie bei Gif möglich(PNG-8).</td>
+                    </tr>
+                    <tr>
+                      <td>Transparenzen</td>
+                      <td>Keine Transparenzen möglich</td>
+                      <td>unterstützt 1-Bit Transparenzen(nur vollständig transparent oder vollständig deckend.)</td>
+                      <td>unterstützt volle 8bit transparenzen(alpha-Transparenzen), also weiche Übergänge von deckend nach transparent.</td>
+                    </tr>
+                    <tr>
+                      <td>Weitere Besonderheiten</td>
+                      <td> - </td>
+                      <td>mit dem GIF-Format sind einfache <mark>Animationen möglich.</mark></td>
+                      <td>es existiert eine Weiterentwickelung des PNG-Formats APNG(Animated PNG), das ebenfalls Animationen ermöglicht. APNG wird aber momentan(feb 2015.) nur von Firefox und Safarie unterstützt. und kann nur von sehr wenigen Bildbearbeitungsprogrammen erzeugt werden.</td>
+                    </tr>
+                  </table>
                 </details>
                 <details>
                 	<summary>
                 		Referenzierung
                 	</summary>
+                    <p>Ein Bild - egal ob Pixel oder Vektorgrafik -wird auf folgende Weise eingebunden <mark><code>&lt;img src="url"/&gt;</code></mark></p>
+                    <p>Der img-Tag ist ein Standalone-Tag und sollte mit dem Schrägstrich in sich selbst geschlossen werden.</p>
                 	<details>
                 		<summary>
                 			Relative Pfadangaben
                 		</summary>
+                    <h3>Referenzierung von Grafiken im selben Verzeichnis</h3>
+                    <p>Sofern die Bilddatei im selben Ordner wie die HTML-Seite liegt, <mark>notieren Sie für url einfach den Namen der Bilddatei inkl. Dateiendung</mark></p>
+                    <p><mark><code>&lt;img src="name.jpg"/&gt;</code></mark></p>
+                    <h3>Referenzierung von Grafiken in Unterverzeichnissen.</h3>
+                    <p>Wenn Sie eine Grafik einbinden wollen, die in einem Unterverzeichnis liegt, müssen Sie den Verzeichnisnamen mit angeben. Dies geschieht über <mark>Pfadangaben nach dem Unix-standard</mark>(auch bei Windows-Servern)</p>
+                    <code><mark>&lt;img src="verzeichnis/dateiname" /&gt;</mark></code>
+                    <p>Diese Art der Freferenzierung bezeichnet man als <mark>relative Pfadangabe</mark>, da der Pfad immer <mark>ausgehend vom Speicherort der Html Datei angegeben wird.</mark></p>
+                    <p>Befindet sich die Grafik in mehreren Unterordnern, so müssen sämtliche Verzeichnisse angegeben werden.</p>
+                    <code><mark>&lt;img src="bilder/fotos/urlaub/venedig.jpg" /&gt;</mark></code>
+                    <h3>Referenzierung von Grafiken in höhere Verzeichnisebenen</h3>
+                    <p>Liegt die Grafik jedoch im Ordner darüber, so lautet die Referenz:</p>
+                    <code><mark>&lt;img src="../dateiname" /&gt;</mark></code>
+                    <p>Mit dem Unix-Kürzel ../ wechseln Sie ein Verzeichnis nach oben.</p>
+                    <p>Liegt die Bilddatei mehrere Verzeichnisebenen über der HTML-Seite, müssen Sie auch hier <mark>das Kürzel so oft wiederholen, wie Sie Verzeichnisse wechseln wollen</mark> also z.B:</p>
                 	</details>
                 	<details>
                 		<summary>
