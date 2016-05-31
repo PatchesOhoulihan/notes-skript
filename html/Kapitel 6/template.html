@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/master.css">
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+        <nav>
+            
+        </nav>
+        <h1>
+            Kapitel 3.
+        </h1>
+        <nav>
+            <ul>
+                <li><a href="#">unterpunkt1</a></li>
+                <li><a href="#">unterpunkt2</a></li>
+                <li><a href="#">unterpunkt3</a></li>
+                <li><a href="#">unterpunkt4</a></li>
+                <li><a href="#">unterpunkt5</a></li>
+            </ul>
+        </nav>
+        <main>
+           <h1>Hyperlinks</h1>
+            <article>
+                <details>
+                    <summary>
+                        <h2>Einen Hyperlink definieren</h2>
+                    </summary>
+                    <details>
+                        <summary>
+                            <h3>Grundlagen</h3>
+                        </summary>
+                        <p>Sie können sowohl einen <strong>Textbereich</strong> als auch eine <strong>Grafik</strong> als Hyperlink definieren</p>
+                        <code>
+                            &lt;a&gt;Textlink&lt;&lt;/a&gt;
+                            &lt;a&gt;&lt;img src="buttongrafik.gif"/&gt;&lt;/a&gt;
+                        </code>
+                        <p>Der a-Tag ist normalerweise ein Inline-Element. Seit HTML5 kann er aber um Blockelemente wie &lt;h1&gt; oder &lt;p&gt; herum gesetzt werden, um diese zu verlinken.</p>
+                        <p>Momentan passiert beim Klicken auf den Hyperlink allerdings noch herzlich wenig. Schließlich müssen Sie erst noch definieren, wohin Sie der Link bringen soll Dafür gibt es das Attribut href</p>
+                        <p> &lt;a&gt;Textlink&lt;/a&gt;</p>
+                        <p>Das Element innerhalb des Anchor-Tagpaares wird nun als Hyperlink dargestellt, daher:</p>
+                        <ol>
+                            <li>
+                                <p>Text erscheint standardmäßig unterstrichen und in blauer Farbe auf dem Bildschirm</p>
+                            </li>
+                            <li>
+                                <p>Bilder erhalten in manchen Browsern eine blaue Kontur(beides lässt sich natürlich mit CSS ändern.)</p>
+                            </li>
+                            <li>
+                                <p>Bewegt der Anwender den Mauszeiger über das Element, verwandelt sich dieser in einen Finger.</p>
+                            </li>
+                        </ol>
+                         <p><mark>Das Prinzip der Referenzierung im href-Attribut ist dasselbe, das Sie auch bei der Referenzierung von Grafiken verwenden. Sie  können sowohl relative als auch absolute Pfadangaben verwenden.</mark> Dabei gilt grundsätzlich die <strong>Unix-syntax</strong> für den Verzeichniswechsel, unabhängig vom Betriebssystem, auf dem der Webserver läuft.</p>
+                    </details>
+                <details>
+                    <summary><h3>Relative Pfadangaben</h3></summary>
+                    <p>Wenn Sie die einzelnen Seiten Ihrer Website untereinander verlinken wollen(man spricht hier auch von <strong><mark>internen Links</mark></strong>), benutzen Sie normalerweise - wie bei der Referenzierung von Bildern - <mark><strong>relative Pfadangaben</strong></mark>, ausgehend vom Speicherort des Quelldokuments. Im einfachsten Fall verweisen Sie auf ein weiteres HTML-Dokument, das sich im selben Ordner wie das Quelldokument befindet:</p>
+                    <ol>
+                        <li>
+                            <h4>Beispiel 1:</h4>
+                            <p>&lt;a href="index.html"&gt;Zurück zur Startseite&lt;/a&gt;</p>
+                        </li>
+                        <li>
+                            <h4>Beispiel 2:</h4>
+                            <p><p>Befindet sich das Zieldokument in einem Unterordener(z.B. im Ordner produkte), sieht der Link folgendermaßen aus:</p></p>
+                            <p>&lt;a href="produkte/digicam.html"&gt;Digikam&lt;/a&gt;</p>
+                        </li>
+                        <li>
+                            <h4>Beispiel 3:</h4>
+                            <p>&lt;a href="../index.html"&gt;start&lt;/a&gt;</p>
+                            <p>Für Links auf Dokumente, die sich eine Verzeichnisebene über dem Quelldokument befinden</p>
+                        </li>
+                    </ol>
+                    <p><mark>Als allgemeine Regel für relative Pfadangaben gilt also:</mark></p>
+                    <ul>
+                        <li>
+                            <p><mark>um eine Ebene nach unten zu gelangen</mark>, geben sie einfach den Ordnernamen an, gefolgt von einem Schrägstrich /.</p>
+                        </li>
+                        <li>
+                            <p>mit ../ springen Sie in der Ordnerhierachie <mark>nach eine Ebene nach oben.</mark> mit ../../ zwei Ebenen usw.</p>
+                        </li>
+                    </ul>
+                </details>
+            <details>
+                <summary>
+                    <h3>Absolute Pfadangaben</h3>
+                </summary>
+                <h4>Interne Links</h4>
+                <p>In manchen Situationen(z.B beim Einsatz von Skriptsprachen oder lokalen Suchmaschinen kann es nötig sein, absolute Pfadangaben zu verwenden.)</p>
+                <p><mark>Absolute Pfadangaben funktionieren nur, wenn Sie über den Webserver aufgerufen werden, nicht jedoch, wenn Sie die Dateien lokal von der Festplatte Ihres Computers betrachten.</mark></p>
+                <p>Wie unter Unix, üblich beginnen absolute Pfade stets mit dem nach vorne gerichteten Schrägstrich/(forward slash). Damit befinden Sie sich im Root-Verzeichnis des Webservers und rufen von dort einfach den vollständigen Pfad der Zieldatei auf.</p>
+                <p>Bsp. <mark>&lt;a href="/index.html"&gt;absoluterPfad von Root&lt;/a&gt;</mark></p>
+                <h4>Externe Links</h4>
+                <p>Links die sich auf irgendeinem Webserver der Erde befinden, referenzieren. Dazu müssen Sie nur die richtige URL angeben, die eindeutige Adresse einer Datei im Internet.</p>
+                <p>Bsp. <mark>&lt;a href="http://www.google.de"&gt;externer Link&lt;/a&gt;</mark></p>
+                <p>
+                    Wichtig dabei ist, dass Sie das <strong>Protokoll</strong> angeben(meist http:// odr - bei verschlüsselten Seiten https://). Beachten Sie, dass in diesem Beispiel kein Dateiname angegeben ist. Webserver sind im allgemeinen so konfiguriert, dass sie im Stammverzeichnis des angegebenen Webservers nach einer Datei index.html suchen, sofern nicht explizit ein Dateiname angegeben wurde.
+                </p>
+                <p>
+                    Wenn Sie jedoch auf eine bestimme Unterseite eines Fremden Webangebots verlinken möchten, benötigen Sie natürlich absolute Pfadangaben: den Namen der Zieldatei inklusive aller Verzeichnisnamen:
+                    <p>Bsp. <mark>&lt;a href="http://www.google.de/deinemama.html"&gt;externer Link&lt;/a&gt;</mark></p>
+                </p>
+            </details>
+               <details>
+                   <summary>
+                       <h3>Zielfenster definieren</h3>
+                   </summary>
+                   <p><mark>Standardmäßig werden Links im selben Browserfenster geöffnet, von dem aus sie aufgerufen wurden</mark> Sie können jedoch mit Hilfe des Attributes <code>target="_blank"</code> vorgeben, dass die Zielseite in einem neuen, leeren Browserfenster bzw. Tab geöffent wird(beachten Sie den Unterstrich vor <em>blank</em>). Die ursprüngliche Seite bleibt in diesem Fall hinter dem neuen Fenster erhalten, sodass der Anwender jederzeit wieder zu ihr zurückkehren kann.</p>
+                   <p>Dies ist vor allem dann sinnvoll, wenn Sie externe Links auf andere Websites verwenden, dabei aber sicherstellen wollen, dass der Besucher Ihr Webangebot nicht dauerhaft verlässt:</p>
+                   <p>Bsp. <mark>&lt;a href="http://www.google.de/" target="_blank"&gt;externer Link&lt;/a&gt;</mark></p>
+        
+               <p>Es gibt noch andere Werte außer <em>_blank</em>, die Sie im Attribut <em>target</em> verwenden können. Diese sind jedoch nur sinnvoll im Zusammenhang mit sog. <em>Frames</em></p>
+                </details>
+                <details>
+                    <summary>
+                        <h3>Downloads</h3>
+                    </summary>
+                    <p>Sie sind beim Verlinken von Dateien natürlich nicht auf HTML-Dokumente beschränkt, sondern Sie können - mit jeder der o.g Methoden <mark>egal ob extern oder internen links</mark> - theoretisch auf jeden beliebigen Datentyp verweisen und dadurch z.b. Dateien zum Download anbieten.</p>
+                    <p>Bsp. <mark>&lt;a href="http://www.google.de/downloads.zip" target="_blank"&gt;externer Link&lt;/a&gt;</mark></p>
+                    <p>Bsp. <mark>&lt;a href="downloads/proc.exe" target="_blank"&gt;interner link Link&lt;/a&gt;</mark></p>
+                    <p>Dabei ist es allerdings den Browser- und den Systemeinstellungen des Clientrechners überlassen, ob die Datei im Browserfenster angezeigt oder auf die lokale Festplatte zur weiteren Bearbeitung heruntergeladen wird(viele Browser überlassen auch dem Benutzer die Wahl, was mit der Datei geschehen soll). Zwar werden ZIP-Dateien standardmäßig heruntergeladen und JPEG-Bilder im Browser angezeigt. Bei PDF-Dateien hingegen gibt es beide Möglichkeiten, abhängig davon, ob der Benutzer ein Browser-Plugin zur Anzeige von PDF-Dateien installiert hat oder nicht. </p>
+                </details>
+                <details>
+                    <summary><h3>Der mailto-link</h3></summary>
+                    <p>Wenn Sie den Besuchern ihrer Website die Möglichkeiten geben wollen, mit Ihnen per Email E-Mail in Kontakt zu treten, können Sie einen speziellen Verweis definieren, der das voreingestellte E-Mail-Programm des Anwenders öffnet und bereits die angebene E-mail-Adresse als Empfänger einträgt:</p>
+                    <p>Bsp. <mark>&lt;a href="http:mailto:webmaster@xyz.com" target="_blank"&gt;mailto&lt;/a&gt;</mark></p>
+                    <p>Beachten Sie, dass hier nach dem Doppelpunkt <strong>keine </strong>Schrägstriche folgen.</p>
+                    <p>Auch die Betreffzeile(subject) und der Email-text selbst können vorgegeben werden.</p>
+                    <p>Bsp. <mark>&lt;a href="http:mailto:webmaster@xyz.com?subject=betreffzeile&body=bodytext target="_blank"&gt;mailto&lt;/a&gt;</mark></p>
+                </details>
+                <p><mark>Beachten Sie</mark> jedoch, dass der Anwender in diesem Fall über einen <mark>fertig konfigurierten Email-Client verfügen muss</mark>. Ist dies nicht der Fall, erhält er eine Fehlermeldung und hat keine Möglichkeit, mit Ihnen in Kontakt zu treten. <mark> Zudem öffnet der mailto-link Tür und Tor für Spam. Vermeiden Sie ihn deshalb in der Praxis</mark> und benutzen stattdessen ein in Ihre Website integriertes Kontaktformular</p>
+            </article>
+            <article>
+                <details>
+                    <summary>
+                      <h3>Links zu bestimmten Stellen einer Webseite</h3>
+                    </summary>
+                      <p>Sie können mit dem a-Tag nicht nur links auf andere Seiten definieren, sondern bei Bedarf auch zu bestimmten Textstellen auf derselben oder einer anderen Seite springen. Dies ist z.B dannn sinnvoll, wenn Sie eine Liste häufig gestellter Fragen(faq) auf ihrer Website anbieten: Beim Klick auf eine Frag springt der Browser direkt zu einer Stelle auf der Seite, an der sich die entsprechende Antwort befindet. Auch die oft verwendeten Links zurück zum Seitenanfang werden auf diese Weise realisiert.</p>
+                        <p>Ein solcher Link besteht aus zwei Teilen:</p>
+                        <ol>
+                            <li>
+                                <p>einer(für Benutzer unsichtbaren) Markierung an der Stelle, an die gesprungen werden soll</p>
+                            </li>
+                            <li>
+                                <p>einem(sichtbaren) Link, der zu dieser Markierung führt.</p>
+                            </li>
+                        </ol>
+                        <p>Die <strong>Zielmarkierung</strong> wird mit dem Attribut id realisiert, sas Sie <strong>jedem beliebigen Tag</strong> zuweisen können</p>
+                        <p><mark>&lt;p id="meineId"&gt;&lt;/p&gt;</mark> wnn zu einem bestimmten Absatz gesprungen werden sol.</p>
+                        <p>Ober <mark>&lt;h1 id="meineId"&gt;&lt;/h1&gt;</mark> wenn zu einer bestimmten Überschrift gesprungen werden soll.</p>
+                        <p>Als Id benutzen Sie einen frei wählbaren Begriff. dieser darf jedoch keine leer- oder Sonderzeichen enthalten, und Sie müssen auf Groß- und Kleinschreibung achten. Beachten Sie, dass der Name <strong>eindeutig sein muss</strong> , d.h er darf nur einmal im Dokument vorkommen.</p>
+                        <p>IDs sind äußerst flexibel einsetzbar und können auch in anderen Zusammenhängen sehr nützlich sein. so werden sie z.B auch benutzt, um HTML-Elemente mit CSS zu gestalten oder mit Javascript zu modifizieren.</p>
+                </details>
+                <details>
+                    <summary>
+                        <h3>Links zu einer Textstelle auf einer anderen Seite</h3>
+                    </summary>
+                    <p>Nehmen wir an, Sie wollen von der Seite fragen.html zu einer bestimmten Textstelle auf Seite antworten.html verwwisen. Dazu müssen Sie an der gewünschten Stelle auf der Seite antworten.html einen Anker setzen.</p>
+                    <p>Ober<mark>&lt;p id="meineId"&gt;Die erste antwort&lt;/p&gt;</mark></p>
+                    <p>Auf der anderen Seite setzen Sie den Link wie folgt:</p>
+                    <p>Ober<mark>&lt;a id="SeiteMitMeineId.html#meineID"&gt;link zu meine Id&lt;/a&gt;</mark></p>
+                    <p>Der Name der Zielmarkierung wird also einfach a die URL angehängt. Wichtig dabei zwischen url und Raute# darf <strong>kein Leerzeichen</strong> stehen!</p>
+                </details>
+                <details>
+                    <summary>Links zu einer Textstelle auf derselben Seite</summary>
+                </details>
+                <p>Wenn sich die Zielmarkierung auf der gleichen Seite wie der Link befindet, lassen Sie einfach die Pfadangabe weg, z.B</p>
+            </article>
+        </main>
+        <article>
+            <details>
+            <summary>
+                <h3>Imagemaps</h3>
+            </summary>
+            <p>Stellen Sie sich vor, Ihr Auftrag ist es, auf der Website eines Unternehmen <mark>ein Gruppenfoto</mark> zu platzieren, auf dem alle Kundenberater abgebildet sind. <mark>Jeder der Kundenberater soll einzeln anklickbar sein</mark></p>
+            <p>Mit unseren bisherigen Methode, einen Hyperlink um den entsprechenden img-Tag zu legen, kommen wir hier nicht weiter, da damit nur das komplette Foto verlinkt werden kann.</p>
+            <p>Eine exaktere Methode bieten sogenannte <strong>Imagemaps</strong>. Mit ihrer Hilfe können Sie mehreren -auch unförmigen - Bereichen innerhalb <strong>eines </strong>Bildes <strong>verschiedene Hyperlinks zuweisen, indem Sie eine (für den Anwender unsichtbare) "Landkarte" über das Bild legen, die dieverschiedenen aktiven Bereiche kennzeichnet. Für die Definition dieser Bereiche in HTML müssen Sie die genauen Koordinaten innerhalb eines Bildes angeben, in denen der Verweis liegt</strong></p>
+            <h4>Definition</h4>
+            <p>die definition einer Imagmap besteht aus einer Kombination zweier zusammengehöriger Tag: &lt;map&gt; und &lt;area&gt;. Die Imagemap kann an jeder Stelle im Body verwendet werden.</p>
+            <p><code><mark>&lt;map name="gruppenbild"&gt;&lt;/map&gt;</mark></code></p>
+            <p>Innerhalb des map-Tagpaares definieren Sie die einzelnen verweissenstiven Flächen Ihrer Grafik mit Hilfe <mark>des Standalone-Tags <em>area</em>. Für jeden Bereich, der anklickbar sein soll, benötigen Sie eine weitere area.</mark></p>
+            <p>Innerhalb des map-Tagpaares definieren Sie die einzelnen verweissensitiven Flächen Ihrer Grafik mit Hilfe des Standalone-Tags area. <mark>Für jeden Bereich, der anklickbar sein soll, benötigen Sie eine weitere <em>area</em></mark></p>
+            <code>
+                <p>&lt;map name="gruppenbild"&gt;<br>
+            &lt;area /&gt;<br>
+            &lt;area /&gt;<br>
+            &lt;/map&gt;
+            </code>
+            </p>
+        <p>Bei der Definition der <em>areas</em> haben Sie <mark>die Wahl zwischen drei Grundformen</mark>, die Sie mit dem dem Pflichtattribut shape vorgeben:</p>
+        <ol>
+            <li>
+                <p>&lt;area shape=""/&gt;(Viereck)</p>
+            </li>
+            <li>
+                <p>&lt;area shape=""/&gt;(Kreis)</p>
+            </li>
+            <li>
+                <p>&lt;area shape=""/&gt;(Polygon, beliebiges Vieleck)</p>
+            </li>
+        </ol> 
+        <p><mark>Mit dem Attibut coords geben Sie die Koordination der verweissenitiven Flächen an.</mark> Die Angaben verstehen sich als absolute Pixelwerte <strong>innerhalb der Grafik</strong> und werden durch Kommas getrennt. Beim Ausmessen der Koordinaten kann Ihnen ein Bildbearbeitungsprogramm wie Photoshop behilflich sein.</p>   
+        <h4>Viereck</h4>
+        <p>Das <strong>Viereck</strong>(shape="rect")definieren Sie mit vier Koordinaten.</p>
+        <ul>
+            <li>
+                <p>x1=linke obere Ecke, Anzahl Pixel von links.</p>
+            </li>
+            <li>
+                <p>y1=linke obere Ecke, Anzahl Pixel von oben.</p>
+            </li>
+            <li>
+                <p>x2=rechte untere Ecke, Anzahl Pixel von oben.</p>
+            </li>
+            <li>
+                <p>y2=rechte untere Ecke, Anzahl Pixel von von oben.</p>
+            </li>
+        </ul>
+        <p>Beispiel</p>
+        <p><code>&lt;area shape="rect" coords="10,12,120,80" /&gt;</code></p>
+        <h4>Kreis</h4>
+        <p>Den Kreis(shape="circle") definieren Sie mit den drei Koordinaten für x,y,r</p>
+        <ul>
+            <li>
+                <p>x= mittelpunkt des Kreises, Anzahl der Pixel von Links.</p>
+            </li>
+            <li>
+                <p>y=Mittelpunkt des Kreises, Anzahl der Pixel von oben.</p>
+            </li>
+            <li>
+                <p>r=Radius des Kreises in Pixeln</p>
+            </li>
+        </ul>
+        <p><code>&lt;area shape="circle" coords="10,12,120" /&gt;</code></p>
+        <h4>Polygon</h4>
+        <p>Das <strong>Polygon</strong> (shape="poly") definieren Sie mit der entsprechenden Anzahl Koordinaten für x1,y1,x2,y2.. xn,yn. Sie benötigen also für jede Ecke ein Koordinaten x/y:</p>
+        <ul>
+            <li>
+                <p>x= Anzahl Pixel einer Ecke von links.</p>
+            </li>
+            <li>
+                <p>y= Anzahl Pixel einer Ecke von Oben.</p>
+            </li>
+        </ul>
+        <p>Sie können beliebig viele Ecken definieren. Die Linie von der letzten zurück zur ersten Ecke, die das Polygon schließt, müssen Sie sich hinzudenken.</p>
+        <p><code>&lt;area shape="poly" coords="10,12,120,23,45,67" /&gt;</code></p>
+        <h4>Bereiche verlinken</h4>
+        <p>Abschließend geben Sie in jeder area mit dem Attribut href an, auf welche Datei verwiesen werden soll.</p>
+        <p>die Beziehung zwischen Grafik und Imagemap stellen Sie über ein Attribut im img-Tag her:</p>
+        <p><code>&lt;img shape="circle" coords="10,12,120" usemap="#gruppenbild"/&gt;</code></p>
+        <p>Das Attribut <em>usemap</em> legt die an anderer Stelle definierte Imagemap gleichsam wie eine Schablone über das Bild. Als Wert geben Sie in Anführungszeichen den Namen Ihrer Imagemap ein. Vergessen Sie nicht die Raute, die hier die hier wiederum kennzeichnet, das es sich um eine selbtdefinierten Namen handelt.</p>
+        <p>Im Browser ist nun zwar keine optische Veränderung an der Grafik sichtbar. Bewegen Sie jedoch den Mauszeiger darüber, erkennen Sie, dass die einzelnen Flächen anklickbar sind.</p>
+        <p>Fehlt nur noch der <em>alt</em>-Text, der laut W3C-Standard - wie für Bilder - auch für den <em>area</em>-Tag ein Pflichtattribut ist.</p>
+         <p><code>&lt;area shape="circle" coords="10,12,120" href="schniepo.html alt="Herr Schmidt"/&gt;</code></p>
+         <p>Wenn Sie möchten, können Sie nun noch Tooltips für die einzelnen Bereiche vergeben, um dem Anwender beim Überfahren mit der anzuzeigen, wohin der Link ihn führt. Notieren Sie dazu in jedem <em>area</em>-Tag das Attibut <em>title</em> und vergeben Sie eine aussagekräftigen Text.</p>
+        </details>
+        </article>
+    </div>
+</body>
+</html>
