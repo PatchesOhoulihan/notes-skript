@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/master.css">
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+        <nav>
+
+        </nav>
+        <h1>
+            Kapitel 11.
+        </h1>
+        <nav>
+            <ul>
+                <li><a href="#">unterpunkt1</a></li>
+                <li><a href="#">unterpunkt2</a></li>
+                <li><a href="#">unterpunkt3</a></li>
+                <li><a href="#">unterpunkt4</a></li>
+                <li><a href="#">unterpunkt5</a></li>
+            </ul>
+        </nav>
+        <main>
+            <article>
+                <p><strong>Meta-Tags</strong> ermöglichen es Ihnen, zusätzliche Informationen über Ihr Dokument in Ihre webseiten einzufügen. Diese Infromationen können z.B. von Suchmaschinen oder Webbrowsern ausgelesen werden, sind aber für die Besucher Ihrer website unsichtbar. Sie werden im Kopfbereich &lt;head&gt; der HTML-Seite notiert.</p>
+                <p>Für Meta-Tags gab es nie einen allgemeinverbindlichen Standard, was im Laufe der Zeit zu einem regelrechten Wildwuchs an Meta-Tags im web geführt hat.</p>
+                <details>
+                  <summary>
+                    <h2>Allgemeine Syntax</h2>
+                  </summary>
+                  <p>Es gibt zwei verschiedene Schreibweisen, Meta-Tags zu notieren. Welche Alternative Sie benutzen müssen, ist vom jeweiligen Meta-Tag abhängig.</p>
+                  <ul>
+                    <li>
+                      <p>&lt;meta name="..." content="..." /&gt;</p>
+                    </li>
+                    <li>
+                      <p>&lt;meta http-equiv="..." content="..." /&gt;</p>
+                    </li>
+                  </ul>
+                  <p>Das erste Attribut bestimmt, um welchen Meta-TAg es sich handelt. In vielen Fällen wird dafür das Attribut name verwendet.</p>
+                  <p>Im zweiten Attribut <em>content</em> geben Sie den Wert bzw. Inhalt an, den Sie diesem Meta-Tag zuweisen wollen.</p>
+                  <p><mark>Eine Ausnahme davon bildet lediglich der Meta-Tag zur verwendeten Zeichenkodierung Dieser kann set HTML5 als &lt;meta charset="utf-8"/&gt; notiert werden.</mark></p>
+                </details>
+            </article>
+            <article>
+              <details>
+                <summary><h2>Angaben für Suchmaschinen</h2></summary>
+                <h3>Beschreibung des Seiteninhalts</h3>
+                <p>Die Angaben in diesem Meta-Tag werden in den Trefferlisten mancher Suchmaschinen angezeigt, wenn Ihr eintrag gefunden wurde. Er sollte eine kurze, <mark>prägnante Beschreibung des Seiteninhaltes und nicht mehr als 256 Zeichen oder 25 Wörter beinhalte.</mark></p>
+                <code><mark>&lt;meta name="description" content="Beschreibung des Inhalts"/&gt;</mark></code>
+                <h3>Autor</h3>
+                <p>Hiermit kann der Author der Seite genannt werden</p>
+                <code><mark>&lt;meta name="Author" content="Name des Verantwortlichen"/></mark></code>
+                <h3>Suchbegriffe(Keywords)</h3>
+                <p>Dieser Meta-Tag wird - <mark>aufgrund häufigen Missbrauchs</mark> heute von KEINER Suchmaschine mehr beachtet. Er sollte die Suchbegriffe enthalten, unter denen Ihre Seite gefunden werden soll.</p>
+                <code><mark>&lt;meta name="keywords" content="Stichworte"\&gt;</mark></code>
+              </details>
+            </article>
+            <article>
+              <details>
+                <summary>
+                <h2>Angaben für Browser</h2>
+              </summary>
+              <h3>Zeichenkodierung</h3>
+              <p>Sie sollten immer angeben mit welcher Zeichkodierung Sie Ihr Dokument gespeichert haben.</p>
+              <code><mark>&lt;meta charset="utf-8"/&gt;</mark></code>
+              <h3>Weiterleitung</h3>
+              <p>Diesen Meta-Tag können sie verwenden, wenn Sie die Besucher Iherer Site nach einer gewissen Zeitspanne automatisch auf eine andere Seite weiterleiten wollen.</p>
+              <code><mark>&lt; meta http-equiv="refresh" content="5;url=http="http://www.google.de"</mark></code>
+              <p>die Zahlenangabe im Attribut <em>content</em> bestimmt die Anzeigedauer in Sekunden, bevor die neue Datei aufgerufen wird</p>
+              <h3>Größe des Viewport</h3>
+              <p>ein im Zusammenhang mit Responsive Webdesing mittlerweile unerlässlicher Meta-Tag ist die Angabe der Größe bzw. Skalierung des Viewports.</p>
+            </details>
+            </article>
+        </main>
+    </div>
+</body>
+</html>
