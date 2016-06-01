@@ -72,6 +72,31 @@
               <p>die Zahlenangabe im Attribut <em>content</em> bestimmt die Anzeigedauer in Sekunden, bevor die neue Datei aufgerufen wird</p>
               <h3>Größe des Viewport</h3>
               <p>ein im Zusammenhang mit Responsive Webdesing mittlerweile unerlässlicher Meta-Tag ist die Angabe der Größe bzw. Skalierung des Viewports.</p>
+              <p><mark>Normalerweise verkleinern mobilegeräte eine Website, sodass sie(nahezu) vollständig ins Anzeigefenster passt</mark> Dies ist beim <mark>Responsiv Webdesign</mark> jedoch nicht gewünscht - stattdessen passt hier der Webdesigner das Lauyout der Webiste dynamisch an die Größe des Viewports an.</p>
+              <p><code>&lt;meta name="viewport" content="width=device-width, inintial-scale=1.0"/&gt;</code></p>
+              <p>Im Attribute <em>content</em>können Sie - durch Kommas getrennt - gleich mehrere Angaben machen:</p>
+              <ul>
+                  <li>
+                      <p><mark>width</mark> gibt an, auf welcher Größe der Viewport skaliert werden soll. Auch numerische Werte möglich. Um aber die Skalierung abzuschalten an die tatsächlichen Bilschirmgröße des jeweiligen Gerätes anzupassen, In der Praxis sollte man immer <mark>device-width notieren.</mark></p>
+                  </li>
+                  <li>
+                      <p><mark>initial-scale</mark> sollten Sie zusätzlich anoch angeben, das die Seite anfänglich auch nicht gezoomt werden soll. 1.0 entspricht 100%</p>
+                  </li>
+                  <li>
+                      <p><mark>user-scalable=no</mark> sorgt dafür das manuelle Zoomen mit zwei zwei Fingern komplett deaktiviert ist.</p>
+                  </li>
+              </ul>
+              <p>Dieser Meta-Tag ist natürlich erst im Zusammenhang mit CSS wirklich sinnvoll, wo Sie für die einzelnen Elemente auf Ihrer Website exakte Größen- und Postionsangaben machen können.</p>
+              <p><mark>Diese Angabe wirkt nur auf Mobilgeräten aus. Auf dem Desktop-Browser hat sie keinerlei Einfluss</mark></p>
+              <h3>Spezifische Angaben für den Internet Explorer</h3>
+              <p>Der IE verfügt ab der Version 8 über <mark>zwei Dartsellungsmodi</mark>, den <em>Standardmodus</em> und den sogenannten <em>Kompatibilitätsmodus</em>.</p>
+              <p>Im Kompatibilitätsmodus emuliert der IE 8 absichtlich Fehldarstellungen und Unzulänglichkeiten älterer IE-Versionen</p>
+              <p>Welchen Modus der Browser im einzelfall benutt, bleibt weitgehend dem Anwender überlassen. Wir brauchen hier also eine Möglichkeit, den IE 8 in den Standardmodus zu "zwingen"</p>
+              <p>&lt;!--[if IE]&gt; &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"\&gt;&lt;![endif]--></p>
+              <p>Mit diesem Meta-Tag sollte der IE die neue edge rendering engine zuverwenden.</p>
+              <p><mark>Es muss darauf geachtet werden, diesen Meta-Tag VOR allen verknüpften CSS und Javascript-Dateien zu platzieren.</mark></p>
+              <p><mark>Diesen Meta-Tag sollten sie von nun an in den head jeder ihrer Webseiten verwenden.</mark></p>
+              <p>Da dieser Meta-Tag nach der HTML-5-Spezifikation jedoch nicht valide ist, sind hier sog. <em><mark>Conditional Comments</mark></em> nötig. Dabei handelt es sich ebenfalls um eine von Microsoft entwickelte Technik: Für andere Browser und Validatoren sieht die Ausgabe wie ein normaler Kommentar aus und wird ignoriert. Der IE erkent den Tag jedoch aufgrund von [if IE]</p>
             </details>
             </article>
         </main>

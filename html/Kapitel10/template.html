@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/master.css">
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+        <nav>
+            
+        </nav>
+        <h1>
+            Kapitel 10 Einbinden von Video und Audio.
+        </h1>
+        <nav>
+            <ul>
+                <li><a href="#">unterpunkt1</a></li>
+                <li><a href="#">unterpunkt2</a></li>
+                <li><a href="#">unterpunkt3</a></li>
+                <li><a href="#">unterpunkt4</a></li>
+                <li><a href="#">unterpunkt5</a></li>
+            </ul>
+        </nav>
+        <main>
+            <article>
+                <details>
+                    <summary>
+                        <h2>Videos einbinden</h2>
+                    </summary>
+                    <h3>Videos im Web</h3>
+                    <p>Eine der interessantesten und wohl meistgenutzten Neuerungen in HTML5 ist sicherlich die Möglichkeit, Video-Dateien in HTML-Dokumente einzubinden.</p>
+                    <p>Zwar hat sich in den letzten Jahren das Adobe-Flash-Format zu einem Quasi-Standard für Web-Videos entwickelt, sodass zumindest nur nur noch ein Plugin installiert werden musste, doch viele Nachteile blieben</p>
+                    <ol>
+                        <li>
+                            <p>Wenn ein Benutzer das <mark>Plugin nicht installiert</mark> hatte, konnte er das <mark>Video nicht sehen.</mark></p>
+                        </li>
+                        <li>
+                            <p>Flash ist eine <mark>proprietäre, kommerizelle Technologie</mark> der Fa. Adobe</p>
+                        </li>
+                        <li>
+                            <p>Dadurch <mark>widerspricht Flash dem Grundgedanken des W3C, nur offene Standards zu verwenden.</mark></p>
+                        </li>
+                        <li>
+                            <p>Flash ist äußerst <mark>ressourcenhungrig</mark> und eine häufige Ursache für Systemabstürze.</p>
+                        </li>
+                        <li>
+                            <p>Flash läuft nicht Apple-Mobilegeräten und demnächst auch nicht mehr auf anderen Mobilgeräten, adobe den Flash-Support dafür eingestellt hat.</p>
+                        </li>
+                    </ol>
+                    <p>Mit HTML5 nun ist es möglich, Videos ähnlich wie Bilder in eine Website einzubinden, ohne dass dafür ein Plug-in benötigt wird. Die Browser sind nun selbst in der Lage, die Viedeos abzuspielen. doch sind damit noch nicht alle Probleme gelöst: Es gibt nämlich immer noch keinen einheitlichen Standard, in welchem Dateiformat die Videos vorliegen müssen.</p>
+                    <h3>Browserunterstützung</h3>
+                    <p>Momentan haben sich aus der Vielzahl an Möglichkeiten zumindest zwei konkurrierende Formate herauskristallisiert: <strong>MP4</strong> und Googles neues Format <strong>WebM</strong>. Ein drittes Format, <strong>OGV</strong>, ist zwar mittlerweise aus dem Rennen, kann abe aus Kompatibilitätsgründen mit etwas älteren Browsern noch dazugezählt werden. Jedes Video, das Sie in einer Webseite einbinden wollen, muss momentan <mark>midestens in den Formaten MP4 und WebM vorliegen</mark></p>
+                    <p><mark>Andere formate, wie z.B. Flash-Videos, können <strong>nicht</strong> mit dem &lt;video&gt;-Tag in eine HTML5-Dokument eingebunden werden</mark></p>
+                    <h3>Formate und Codecs</h3>
+                    <p>Eine Videodatei besteht i.d.R aus Bild und Ton, also einer Video- und einer Audiospur. Um die Dateigröße beider Spuren zu reduzieren (und das ist auch heute noch zwingend notwendig), müssen bestimmte <em>Kompressions- oder Kodierungsverfahren</em> eingesetzt werden. Dies geschieht geschieht für Audio- und Videospur i.d.R getrennt! Beim Abspielen des Videos muss der Browser dieselben Verfahren zur <em>Dekompression</em> nutzen Deshalb werden diese Verfahren Codecs genannt.</p>
+                     <table border="1">
+                            <tr>
+                                 <th>Containerformat/Dateiendung</th>
+                                 <th>enthaltener Video-Codec</th>
+                                 <th>enthaltener Audio-Codec</th>
+                            </tr>
+                         <tr>
+                             <td>MPEG-$/.mp4</td>
+                             <td>H.264(MPEG-4 AVC)</td>
+                             <td>AAC (=MPEG-4 Audio)</td>
+                         </tr>
+                     </table>
+                    <p>Das bedeutet z.b., dass Sie keine MP4</p>
+                </details>
+            </article>
+        </main>
+    </div>
+</body>
+</html>
