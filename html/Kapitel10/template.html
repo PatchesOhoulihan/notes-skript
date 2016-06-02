@@ -54,7 +54,10 @@
                     <p><mark>Andere formate, wie z.B. Flash-Videos, können <strong>nicht</strong> mit dem &lt;video&gt;-Tag in eine HTML5-Dokument eingebunden werden</mark></p>
                     <h3>Formate und Codecs</h3>
                     <p>Eine Videodatei besteht i.d.R aus Bild und Ton, also einer Video- und einer Audiospur. Um die Dateigröße beider Spuren zu reduzieren (und das ist auch heute noch zwingend notwendig), müssen bestimmte <em>Kompressions- oder Kodierungsverfahren</em> eingesetzt werden. Dies geschieht geschieht für Audio- und Videospur i.d.R getrennt! Beim Abspielen des Videos muss der Browser dieselben Verfahren zur <em>Dekompression</em> nutzen Deshalb werden diese Verfahren Codecs genannt.</p>
+                    <p>Damit nun aber Bild und Ton immer gemeinsam und synchron abespielt werden, werden beide zusammen in eine sogenannte <strong>Container-Datei</strong> gepackt. Diese Container-Datei ist das, was man gemeinhin als Video-Datei bezeichnet, und trägt Endungen wie  <em>.mp4, .mov .flv, .wmv</em> usw.</p>
+                    <p>Bei vielen(aber nicht allen) Containerformaten ist vorgegeben, in welchen Codecs die enthaltenen Video- und Audiospuren vorliegen müssen, bei anderen bestehen gewisse Auswahlmöglichkeiten.</p>
                      <table border="1">
+                           <caption>Überblick Videoformate und Codecs HTML5</caption>
                             <tr>
                                  <th>Containerformat/Dateiendung</th>
                                  <th>enthaltener Video-Codec</th>
@@ -65,10 +68,105 @@
                              <td>H.264(MPEG-4 AVC)</td>
                              <td>AAC (=MPEG-4 Audio)</td>
                          </tr>
+                         <tr>
+                             <td>WebM</td>
+                             <td>VP8</td>
+                             <td>Vorbis</td>
+                         </tr>
+                         <tr>
+                             <td>OGV,OGG/.ogv</td>
+                             <td>Theora</td>
+                             <td>Vorbis</td>
+                         </tr>
                      </table>
                     <p>Das bedeutet z.b., dass Sie keine MP4</p>
+                    <p>Das bedeutet, z.B, dass Sie keine MP4-Dateien in Webseiten einbinden können, deren Videospur mit einem anderen als dem H264-Codec kodiert ist.</p>
+                    <p>Ob Ihr Video, sofern es in einem geegneten Format vorliegt, auch die passenden Codecs enthält, können Sie in den meisten Video-Abspielprogrammen überprüfen.</p>
+                    <p>Im Gegensatz zu Bildern spielt die Dateigröße bei Videos <strong>keine</strong> Rolle, da die Videos nicht komplett heruntrgeladen werden müssen.     <mark>Wichtig ist stattdessen die <strong>Datenrate</strong>. Beim Exportieren/Konvertieren des Videos einstellen sollten. Dieser Wert bestimmt letztlich, wie schnell die Internetverbindung des Anwenders mindestens sein mus, um das Video ruckelfrei abspielen zu können.</mark></p>
+                    <p>Je niedriger die Datenrate, desto schlechter ist aber auch die Qualität des Videos. <mark>Je niedriger die Datenrate, desto schlechter ist aber auch die Qualität des Videos. Sinnvolle Werte für Videos in Standard-Webgrößen(720X400px) sind etwa  500-1.500 kbit/s,</mark>: Videos, die viel Bewegung und viele Details enthalten, benötigen höhere Datenraten.</p>
                 </details>
             </article>
+            <details>
+                <summary>
+                    <h2>Einbinden von Videos mit dem video-Tag</h2>
+                </summary>
+                <p>Sie benötigen dazu den Tag &lt;video&gt;, der mit &lt;/video&gt; auch separat wieder geschlossen werden muss. Im Video-Tag mpssen Sie die Abmessungen des Videos mit Attributen width und height angeben:</p>
+                <p><mark><code>&lt;video width="720" height="300"&gt;&lt;/video&gt;</code></mark></p>
+                <p><mark>Theoretisch wäre hier - wie bei Bildern - auh das Attribut src möglich, doch könnten Sie damit nur <strong>eine</strong> Videodatei refrenzieren</mark></p>
+                <p><mark><code>&lt;video width="720" height="300" src="bunny.mp4"&gt;&lt;/video&gt;<br></code></mark></p>
+                <p>Um Alternativen anzugeben, müssen Sie anders vorgehen: Innerhalb des Tag-Paares &lt;video&gt; ist die Angabe de Tags &lt;source/&gt; möglich.</p>
+                <p>&lt;video width="720" height="300"&gt;<br>
+                &lt;source src="bunny.mp4"/&gt;<br>
+                &lt;source src="bunny.webm"/&gt;<br>
+                 &lt;source src="bunny.ogv"/&gt;<br>
+                &lt;/video&gt;</p>   
+                <p>Zusätzlich sollten Sie mit dem Attribut type den MIME-Typ des jeweiligen Videos angeben. Das kann der Browser bei der Auswahl des korrekten Formats unterstützen.</p>
+                 <p>&lt;video width="720" height="300"&gt;<br>
+                &lt;source src="bunny.mp4" type="video/mp4"/&gt;<br>
+                &lt;source src="bunny.webm" type="video/webM"/&gt;<br>
+                 &lt;source src="bunny.ogv" type="video/ogg"/&gt;<br>
+                &lt;/video&gt;</p>
+                <h3>Steuerleiste einblenden</h3>
+                <p>Mit dem Attribut controls können Sie die Standard-Steuerleiste des Videos einblenden, die u.a auch über einen Play-Button verfügt:</p>  
+            <p><mark><code>&lt;video width="720" height="300" controls="controls"&gt;&lt;/video&gt;<br></code></mark></p>
+            <p>Diese Steuerleiste wird vom Browser zur Verfügung gestellt und sieht in jedem Browser unterschiedlich aus.</p>  
+            <p><mark><code>&lt;video width="720" height="300" controls autoplay&gt;&lt;/video&gt;<br></code></mark></p>     
+            <p>Videos lassen sich auch loopen:</p>
+             <p><mark><code>&lt;video width="720" height="300" controls loop&gt;&lt;/video&gt;<br></code></mark></p>
+             <h3>Startbild festlegen</h3>
+                <p>Interessant dagegen ist die Eigenschaft poster, mit der Sie ein sogenanntes <em>Posterframe</em>- also ein Start- oder Titelbild -festlegen können. Das Posterframe wird dann angezeigt, wenn das Video noch nicht spielt, und kann ein beliebiges Pixelbild in einem der drei Web-Bildformate sein(JPEG, PNG oder GIF) <mark>Sie müssen lediglich darauf achten, dass das Posterframe dieselben Abmessungen wie das Video hat.</mark> </p>
+                <p><mark><code>&lt;video width="720" height="300" controls poster="bilder/bunny.jpg"&gt;&lt;/video&gt;<br></code></mark></p>
+                <h3>Video vorausladen</h3>
+                <p>Zusätzlich besteht die Möglichkeit, mit dem Attribut preload das Video bereits beim Laben der Seite vorauszuladen. Mögliche Werte wären:</p>
+                <ol>
+                    <li>
+                        <p><mark>auto</mark>, das gesamte Video wird vorausgeladen.</p>
+                    </li>
+                    <li>
+                        <p><mark>metadata</mark> nur die Meta-Informationen des Videos werden vorausgeladen</p>
+                    </li>
+                    <li>
+                        <p><mark>none</mark>, das Video wird nicht vorausgeladen.</p>
+                    </li>
+                </ol>
+                <p><mark><code>&lt;video width="720" height="300" controls preload="none"&gt;&lt;/video&gt;<br></code></mark></p>
+                <p><mark>NOTE: In bestimmten Fällen jedoch können Browser dieses Attribut ignorieren und anders entscheiden</mark></p>
+                <h3>Alternativinhalte angeben</h3>
+                <p>Für Browser, die den HTML5-Video-Tag noch nicht kennen, sollten Sie Alternativinhalte zur Verfügung stellen. Dies kann ein Hinweistext und/oder ein Screenshot des Videos sein, aber auch nochmals das Video selbst z.B im Flash-Format.</p>
+                <p><mark>Der Alternativinhalt wird mit beliebigen HTML-Tags <strong>innerhalb des Video-Elements nach dem letzten &lt;source&gt; angegeben und wird nur angezeigt, wenn der Browser den &lt;video&gt; Tag nicht kennt.</strong></mark></p>
+                <p>&lt;video width="720" height="300"&gt;<br>
+                &lt;source src="bunny.mp4"/&gt;<br>
+                &lt;source src="bunny.webm"/&gt;<br>
+                 &lt;source src="bunny.ogv"/&gt;<br>
+                 &lt;img src="bilder/bunny.jpg" alt="Bunny"/&gt;
+                &lt;/video&gt;</p> 
+            </details>
+            <details>
+                <summary>
+                    <h2>Videos mit Flash-Fallback einbinden.</h2>
+                </summary>
+                <p>Besitzt der Anwender keinen HTML5 fähigen Browser. Kann er sich die mit dem <em>Video-tag</em> eingebunden Videos nicht ansehen. Hierfür lohnt es sich einen Flashfallback einzubauen. Hierfür wird natürlich ein Flashplugin benötigt.</p>
+                <p><mark>VORTEIL: Man muss das Video nicht nochmals in ein viertes Format konvertieren, da der Flashplayer auch MP-4 Videos abspielen kann.</mark></p>
+                <p><mark>NACHTEIL: Das Video kann nicht direkt in HTML eingebunden werden. Sondern muss in einer Flash-Datei verpackt werden, die die Steuerung des Videos ermöglicht.</mark></p>
+                <h3>Der &lt;object&gt; Tag</h3>
+                <p>Flash Dateien und auch alle anderen Dateien die ein plugin benötigen, werden nach dem W3C-Standard mit dem Tag &lt;object&gt; eingebunden. dieser wird dann in den Video Tag als Alternativ Inhalt mit eingefügt(quasi als hinter dem letzten source-tag im Video-tag.).</p>
+                <p><mark><code>&lt;object data=""&gt;</code></mark></p>
+                <p>Der &lt;object&gt; Tag hat jedoch aufgrund der enormen Unterschiede zwischen den Browsern und den verschiedenen Plug-ins noch nie sauber funktioniert. Deshalb werden in der Praxis Flash-videos mit HTML, sondern <strong>dynamisch mit Hilfe von Javascript eingebunden</strong> . der &lt;object&gt; Tag wird in diesem Fall mit den für die jeweilige Browserversion passenden Parametern automatisch generiert.</p>
+                <p><mark>Eine der besten ist das kostenlose MediaElmenet.js</mark></p>
+            </details>
+            <details>
+                <summary>
+                    <h2>Audiodateien einbinden</h2>
+                </summary>
+                <p>Das Einbinden von Audiodateien in HTML funktioniert im Grunde nach dem selben Prinzip wie das Einbinden von Videos</p>
+                <p>Der Tag dafür lautet entsprechend &lt;audio&gt;. Auch hier gibt es dieselbe Uneinigket bezüglich de unterstützen Formate: Zur Auswahl stehen <strong>MP3</strong>, das freie <strong>Ogg Vorbis</strong> und <strong>Wav</strong></p>
+                <p><mark>In der Praxis sollten Sie sich jedoch auf die Formate MP3 und Ogg beschränken, das Wave-Format schon alleine wegen seiner enormen Dateigröße fürs Web ungeegnet ist</mark></p>
+                <p>&lt;audio controls&gt;<br>
+                &lt;source src="bunny.mp3" type="audio/mpeg"/&gt;<br>
+                &lt;source src="bunny.ogg" type="audio/ogg"/&gt;<br>
+                    &lt;/audio&gt;</p>
+                    <p>Als Attribute sind aufjedenfall <mark>controls</mark> und <mark>loop</mark> möglich.</p>
+            </details>
         </main>
     </div>
 </body>
