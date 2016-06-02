@@ -7,9 +7,6 @@
 </head>
 <body>
     <div id="wrapper">
-        <nav>
-
-        </nav>
         <h1>
             Kapitel 11.
         </h1>
@@ -47,13 +44,13 @@
             <article>
               <details>
                 <summary><h2>Angaben für Suchmaschinen</h2></summary>
-                <h3>Beschreibung des Seiteninhalts</h3>
+                <h3>1. Beschreibung des Seiteninhalts</h3>
                 <p>Die Angaben in diesem Meta-Tag werden in den Trefferlisten mancher Suchmaschinen angezeigt, wenn Ihr eintrag gefunden wurde. Er sollte eine kurze, <mark>prägnante Beschreibung des Seiteninhaltes und nicht mehr als 256 Zeichen oder 25 Wörter beinhalte.</mark></p>
                 <code><mark>&lt;meta name="description" content="Beschreibung des Inhalts"/&gt;</mark></code>
-                <h3>Autor</h3>
+                <h3>2. Autor</h3>
                 <p>Hiermit kann der Author der Seite genannt werden</p>
                 <code><mark>&lt;meta name="Author" content="Name des Verantwortlichen"/></mark></code>
-                <h3>Suchbegriffe(Keywords)</h3>
+                <h3>3. Suchbegriffe(Keywords)</h3>
                 <p>Dieser Meta-Tag wird - <mark>aufgrund häufigen Missbrauchs</mark> heute von KEINER Suchmaschine mehr beachtet. Er sollte die Suchbegriffe enthalten, unter denen Ihre Seite gefunden werden soll.</p>
                 <code><mark>&lt;meta name="keywords" content="Stichworte"\&gt;</mark></code>
               </details>
@@ -63,17 +60,17 @@
                 <summary>
                 <h2>Angaben für Browser</h2>
               </summary>
-              <h3>Zeichenkodierung</h3>
+              <h3>1. Zeichenkodierung</h3>
               <p>Sie sollten immer angeben mit welcher Zeichkodierung Sie Ihr Dokument gespeichert haben.</p>
               <code><mark>&lt;meta charset="utf-8"/&gt;</mark></code>
-              <h3>Weiterleitung</h3>
+              <h3>2. Weiterleitung</h3>
               <p>Diesen Meta-Tag können sie verwenden, wenn Sie die Besucher Iherer Site nach einer gewissen Zeitspanne automatisch auf eine andere Seite weiterleiten wollen.</p>
               <code><mark>&lt; meta http-equiv="refresh" content="5;url=http="http://www.google.de"</mark></code>
               <p>die Zahlenangabe im Attribut <em>content</em> bestimmt die Anzeigedauer in Sekunden, bevor die neue Datei aufgerufen wird</p>
-              <h3>Größe des Viewport</h3>
+              <h3>3. Größe des Viewport</h3>
               <p>ein im Zusammenhang mit Responsive Webdesing mittlerweile unerlässlicher Meta-Tag ist die Angabe der Größe bzw. Skalierung des Viewports.</p>
               <p><mark>Normalerweise verkleinern mobilegeräte eine Website, sodass sie(nahezu) vollständig ins Anzeigefenster passt</mark> Dies ist beim <mark>Responsiv Webdesign</mark> jedoch nicht gewünscht - stattdessen passt hier der Webdesigner das Lauyout der Webiste dynamisch an die Größe des Viewports an.</p>
-              <p><code>&lt;meta name="viewport" content="width=device-width, inintial-scale=1.0"/&gt;</code></p>
+              <p><code></code><mark>&lt;meta name="viewport" content="width=device-width, inintial-scale=1.0"/&gt;</mark></p>
               <p>Im Attribute <em>content</em>können Sie - durch Kommas getrennt - gleich mehrere Angaben machen:</p>
               <ul>
                   <li>
@@ -88,10 +85,10 @@
               </ul>
               <p>Dieser Meta-Tag ist natürlich erst im Zusammenhang mit CSS wirklich sinnvoll, wo Sie für die einzelnen Elemente auf Ihrer Website exakte Größen- und Postionsangaben machen können.</p>
               <p><mark>Diese Angabe wirkt nur auf Mobilgeräten aus. Auf dem Desktop-Browser hat sie keinerlei Einfluss</mark></p>
-              <h3>Spezifische Angaben für den Internet Explorer</h3>
+              <h3>4. Spezifische Angaben für den Internet Explorer</h3>
               <p>Der IE verfügt ab der Version 8 über <mark>zwei Dartsellungsmodi</mark>, den <em>Standardmodus</em> und den sogenannten <em>Kompatibilitätsmodus</em>.</p>
               <p>Im Kompatibilitätsmodus emuliert der IE 8 absichtlich Fehldarstellungen und Unzulänglichkeiten älterer IE-Versionen</p>
-              <p>Welchen Modus der Browser im einzelfall benutt, bleibt weitgehend dem Anwender überlassen. Wir brauchen hier also eine Möglichkeit, den IE 8 in den Standardmodus zu "zwingen"</p>
+              <p>Welchen Modus der Browser im Einzelfall benutzt, bleibt weitgehend dem Anwender überlassen. Wir brauchen hier also eine Möglichkeit, den IE 8 in den Standardmodus zu "zwingen"</p>
               <p>&lt;!--[if IE]&gt; &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"\&gt;&lt;![endif]--></p>
               <p>Mit diesem Meta-Tag sollte der IE die neue edge rendering engine zuverwenden.</p>
               <p><mark>Es muss darauf geachtet werden, diesen Meta-Tag VOR allen verknüpften CSS und Javascript-Dateien zu platzieren.</mark></p>
