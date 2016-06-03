@@ -92,24 +92,65 @@
                 	</details>
                 	<details>
                 		<summary>
-                			Absolute Pfadangaben
+                			<h2>Absolute Pfadangaben</h2>
                 		</summary>
+                		<p>Anstelle der o.g relativen Pfadangaben können Sie auch <strong>absolute Pfadangaben</strong> verwenden. Diese gehen immer vom <strong>Stammverzeichnis</strong> Ihres Webservers aus, unabhängig davon, in welchem Unterverzeichnis sich die HTML-Datei befindet, von der die Referenzierung erfolgt.</p>
+                		<p>NACHTEIL: Ein Nachteil dieser Methode ist jedoch, dass diese Art der Referenzierung nur im Web funktioniert, nicht aber beim Erstellen und Testen der Seite auf einem lokalen System, da hier das Stammvrzeichnis Ihre lokale Festplatte ist und nicht der Ordner, in dem sich ihr Projekt befindet.</p>
+                		<h3>Referenzierung von Grafiken auf anderen Webservern</h3>
+                		<p>Bei der Referenzierung von Grafiken, die auf einem anderen Webserver liegen, müssen Sie natürlich absolute Pfade angeben, und zwar die komplette Internetadresse inklusive aller Verzeichnisnamen</p>
+                		<p><code><mark>&lt;img src="http://en.wikipedia.org/images/animals/panda.jpg"</mark></code></p>
+                		<p>Bedenken Sie bei der Einbindung solcher externer Grafiken jedoch folgendes:</p>
+                		<ol>
+                		    <li>
+                		        <p>
+                		            <mark>Sie verursachen zusätzliche Netzlast.</mark>
+                		        </p>
+                		    </li>
+                		    <li>
+                		        <p>
+                		            <mark>Das Benutzen der Grafik stellt u.U eine Urheberrechtsverletzung dar.</mark>
+                		        </p>
+                		    </li>
+                		    <li>
+                		        <p>
+                		            <mark>Der Link kann unerwartet brechen, wenn die Grafik umbenannt oder gelöscht wird.</mark>
+                		        </p>
+                		    </li>
+                		</ol>
+                		<p>NOTE: Die Referenzierung von Grafiken, die auf anderen Serven liegen, sollte daher die absolute Ausnahme bleiben.</p>
                 	</details>
                 </details>
                 <details>
 					<summary>
-						Größenangabe
+						<h3>Größenangabe</h3>
 					</summary>
+                   <p>Wenn Sie bei der Einbindung einer Grafik keine Angaben zu ihrer Größe machen, wird sie in der Originalgröße angezeigt.</p>
+                   <p>Mit Hilfe der Attribute width und height im img-Tag auch andere Größen angeben. <mark>Die Reihenfolge der Attribute spielt dabei keine Rolle.</mark> Die Werte sind Pixel Werte.</p>
+                   <p><mark>&lt;img src="grafik.svg" width="456" height="567"\&gt;</mark></p>
+                   <p>Allerdings besteht bei gleichzeitiger Angabe von width und height die Gefahr, dass das Bild verzerrt wird. Deshalb sollten Sie i.d.R nur einen der beiden Werte angeben. Der jeweils andere Wert wird dann automatisch angepasst.</p>
+                   <p><mark>Moderen Weblayouts sehen jedoch häufig vor, das Grafiken vor allem Vektor Grafiken bei einer Größenänderung des Browserfensters mitskalieren. Geben Sie in Diesem Fall den den gewünschten Wert in für width oder height in prozent an.</mark> </p>
+                   <p><mark>NOTE: Bedenken Sie dabei jedoch, dass per HTML "künstlich" verkleinerte Grafiken natürlich immer noch <strong>die ursprüngliche Größe haben</strong></mark></p>
                 </details>
                 <details>
                 	<summary>
-                		Alternativtext
+                		<h3>Alternativtext</h3>
                 	</summary>
+                	<p>Sie die Möglichkeit, mit einem weiteren Attribut des img-Tags einen Alternativtext anzugeben, der nur dann angezeigt wird, wenn die Grafik selbst nicht angezeigt wird.</p>
+                	<p><code><mark>&lt;img src="grafik.svg" width="456" height="567" alt="Wird angezeigt wenn das Bild nicht da ist oder noch geladen wird"\&gt;</mark></code></p>
+                	<p>Bei größeren Grafiken, bei denen der Ladvorgang etwas länger dauert, wird auch während dieses Vorgangs der Alternativtext angezeigt. So kann sich der Anwender über den Inhalt informieren, schon bevor die Grafik erscheint.</p>
+                	<p>Vor allem aber ist der Alternativtext wichtig im Zusammenhang mit der <mark>Barrierefreiheit</mark> Ihrer Website. Screenreader erkenn den alt-Text der Grafiken und können dadurch dem Zuhörer mitteilen, was auf Ihrer Seite zu sehen ist. Deshalb ist das alt-     <mark>Attribut vom W3C als Pflichtattribut</mark> eingestuft worden und darf in keinem img fehlen.</p>
+                	<p>Mit Hilfe des alt-Attributes ist es möglich das Ranking bei Suchmaschinen
+                	positiv zu beeinflussen. </p>
                 </details>
                 <details>
                 	<summary>
-                		Tooltips
+                		<h3>Tooltips</h3>
                 	</summary>
+                	<p>Alt-texte sind jedoch nicht gleichzusetzen mit Tooltips, diese werden angezeigt wenn der Benutzer über ein Element fährt.</p>
+                	<p>Der Internet Explorer zeigt Alternativtexte von Bildern zwar als Tooltips an, dies entspricht jedoch nicht dem W3C Standard und funktioniert auch nicht in anderen Browsern</p>
+                	<p>Für die Erzeugung von Tooltips verwendet man das title-Attribut.</p>
+                	<p><code><mark>&lt;img src="grafik.svg" width="456" height="567" alt="Wird angezeigt wenn das Bild nicht da ist oder noch geladen wird" title="Hier steht der Tooltip."\&gt;</mark></code></p>
+                	<p><mark>NOTE: Das title-Attribut ist ein <strong>Universalattribut</strong> und akann in nahezu <strong>allen Tags</strong> verwendet werden</mark></p>
                 </details>
                 <details>
                 	<summary>
