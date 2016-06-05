@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/master.css" media="all">
+
+    <!-- SEO Meta -->
+    <meta name="description" content="Note for the CSS-Skript Chapter 1"/>
+    <meta name="Author" content="Schmalte"/>
+    <meta name="keywords" content="Css Basics"/>
+
+    <!-- Browser Meta -->
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="refresh" content="5; url=#"/>
+
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+        <nav>
+
+        </nav>
+          <h1>Kapitel 2 CSS verwenden</h1>
+        <main>
+            <article>
+                <details open>
+                  <summary><h2>Einbindungsmöglichkeiten von CSS</h2></summary>
+                  <p>Prinizpell drei Möglichkeiten, CSS Gestaltungsvorlagen für ein HTML-Dokument zu definieren:</p>
+                  <ol>
+                    <li>
+                      <p>CSS-Vorgaben werden in einer <mark>Separaten Datei erstellt. Die Vorgaben gelten dann für alle verknüpften Seiten</mark>, und Änderungen in der CSS Datei wirken sich auf alle Seiten die die Datei linken aus.</p>
+                    </li>
+                    <li>
+                      <p>CSS-Vorgaben werden <mark>im <em>head</em> einer HTML Datei erstellt.</mark> Diese gelten dann als CSS-Vorgabe für diese eine Seite.</p>
+                    </li>
+                    <li>
+                      <p>CSS-Vorgaben werden <mark>direkt an einem Tag im Body notiert.</mark> Dieses gilt dann nur für das entsprechende Tag.</p>
+                    </li>
+                  </ol>
+                  <p><mark>Diese drei Möglichkeiten können Sie nach Belieben kombinieren.</mark></p>
+                  <p>Die 1. Variante kommt dem Grundgedanken von CSS am nächsten und sollte deshalb im Normalfall verwendet werden.</p>
+                  <p>Allerdings haben die anderen Varianten auch einen Vorteil. <mark>Variante 1 und 2 überschreiben die Vorgaben der externen Datei.</mark> Dadurch können Sie ihre allgemeinen Vorgaben für eine bestimmte HTML-Seite oder einen Tag überschreiben/ausser Kraft setzen.</p>
+                </details>
+            </article>
+            <article>
+              <details>
+                <summary><h2>Einbinden von CSS-Vorgaben in den Dateikopf</h2></summary>
+                <p>Mit dem &lt;style&gt; Tag definieren Sie in normaler HTML-Syntax den Bereich, in dem Sie Ihre CSS-Vorgaben notieren. <mark>Das Attribut type gibt an, welche Stylesheet-Sprache Sie benutzen,</mark> als <mark>Wert weisen Sie den MIME-Typ von CSS zu: type=text/css</mark></p>
+                <h3>Media Attribut</h3>
+                <p><mark>Das media Attribute ist im Gegensatz zu type KEIN Pflichtattribute</mark></p>
+                <p>Mit ihm können Sie das Ausgabemedium bestimmen, für das die CSS-Vorgaben gelten sollen.</p>
+                <p>Möglichkeiten für das media Attribute sind:</p>
+                <ol>
+                  <li>
+                    <p>
+                      <mark>media="screen"</mark> für die Bildschirm Darstellung.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <mark>media="print"</mark> vorgaben die für den Druck der Website gelten.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <mark>media="aural"(css2). media="speech"(css3)</mark> für die Sprachausgabe.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      <mark>media="all"</mark> für alle Medien.
+                    </p>
+                  </li>
+                </ol>
+                <img src="img/all-media.png" alt="Different values of the media Attribute." title="little peak into css inheritance">
+                <p>In diesem Fall würden Sie unter style all diejenigen Vorgaben notieren, die für sämtliche Ausgabe-medien gleichermaßen gelten. In den anderen style-Bereichen notieren sie dann die speziellen Vorgaben nur für dieses Ausgabegerät.</p>
+                <p><strong>Alles, was zwischen &lt;style&gt; und &lt;style&gt; steht, ist CSS-Syntax und folgt eigenen Regeln.</strong></p>
+              </details>
+            </article>
+            <article>
+              <details>
+                <summary>
+                  <h2>Schriftarten definieren</h2>
+                </summary>
+                <h3>Klassische Methode</h3>
+                <p><mark>Schriftarten, die Sie auf Ihren Seiten verwenden, müssen auf dem System des Anwenders installiert sein.</mark></p>
+                <p>Deshalb sollte darauf geachtet werden nur Schriftarten zuverwenden die <mark>auf allen Gängigen Betriebsystem vorhanden sind.</mark></p>
+                <ol>
+                  <li>
+                    <p>Serifenlose Schriften, Verdana, Arial und Helvetica</p>
+                  </li>
+                  <li>
+                    <p>Serifenschrit, Times und Times New Roman</p>
+                  </li>
+                  <li>
+                    <p>Festbreitenschrift, Courier</p>
+                  </li>
+                </ol>
+                <p><mark>Im Zweifelsfall Verdana verwenden, weil sie die einzige Schrift ist die für die Bildschrimdarstellung optimiert ist.</mark></p>
+                <p>Sie sollten aber in dem Fall immer <strong>mehrere Schriftalternativen</strong> in der <strong>von Ihnen bevorzugten Reihenfolge</strong> anbieten. Der Browser wählt dann immer die erste die er findet.</p>
+                <p><mark>Schriftnamen, die leerzeichen enthalten, müssen Sie dabei in Anführungszeichen setzen.</mark></p>
+                <h3>Webfonts</h3>
+                <p>Eine andere möglichkeit ist es, die gewünschte Schriftart auf dem Websever zu hinterlegen, sie kann dann bei bedarf heruntergeladen werden.Sie werden erst von neueren Browsern unterstützt.</p>
+              </details>
+            </article>
+            <article>
+              <details>
+                <summary><h2>Maßeinheiten</h2></summary>
+                <p><mark>Zwischen dem Wert und der Maßeinheit darf <strong>kein Leerzeichen</strong> stehen.</mark></p>
+                <table>
+                  <caption><p>Maßeinheiten in CSS</p></caption>
+                  <tr>
+                    <th>Maßeinheit</th>
+                    <th>Beschreibung</th>
+                  </tr>
+                  <tr>
+                    <td>px</td>
+                    <td>pixel</td>
+                  </tr>
+                  <tr>
+                    <td>%</td>
+                    <td>Prozent</td>
+                  </tr>
+                  <tr>
+                    <td>em</td>
+                    <td>Vielfaches der Schriftgröße(eigentlich ein Geviert, <mark>die Breite des Großbuchstabens M in der aktuell verwendeten Schriftgröße</mark>, daher der Name.)</td>
+                  </tr>
+                  <tr>
+                    <td>rem</td>
+                    <td>wie em, aber ausgehend von der <mark>verwendeten Schriftgröße im Dokument root.</mark></td>
+                  </tr>
+                  <tr>
+                    <td>ex</td>
+                    <td>Höhe der Keinbuchstabens x in der verwendeten Schriftgröße(In der Praxis kaum verwendet.)</td>
+                  </tr>
+                  <tr>
+                    <td>in</td>
+                    <td>Inch</td>
+                  </tr>
+                  <tr>
+                    <td>cm</td>
+                    <td>Zentimeter</td>
+                  </tr>
+                  <tr>
+                    <td>mm</td>
+                    <td>Millimeter</td>
+                  </tr>
+                  <tr>
+                    <td>pt</td>
+                    <td>Punkt(1/72 Zoll)</td>
+                  </tr>
+                  <tr>
+                    <td>pc</td>
+                    <td>Pica(1/6 Zoll)</td>
+                  </tr>
+                </table>
+                <p><mark>Die Maßeinheiten mm, cm, in, pt und pc sind ausschließlich für den Druck interessant.</mark></p>
+                <p><mark>Pixel sind die einzige Absolute Größe.</mark></p>
+                <p>Interessant im Zusammenhang mit <em>flexiblen Layouts</em> sind aber vor allem auch die Maßeinheiten <em>em</em> bzw <em>rem</em>. Dies sind relative Maße, die sich auf die <strong>aktuell mit</strong><code>font-size</code><strong>angegeben Schriftgröße beziehen.</strong> Dabei entspricht 1em der aktuellen Schriftgröße: Ist dies mit 12px angeben, so bedeutet 1em soviel wie 12px:</p>
+              </details>
+            </article>
+            <article>
+              <details>
+                <summary>
+                  <h2>Kommentare</h2>
+                </summary>
+                <p>eingeleitet wird der Kommentar mit einem Schrägstrich und einem Sternchen /*. Mit der umgekehrten Zeichenfolge */ beenden Sie den Kommentar.</p>
+              </details>
+            </article>
+            <article>
+              <details>
+                <summary>
+                  <h2>Browserspezifische Eigenschaften mit Herstellerpräfix.</h2>
+                </summary>
+                <p>Irgendwann haben die Brwoserhersteller damit behonnen, neue CSS-Eigenschaften zu unterstützen, die sich noch im experimentaellen Stadium befinden, also noch bevor sie vom W3C offiziell verabschiedet worden sind.</p>
+                <p>Um jedoch bereits im Vorfeld Konflikte zu vermeiden, die sich bei einer etwailigen Änderung der Spezifikation seitens des W3C ergeben könnten, <mark>werden diese experimentellen Features als proprietäre, Browserspezifische Features implementiert</mark>, die mit dem sogenannten <strong>Vendor Specific Prefix</strong> versehen werden müssen.</p>
+                <p>Wenn sie solche Eigenschaften verwenden, müssen Sie sie bis auf Weiteres mindestens dreimal notieren:</p>
+                <ol>
+                  <li>
+                    <p>-webkit für Chrome und Safari </p>
+                  </li>
+                  <li>
+                    <p>-moz für Firefox</p>
+                  </li>
+                  <li>
+                    <p>-ms für Internet Explorer</p>
+                  </li>
+                </ol>
+                <p>Bei einigen Eigenschaften ist auch tatsächlich der Fall eingetreten, dass das W3C zwischenzeitlich die Syntax geändert hat. In diesem Fall müssen Sie die Eigenschaften bzw. Werte für einen oder mehrere Browser unterschiedlich notieren.</p>
+                <p><strong>Alle CSS-Eigenschaften, die mit einem solchen herstellerspezifischen Präfix beginnen, sind</strong> <strong>NICHT VALIDE</strong> d.h der W3C-Validator kennt sie nicht und markiert sie als Fehler. Diesen Umstand können sie ignorieren.</p>
+              </details>
+            </article>
+        </main>
+    </div>
+</body>
+</html>

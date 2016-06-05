@@ -3,12 +3,14 @@
     margin: 0 auto 0 auto;
     background: white;
     border: 1px solid red;
-    background-color: skyblue;
+    background: skyblue;
 }
 
 body{
     background: peachpuff;
     margin-top: 0px;
+    font-family: Times, verdana, Times;
+    font-size: 17px;
 }
 
 article{
@@ -21,6 +23,6 @@ article{
 article h3{
     padding-left: 5px;
 }
-table{
+table,th,tr,td{
   border: 1px solid black;
 }

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="css/text" href="css/master.css" media="all">
+
+    <!-- SEO Meta -->
+    <meta name="description" content="Chapter 3 Einbindung von CSS.">
+    <meta name="author" content="Schmalte">
+    <meta name="keywords" content="Css inline stuff">
+
+    <!-- Browser Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scaleable=no">
+    <!-- <meta http-equiv="refesh" content="5 ; url=#"> -->
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+        <nav>
+
+        </nav>
+        <h1>
+            Kapitel 3 Einbindung von CSS.
+        </h1>
+        <main>
+            <article>
+                <details>
+                  <summary><h2>Auslagerung der CSS-Vorgaben in eine externe Datei.</h2></summary>
+                  <p>Sobald sie mehr als eine HTML-Seite mit denselben CSS-Vorgaben formatieren möchten, lohnt sich die Auslagerung in eine exteren Datei.</p>
+                  <p>Externe CSS-Dateien sind ebenfalls reine Textdateien, tragen jedoch die Endung .css. Diese Dateien enthalten <strong>ausschließlich</strong> Ihre CSS-Vorgaben.(Selektoren, Attribute und Werte) und <strong>keinerlei HTML-Syntax</strong></p>
+                  <p><code>&lt;link rel="stylesheet" href="styles.css" type="css/text" media="screen"/></code></p>
+                  <ol>
+                    <li>
+                      <p>Mit &lt;link&gt; leiten Sie den Verweis auf die externe Datei ein</p>
+                    </li>
+                    <li>
+                      <p>Mit rel(engl. relationship) geben sie an, dass sich der Link auf ein Stylesheet bezieht.</p>
+                    </li>
+                    <li>
+                      <p>Das Attribut type definiert den MIME-typ der CSS-Datei.</p>
+                    </li>
+                    <li>
+                      <p>Mit href geben Sie den externen Pfad zu der CSS-Datei an</p>
+                    </li>
+                  </ol>
+                  <p>Mit dem &lt;link&gt;-Tag können Sie nun beliebig viele HTML-Seiten mit dieser einen CSS-Datei verknüpfen. Änderungen an der CSS-Datei wirken sich dadurch auf alle verknüpften HTML-Seiten aus.</p>
+                </details>
+            </article>
+            <article>
+              <details>
+                <summary>
+                  <h2>Inline-Formatierung</h2>
+                </summary>
+                <p>Die dritte Methode, CSS-Vorgaben zu definieren, ist die Inline-Formatierung. Diese Methode ist die ineffectivste und sollte nur in Ausnahmefällen verwendet werden.</p>
+                <p>Mit dieser Methode gelten Ihre CSS-Vorgaben nur für <strong>ein einzelnes HTML-Element und werden direkt in den HTML-Code geschrieben</strong>Sie eignen sich höchstens dafür, allgemeine CSS-Vorgaben für ein spezielles Element zu überschreiben</p>
+                <p>Dafür steht Ihnen das HTML-Attribute <em>style</em> zur Verfügung, <mark>das sie auf jeden beliebigen HTML-Tag</mark> anwenden können.</p>
+                <p><code><mark>&lt;h2 style="color:#ccc; font-weight:normal;"&gt;</mark></code></p>
+                <p>Die Überschrift wird orange und nicht mehr fett dargestellt.</p>
+                <p>Wie erwähnt können Sie die drei möglichkeiten der Einbindung von CSS problemlos miteinander kombinieren. Es ist also möglich, die für die gesamte Website gültigen Vorgaben in eine externe Datei auszulagern.</p>
+                <p>Die zusätzlichen ür eine einzelne HTML-Seite benötigten Vorgaben im &lt;head&gt; der betreffenden Seite zu platzieren.</p>
+                <p>Und in einzelnen Elementen noch zusätzliche Inline-Formatierungen vorzunehmen.</p>
+                <p>Die externen Formatierungen sind dann so lange gültig bis sie von den internen überschrieben werden. <mark><strong>Es existiert hier also eine "kaskadierende" Hierachie.</strong></mark></p>
+              </details>
+            </article>
+        </main>
+    </div>
+</body>
+</html>

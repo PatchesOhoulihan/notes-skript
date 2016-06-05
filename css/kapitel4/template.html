@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/master.css">
+
+    <!-- SEO Meta -->
+    <meta name="description" content="Die Verwendung von Farben">
+    <meta name="author" content="schmalte">
+    <meta name="keywords" content="rgb dies das">
+
+    <!-- Browser Meta -->
+    <!-- <meta http-equiv="refresh" content="5; url=#"> -->
+    <meta name="viewport" content="width=device-width intial-scale=1.0 user-scaleable=yes">
+    <meta charset="UTF-8">
+    <title>CSS Kapitel 4</title>
+</head>
+<body>
+    <div id="wrapper">
+        <nav>
+
+        </nav>
+        <h1>
+            Kapitel 4 Die Verwendung von Farben.
+        </h1>
+        <main>
+            <article>
+                <details>
+                  <summary>
+                    <h2>Das RGB-Farbmodell</h2>
+                  </summary>
+                  <p>Alle Farbabstufungen werden durch die <strong>additive Mischung</strong>der drei Grundfarben Rot, Grün und Blau(RGB) erzeugt.</p>
+                  <p>Durch die Kombination unterschiedlicher Anteile dieser drei Farben(man spricht auch von <strong>Farbkanälen lassen sich ca 16.8 Mio Farbabstufungen darstellen. Jeder Grundfarbe wird dabei ein Wert zwischen 0 und 255 zugewiesen.</strong>)</p>
+                  <p><mark>Alle drei Farben zusammen bei voller Deckkraft ergeben weiss. Das vollständige Fehlen aller drei Farben ergibt Schwarz.</mark></p>
+                  <!-- TODO: Vielleicht noch ein paar Beispielfarben aus dem Bild einfügen -->
+                </details>
+            </article>
+            <article>
+              <details>
+                <summary>
+                  <h2>Hexadezimale Farbzuweisung</h2>
+                </summary>
+                <p>Da auch Webseiten normalerweise am Bildschirm dargestellt werden, erfolgt die Definition der Farben i.d.R ebenfalls im RGB-Farbraum - mit einem Unterschied: Die Farben werden traditionell nicht mit Dezimalwerten zwischen 0 und 255 angegeben, sondern mit Hilfe der <strong>hexadezimalen Farbkodierung</strong>. Das Hexadezimalsystem verwendet die Zahlenbasis 16.</p>
+                <p>NOTE: <mark>Die hexadezimale Farbkodierung hat nichts mit den sogenannten websicheren Farben zu tun.</mark> Auch mit Hexadezimalwerten können Sie natürlich alle 16,8 Millionen Farben des RGB-Raums definieren. <mark>Der Begriff <em>websichere Farben</em> rührt noch aus den Anfangszeiten des www, als Computermonitore nur maximal 256 Farben darstellen konnten.</mark> Sie spielen heute keine Rolle mehr.</p>
+                <p>die Zuweisung von Farben nach dem Hexadezimalsystem geschieht in CSS nach folgender allgemeiner Syntax:</p>
+                <p><code><mark>#rrggbb</mark></code></p>
+                <p>Die Raute kennzeichnet die Farbangabe als Hexadezimalfarbe.</p>
+                <h3>Komprimierung der Hex-Werte</h3>
+                <p>In CSS haben Sie die Möglichkeit, hexadezimale Farbangaben zu komprimieren, wenn in <strong>allen drei Farbkanälen</strong> jeweils <strong>beide Ziffern gleich</strong> sind, sie also folgendes Muster aufweisen:</p>
+                <p><code><mark>#xxyyzz</mark></code></p>
+                <p>Die Farbe #b4b4b4 kann nicht komprimiert werden, da hier die beiden Ziffern für jeden Kanal nicht gleich sind.</p>
+                <h3>Benannte Farben</h3>
+                <p>Daneben können Sie auch die 140 definierten Farbnamen der CSS-Farbspezifikation verwenden:</p>
+                <ul>
+                  <li>
+                    <p>color: red;</p>
+                  </li>
+                  <li>
+                    <p>color:black;</p>
+                  </li>
+                  <li>
+                    <p>color:peachpuff;</p>
+                  </li>
+                </ul>
+              </details>
+            </article>
+            <article>
+              <details>
+                <summary>
+                  <h2>Dezimale Farbzuweisungen.</h2>
+                </summary>
+                <p>In CSS können Sie RGB-Farben jedoch auch in dezimaler Schreibweise von 0 bis 255 angeben.</p>
+                <p>Bsp:</p>
+                <ol>
+                  <li>
+                    <p>color: rgb(255,0,0)</p>
+                  </li>
+                  <li>
+                    <p>color: rgb(124,12,56)</p>
+                  </li>
+                  <li>
+                    <p>color: rgb(0,0,0)</p>
+                  </li>
+                </ol>
+                <p>Der Ausdruck <em>rgb</em> gibt dabei an, dass es sich um RGB-Werte handelt, und ist immer gleich. Danach folgen <strong>ohne Leerzeichen</strong> runde Klammern, Innerhalb der runden Klammern stehen - durch Kommas getrennt - die drei Dezimalwerte für rot, grün und blau. <mark>Aber auch prozent Werte sind erlaubt: 0% für keinen Farbanteil und 100% für vollen Farbanteil.</mark></p>
+                <h3>Alphatransparenzen</h3>
+                <p>In CSS 3 kann diese Methode der Farbzuwisung erweitert werden, um einen Transparenzgrad anzugeben z.B:</p>
+                <p><code><mark>color: rgba(0,0,0,0.4)</mark></code></p>
+                <p>Schwarz mit 40-prozentiger Deckkraft</p>
+                <p>Zu dem Ausdruch rgb() kommt ein vierter Wert <em>a</em>(für Alpha) zwischen 0(vollständing transparent) und 1(vollständig deckend)hinzu, wobei Sie die Kommawerte nach der Englischen Schreibweise mit dem Komma angeben müssen.</p>
+                <p>Transparenzen sind für Text natürlich weniger sinnvoll. Sie werden erst bei der Verwendung von Flächenfarben(background-color) und schatten richtig interessant. Allerdings werden die RGBA-Farben nur von relative neuen Browsern unterstützt.(ab Safari 2, Firefox 3 und Internet Explorer 9)</p>
+              </details>
+            </article>
+        </main>
+    </div>
+</body>
+</html>

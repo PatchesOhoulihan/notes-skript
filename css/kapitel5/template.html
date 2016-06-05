@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/master.css">
+    <!-- SEO Meta -->
+    <meta name="description" content="Deals with the Inheritance stuff of CSS.">
+    <meta name="author" content="schmalte">
+    <meta name="keywords" content="CSS Inheritance stuff alot">
+
+    <!-- Browser Meta -->
+    <meta name="viewport" content="width=device-width initial-scale=1.0 user-scaleable=yes">
+    <!-- <meta http-equiv="refresh" content="5; url=#"> -->
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>
+            Kapitel 5 Allgemeine Vorgaben für Ihr Dokument.
+        </h1>
+        <main>
+            <article>
+                <details>
+                  <summary>
+                    <h2>1. Vererbung</h2>
+                  </summary>
+                  <p>Um den gesamten Text auf Iherer Seite <mark>einheitlich zu formatieren</mark>, unabhängig davon, in welchem Tag er steht, <mark>verwenden sie den Body Tag</mark></p>
+                  <p>CSS arbeitet nach dem <strong>Vererbungsprinzip</strong>: Viele CSS Vorgaben für ein Element gelten <strong>für alle in ihm enthaltenen Elemente</strong>, es sei denn, für eines dieser Elemente wurde etwas anderes definiert.</p>
+                  <p>Allerdings wird - wie wir sehen - die <em>font-size</em> nicht auf Überschriften &lt;h1&gt; und die color nicht auf &lt;a&gt; übertragen. Das bedeutet, dass nicht alle CSS-Eigenschaften auf alle HTML-Elemente vererbar sind.</p>
+                  <p>So gelten z.B die Schriftgröße von Überschriften und die Farbe von Links als höherwertig, sodass sie bei Bedarf separat geändert werden müssen.</p>
+                  <p>Das liegt daran, dass jeder Browser bereits ein internes Stylesheet enthält, das das Aussehen jedes einzelnen HTML-Elements exakt definiert.</p>
+                  <p>Mit unseren CSS-Vorgaben <em>überschreiben wir lediglich diese internen Browser-Styles.</em></p>
+                  <ul>
+                    <li>
+                      <p>Übergeordnete Elemente werden als <strong>Ancestor-Elemente bezeichnet.</strong></p>
+                    </li>
+                    <li>
+                      <p>Direkt übergeordnete als <strong>Parent-Elemente</strong></p>
+                    </li>
+                    <li>
+                      <p>Darin enthaltene Elemente werden als <strong>Descendants</strong></p>
+                    </li>
+                    <li>
+                      <p>Direkt darunter enthaltene als <strong>Child</strong></p>
+                    </li>
+                  </ul>
+
+                  <p><code>&lt;div&gt;</code></p>
+                  <p><code>&nbsp;&lt;p&gt;</code></p>
+                  <p><code>&nbsp; &nbsp; &lt;strong&gt; &lt;/strong&gt;</code></p>
+                  <p><code>&nbsp;&lt;p&gt;</code></p>
+                  <p><code>&lt;div&gt;</code></p>
+                  <p>&lt;p&gt; und &lt;strong&gt; sind hier beide <strong>Nachfahren(Descendants)</strong> von &lt;body&gt;.&lt;p&gt; ist auch gleichzeitig ein <strong>Kindelement</strong> &lt;body&gt;. &lt;strong&gt; jedoch nicht, weil es nicht <em>direkt</em> im &lt;body&gt;steht. &lt;strong&gt; ist jedoch ein Kindelement von &lt;p&gt;</p>
+                  <p>&lt;p&gt; und &lt;body&gt; sind hier <strong>Vorfahrenelemente</strong> von &lt;strong&gt;. &lt;p&gt; ist auch das <strong>Elternelement</strong>von &lt;strong&gt;.&lt;body&gt; jedoch nicht. &lt;body&gt; ist hier das Elternelement von &lt;p&gt;</p>
+                </details>
+            </article>
+            <article>
+              <details>
+                <summary><h2>2. Hintergrundfarben definieren.</h2></summary>
+                <p><code>
+                  <mark>background-color: #fff7db;</mark>
+                </code></p>
+                <p>Die Hintergrundfarbe gehört zu den <strong>nicht vererbbaren</strong> Eigenschaften und wirkt sich daher <strong>nicht</strong> auf die untergeordneten Elemente aus!</p>
+                <p>Sie können aber die eigenschaft <em>background-color</em> wie nahezu jede andere CSS-Eigenschaft - jedem beliebigen Element zuweisen, nicht nur dem Body.</p>
+              </details>
+            </article>
+            <article>
+              <details>
+                <summary>
+                  <h2>3. Die Maßeinheiten em und rem</h2>
+                </summary>
+                <p>Bislang haben wir unsere Schriftgrößen in px angegeben. Es hat sich jedoch gezeigt, dass diese festen Werte für Weblayouts bei Weitem nicht die beste Lösung sind. Das hat primär zwei Gründe:</p>
+                <ul>
+                  <li>
+                    <p><strong>Responsive Design</strong> Im Gegensatz zu gedruckten Seiten müssen sich Weblayouts an die Bildschirmgröße des jeweiligen Geräts anpassen. Eine Schriftgröße, die auf einem großen Desktop-Monitor gut lesbar ist, eignet sich u.U nicht für ein Smartphone-Display</p>
+                  </li>
+                  <li>
+                    <p><strong>Barrierefreiheit: Die meisten Browser bieten dem Anwender die Möglichkeit, die Schriftgröße selbst anzupassen. Durch feste Pixelwerte nehmen wir den Anwenderen diese Möglichkeit</strong></p>
+                  </li>
+                </ul>
+                <p>Zu diesem Zweck gibt es die Maßeinheit <em>em</em>. em ist - ähnlich wie Prozent - ein <strong>relatives Maß</strong>, das Sie auch mit Dezimalstellen angeben können. Es ist ein Vielfaches der aktuellen Schriftgröße</p>
+                <p>NOTE: Verwechseln Sie die Maßeinheit <em>em</em> nicht mit dem gleichlautenden HTML-Tag &lt;em&gt;. Diese beiden haben rein gar nichts miteinander zu tun! Der Name der Maßeinheit <em>em</em> bezieht sich auf den Buchstaben M, während der HTML-Tag &lt;em&gt; eine Abkürzung für emphasize(Betonung) ist.</p>
+                <p>sofern nichts anderes angegeben ist, bezieht sich em also auf die aktuell im Browser eingestellte Schriftgröße. Diese ist in nahezu allen modernen Browsern standardmäßig auf <strong>16px</strong> eingestellt, lässt sich aber durch den Anwender jederzeit ändern.</p>
+                <p>Das bedeutet <strong>1em entspricht standardmäßig 16px. Ändert der Anwender die Schriftgröße im Browser z.B auf 12px, so bedeutet 1em soviel wie 12px.</strong></p>
+                <p>BSP. <code>body{font-size: 1.5em}</code></p>
+                <p>Durch das Vererbungsprinzip werden alle Fließtexte dann standardmäßig 24px groß angezeigt.</p>
+                <p>In der Regel sollte die Schriftgröße Ihrer Fließtexte aber der voreingestellten Schriftgröße entsprechen.</p>
+                <p>Schreiben sie also <code>body{font-size: 1em;}</code></p>
+                <h3>Prozent oder em</h3>
+                <p>Auf den ersten Blik bewirkt die Maßeinheit em dasselbe wie Prozentwerte. Sie könnten also auch schreiben <code>body{font-size: 100%;}</code></p>
+                <p>Auch diese Angabe bedeutet "100% von der voreingestellten Schriftgröße" der Fließtext wäre also auch in deiesem Fall standardmäßig 16px groß. Es gibt jedoch ein paar Unterschiede  zwischen beiden Maßeinheiten, die Hauptsächlich in den Limitationen bestimmter Browser begründet sind:</p>
+                <p>Einige Browser lassen den Anwender die Schriftgröße nicht numerisch, sondern mit Angaben wie kein, mittel und groß einstellen. In diesem Fall wirken sich em anders aus als Prozentwerte - es gibt also offenbar einen Unterschied zwischen 1em von mittel und 100% von mittel.</p>
+
+              </details>
+            </article>
+        </main>
+    </div>
+</body>
+</html>
