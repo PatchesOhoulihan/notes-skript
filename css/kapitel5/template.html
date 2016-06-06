@@ -90,9 +90,153 @@
                 <p>Auf den ersten Blik bewirkt die Maßeinheit em dasselbe wie Prozentwerte. Sie könnten also auch schreiben <code>body{font-size: 100%;}</code></p>
                 <p>Auch diese Angabe bedeutet "100% von der voreingestellten Schriftgröße" der Fließtext wäre also auch in deiesem Fall standardmäßig 16px groß. Es gibt jedoch ein paar Unterschiede  zwischen beiden Maßeinheiten, die Hauptsächlich in den Limitationen bestimmter Browser begründet sind:</p>
                 <p>Einige Browser lassen den Anwender die Schriftgröße nicht numerisch, sondern mit Angaben wie kein, mittel und groß einstellen. In diesem Fall wirken sich em anders aus als Prozentwerte - es gibt also offenbar einen Unterschied zwischen 1em von mittel und 100% von mittel.</p>
-
-              </details>
+                <p>Wenn ein Anwender jetzt die Schriftgröße auf groß einstellt.</p>
+                <p>Verhält sich der Prozentwert wie erwartet, während <em>em</em> viel zu groß dargestellt werden.</p>
+                <p><mark>Man spricht hierbei von dem Giant Font Size Bug</mark></p>
+                <p>Trotz dieses Fehlers gilt <em>em</em> als eleganter und hat sich mittlerweile als Standard im modernen Webdesign etabliert.</p>
+                <p><mark>Denn <em>em</em> lässt sich nicht nur für Schriftgrößen verwenden,sondern auch für <strong>nahezu jede andere Größenangabe </strong>verwenden</mark> So können Sie z.B auch für die höhe und Breite eines HTML-Elements in <em>em</em>(Als vielfaches der Schriftgröße) angeben. <mark>Dadurch ändert sich bei einer Änderung der Schriftgröße die Größe des Elementes gleich mit.</mark> </p>
+                <p>Natürlich können Sie auch Prozentwerte für Breiten und Höhenangaben verwenden. Dies ist jedoch etwas völlig anderes! <mark>Prozentwerte beziehen sich hier nicht auf die Schriftgröße, sondern auf die Breite und Höhe des umgebenden Elements!</mark></p>
+                <p>Zur Lösung des Dilemmas zwischen den verschiedenen Vor- und Nachteilen von von <em>em</em> und Prozent hat sich folgendes Vorgehen bewährt:</p>
+                <p><mark>Sie gehen in der Dokumenthierachie noch eine Stufe nach oben und geben zunächst im Selektor für das gesamte HTML-Dokument die Schriftgröße in Prozent an. Dadurch lässt sich der Giant Font Size Bug verhindern: <strong>html{font-size:100%}</strong></mark></p>
+                <p>Alle folgenden Angaben können nun in em vorgenommen werden.</p>
+                <h3>Der Gültigkeitsbereich von em</h3>
+                <p>Wie wir bisher gesehen haben, bezieht sich <em>em</em> au die voreingestellte Schriftgröße des Browsers. Dies trifft jedoch nur so lange zu, wie Sie <strong>keine anderweitigen Schriftgrößen im Dokument</strong> angegeben werden. <mark>Denn em bezieht sich immer auf die <strong>Schriftgröße des nächsthöheren Vorfahrenelements. BSP:</strong></mark></p>
+                <p><code>
+                &lt;body&gt;<br>
+                &nbsp;&nbsp;&lt;p&gt;text&lt;/&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Text&lt;/p&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+                &lt;/body&gt;
+                </code></p>
+                <p>Die CSS vorgaben sehen entsprechend so aus:</p>
+                <p>html{font-size: 100%;}</p>
+                <p>body{font-size: 1em;}</p>
+                <p>Durch dieses Stylesheet besitzen alle p Tags im Beispiel die Schriftgröße 16px</p>
+                <p>Ändert man das Stylesheet jedoch dem entsprechend ab:</p>
+                <p>html{font-size: 100%}</p>
+                <p>body{font-size: 1em}</p>
+                <p>div{font-size: 2em}</p>
+                <p>so ist derr erste Absatz noch immer 16px groß, der zweite jedoch 32(2x16px), da dieser die Schriftgröße des übergeordneten <em>divs</em> erbt.</p>
+                <h3>Die variante rem</h3>
+                <p>Für Probleme wie das oben beschriebene, wurden in CSS3 die Variante <strong>rem(root-em)</strong> hinzugefügt.</p>
+                <p>rem funktioniert wie <em>em</em>, bezieht sich jedoch <strong>immer</strong>  auf die Schriftgröße des <mark><em>document root</em></mark>, unabhängig davon, welche Schriftgröße das jeweilige übergeordnete Element hat. <mark>Und das <em>document root</em> ist immer html</mark> .rem bezieht sich also ausschließlich auf die im selektor <em>html</em> angegebene Schriftgröße.</p>
+                <p>Um das Beispiel von oben noch einmal aufzugreifen. Und das Stylesheet um die Klausel:</p>
+                <p>p{font-size: 1.5rem} erweitert.</p>
+                <p>Besitzen nun beide Absätze die gleiche schrift Größe.</p>
+              </details> 
             </article>
+            <article>
+                <details>
+                    <summary>
+                        <h2>Überschriften formatieren</h2>
+                    </summary>
+                    <p>Überschriften werden standardmäßig etwas größer und fett dargestellt. <mark>Auch wenn Sie diese Eigenschaften beibehalten wollen, sollten Sie sie dennoch immer explizit angeben.</mark></p>
+                    <p><mark>Die "Dicke" der Schrift, das "Schriftgewicht" ändert man über die Eigenschaft <strong>font-weight:bold;</strong></mark></p>
+                    <p>Gerade für Elemente wie Überschriften oder Tabellenkopfzeilen, die in den meisten Brwosern standardmäßig fett angezeigt werden, besteht in CSS auch die Möglichkeit, dies abzuschalten: mit <mark>font-weight:normal</mark> können Sie bestimmen, dass der betreffende Text in einem regulären Schnitt angezeigt werden soll.</p>
+                    <h3>Gleichzeitiges Anwenden von Eigenschaften auf mehrere Elemente</h3>
+                    <p>Um nicht jedem HTML-Element immer wieder dieselben Eigenschaften zuweisen zu müssen, können Sie auch mehrere Selektoren gleichzeitig angeben. <mark>Notieren Sie dafür einfach die gewünschten Selektoren,durch Komma getrennt, nacheinander:</mark></p>
+                    <p><code><mark>h1,h2,h3,h4{font-weight:bold;}</mark></code></p>
+                    <p><code>h1{font-size:1.5rem;}</code></p>
+                    <p><code>h2{font-size:1.25rem;}</code></p>
+                    <p><code>h3{font-size:1.15rem;}</code></p>
+                    <p><code>h4{font-size:1rem;}</code></p>
+                </details>
+            </article>
+            <article>
+                <details>
+                    <summary>
+                        <h2>Die Darstellung von Strong, b, em und i definieren</h2>
+                    </summary>
+                    <p>Diese Tags werden zwar in den meisten Browsers bereits fett bzw. kusiv dargestellt, das ist jedoch nicht selbstverständlich. Deshalb sollten wir auch dies noch einmal explizit angeben:</p>
+                    <p><code>strong, b{font-weight: bold; color:red;}</code></p>
+                    <p><code>em, i{font-style:italic; font-weight:bold;}</code></p>
+                    <p>Natürlich ist es auch möglich, für diese Elemente zusätzliche oder gar vollkommen andere eigenschaften zu definieren. Wie oben gezeigt.</p>
+                    <table border="1">
+                        <caption>Werte für font-weight und font-style</caption>
+                        <tr>
+                            <th>Regel</th>
+                            <th>Attribute</th>
+                        </tr>
+                        <tr>
+                           <td>font-weight:</td>
+                            <td>bold(fett) <br> bolder(extrafett) <br> lighter(dünner) <br> 100(extradünn),200 ,300 ,400 ,500 ,600 ,700 ,800 ,900(extrafett) <br> normales(normales Schriftgewicht)</td>
+                        </tr>
+                        <td>font-style:</td>
+                        <td>italic(kusiv) <br> oblique(schräggestellt ,falscher, "künstlicher" Kursivschnitt) <br> normal (normaler Stil)</td>
+                    </table>
+                </details>
+            </article>
+            <article>
+                <details>
+                    <summary>
+                        <h2>Weitere Eigenschaften zur Textformatierung</h2>
+                    </summary>
+                    <table>
+                        <tr>
+                            <th>
+                                Regel
+                            </th>
+                            <th>
+                                Attribute
+                            </th>
+                        </tr>
+                        <tr>
+                            <td>small-caps(Kapitälchen) <br> normal(keine Schriftvariante, Standardeinstellungen)</td>
+                            <tr>
+                                <td>word-spacing</td>
+                                <td>Wordabstand. Erwartet numerische Angaben, jedoch keine Prozent angaben.</td>
+                            </tr>
+                            <tr>
+                                <td>letter-spacing</td>
+                                <td>Zeichenabstand(Laufweite). Erwartet nummerische Angaben, jedoch keine Prozentangaben</td>
+                            </tr>
+                            <tr>
+                                <td>line-height</td>
+                                <td>Zeilenabstand. Erwartet nummerische Angaben. Auch Prozentangaben.</td>
+                            </tr>
+                            <tr>
+                                <td>text-align</td>
+                                <td>left(linksbündig, Standardeinstellung) <br> center(zentriert <br> right <br> justify(blocksatz))</td>
+                            </tr>
+                            <tr>
+                                <td>text-indent</td>
+                                <td>Erstzeileneinzug. Erwartet nummerische Angaben.</td>
+                            </tr>
+                        </tr>
+                    </table>
+                    <p><mark>Für die Praxis ist hier vor allem die Line-height(zeilenabstand) von Bedeutung, da der Standard-Zeilenabstand im Browser in der i.d.R zu niedrig ist und dadurch die lesbarkeit erschwert</mark></p>
+                    <p>Am einfachsten ist es auch hier, den Zeilenabstand in em anzugeben.</p>
+                    <p>Der Vorteil daran ist, dass Sie den Zeilenabstand nicht jedesmal ändern müssen, wenn Sie die Schriftgröße ändern. Es ist also dann ein "automatischer" Zeilenabstand.</p>
+                </details>
+            </article>
+            <article>
+                    <details>
+                        <summary>
+                            <h2>Hyperlinks formatieren</h2>
+                        </summary>
+                        <table>
+                            <tr>
+                                <th><p>Rule</p></th>
+                                <th>Attribute</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p>text-decoration:</p>
+                                </td>
+                                <td>
+                                    <p>underline(unterstrichen) <br> overline(Line darüber) <br>line-through(durchgestrichen) <br> blink(blinked, funktioniert nicht in allen Browsern) <br>none (keine Dekoration)</p>
+                                </td>
+                            </tr>
+                        </table>
+                        <p><code>a{color: #fa3; text-decoration:none;}</code></p>
+                        <p>Im obrigen Beispiel werden alle Links auf unsrer Seite orangefarben dargestellt. Mit text-decoration: none geben wir zusätzlich an, dass sie nicht unterstrichen werden sollen.</p>
+                        <p>Diese Werte können auch kombiniert werden, indem sie nacheinander -durch Leerzeichen getrennt - notiert werden(sofern sie sich nicht widersprechen)</p>
+                        <p><code>text-decoration: underline overline</code></p>
+                        <p>Definieren Sie von nun an in all Ihren Dokumente zuerst dise allgemeinen Vorgaben für <em>body, p h1-h6, strong, b, em, i, a</em> mit den jeweils gewünschten Werten sowie ggf. auch für weitere Selektoren, die Sie verwenden wollen. Sie legen damit fest, wie Ihr Dokument grundsätzlich aussehen soll, wenn nichts anderes vorgegeben ist.</p>
+                        <p>Damit Sie dabei nicht jedesmal das Rad neu erfinden müssen, und auch um bekannte Darstellungsunterschiede in verschiedenen Brwosern auszugleichen, gibt im Web mittlerweile umfangreiche, vorgefertigte Basis-CSS Dateien, die Sie in ihren späteren Projekten frei verwenden und an Ihre Bedürfnisse anpassen können. Die bekannteste und zurzeit am weitesten verbreitete finden Sie unter <mark>necolas.github.io/normalize.css</mark></p>
+                    </details>
+                </article>
         </main>
     </div>
 </body>
