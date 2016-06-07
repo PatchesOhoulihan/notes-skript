@@ -66,22 +66,320 @@
                     <p>CSS 3 ermöglichst es Ihnen, Elemente anhand ihrer Position im Dokument unterschiedlich zu gestalten. Dafür existieren u.a zwei Pseudoklassen:</p>
                     <ol>
                         <li>
-                            <p><code>tag:nth-child(n)</code></p>
+                            <p><code><strong>tag:nth-child(n) </strong></code></p>
                             <p>Mit dieser Pseudoklasse können Sie Elemente abhängig davon gestalten, das wievielte <strong>Kindelement</strong> eines Containers sie sind. Ein einfaches Beispiel</p>
                             <p><code>&nbsp;&lt;body&gt;</code><br>
                             <code>&nbsp;&nbsp;&nbsp;&lt;p&gt;Text&lt;/p&gt;</code><br>
                             <code>&nbsp;&nbsp;&nbsp;&lt;p&gt;Text&lt;/p&gt;</code><br>
-                            <code>&nbsp;&nbsp;&nbsp;&lt;p&gt;Text&lt;/p&gt;</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;&lt;p&gt;Text3&lt;/p&gt;</code><br>
                             <code>&lt;/body&gt;</code>
                         </p>
                         <p>Um nun den dritten Absatz eine andere Textfarbe zu geben, notieren Sie:</p>
+                        <p><code>p:nth-child(3){color:red;}</code></p>
+                        <p><mark>Der dritte Absatz(text3) wird nun rot gefärbt, weil er das <strong>dritte Kindelement</strong> im übergeordneten Container(Body) ist.</mark></p>
+                        <p><code>&nbsp;&lt;body&gt;</code><br>
+                        <p><code>&nbsp;&nbsp;&lt;div&gt;</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&lt;p&gt;Text&lt;/p&gt;</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&lt;p&gt;Text&lt;/p&gt;</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&lt;p&gt;Text3&lt;/p&gt;</code><br>
+                        <code>&nbsp;&nbsp;&lt;/div&gt;</code><br>
+                        <p><code>&nbsp;&nbsp;&lt;div&gt;</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&lt;p&gt;Text&lt;/p&gt;</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&lt;p&gt;Text&lt;/p&gt;</code><br>
+                        <code>&nbsp;&nbsp;&nbsp;&lt;p&gt;Text6&lt;/p&gt;</code><br>
+                        <code>&nbsp;&nbsp;&lt;/div&gt;</code><br>
+                        <code>&lt;/body&gt;</code></p>
+                        <p><mark>Hier würden jedoch <strong>zwei Absätze</strong>(Text3,Text6) rot eingefärbt werden, da beide jeweils das dritte Kindelement in ihren jeweiligen Container(hier <em>div</em>) sind.</mark></p>
+                        <p>Dafür steht N für eine beliebige Zahl(oder ein Schlüsselwort)</p>
+                        <p>Für das <strong>erste</strong>, <strong>letzte</strong> oder <strong>einzige</strong> Kindelement können Sie auch folgende Kurzschreibweise verwenden:</p>
+                        <ol>
+                          <li>
+                            <p><code>:first-child</code></p>
+                          </li>
+                          <li>
+                            <p><code>:last-child</code></p>
+                          </li>
+                          <li>
+                            <p><code>:only-child</code></p>
+                          </li>
+                        </ol>
+                        <h3>Zebratabellen gestalten</h3>
+                        <p><mark>Neben Zahlen</mark> können Sie in den runden Klammern auch die <mark>Schlüsselwörter odd(=ungerade) und even(=gerade) Zahlen verwenden</mark></p>
+                        <p>Bsp: <br><code>tr:nth-child(odd){color:#fff;} <br> tr:nth-child(even){color:#000;}</code></p>
+                        <p>NOTE: Achten Sie darauf, dass Sie immer das korrekte HTML-Element angeben. Für Zebratabellen müssen Sie die <em>table rows</em> auswählen(und nicht etwa <em>td</em>)</p>
                         </li>
                         <li>
-                            <p><code>tag:nth-of-type(n)</code></p>
+                            <p><code><strong>tag:nth-of-type(n)</strong></code></p>
+                            <p>Anders verhält sich die Pseudoklasse <code>:nth-of-type(n)</code> <mark>Damit wählen Sie ein Element abhängig davon aus, das <strong>wievielte seines Typs</strong> es im Dokument ist.</mark> Betrachten wir nochmals oberes Beispiel:</p>
+                            <p><code>&nbsp;&lt;body&gt;</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;&lt;p&gt;Text&lt;/p&gt;</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;&lt;p&gt;Text&lt;/p&gt;</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;&lt;p&gt;Text3&lt;/p&gt;</code><br>
+                            <code>&lt;/body&gt;</code>
+                            <p>p:nth-child(3) oder p:nth-of-type(3) ist in diesem Fall egal, es würde in beiden Fällen, <mark>weil text3 sowohl das dritte Element im Body(nth-child(3)) ist, sowohl auch das dritte Element seines Typs(nth-of-type(3)) ist.</mark></p>
+                            <p>Verändert man das Beispiel:</p>
+                            <p><code>&nbsp;&lt;body&gt;</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;&lt;h1&gt;Text&lt;/h1&gt;</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;&lt;p&gt;Text&lt;/p&gt;</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;&lt;p&gt;Text2&lt;/p&gt;</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;&lt;p&gt;Text3&lt;/p&gt;</code><br>
+                            <code>&lt;/body&gt;</code>
+                            <p>Wird bei <code>p:nth-of-type(3)</code> wie gehabt Text3 ausgewählt, weil es das dritte tag seiner Art ist. Jedoch bei nth-child(3) text2, da es das <strong>dritte Kindelement im Body ist</strong></p>
+                            <p>Auch hier gibt es die Kurzschreibweisen:</p>
+                            <ol>
+                              <li>
+                                <p><code>:first-of-type</code></p>
+                              </li>
+                              <li>
+                                <p><code>:last-of-type</code></p>
+                              </li>
+                              <li>
+                                <p><code>:only-of-type</code></p>
+                              </li>
+                            </ol>
                         </li>
                     </ol>
-                    <p>Dafür steht N für eine beliebige Zahl(oder ein Schlüsselwort)</p>
+                    <p>Sie können das Ganze noch weiter treiben, indem Sie in den unden Klammern anstatt einfacher Zahlen Ausdrücke nach folgenden Muster notieren:</p>
+                    <p><code>:nth-child(bn+a) <br> :nth-of-type(bn + a)</code></p>
+                    <p>Zum Beispiel: <code>li:nth-child(3n-4)</code></p>
+                    <p>Diese Ausdrücke liest man am Besten von hinten: Zunächst geben Sie mit <em>a</em> die Position des ersten Elments an, für das die Anwesungen gelten sollen, dann mit <em>b</em> die Position aller gewünschten elemente danach. <mark>Das Beispiel betrifft also zunächst das 4. Listenelement und danach jedes 3</mark></p>
                 </details>
+            </article>
+            <article>
+              <details>
+                <summary>
+                  <h2>Überblick Pseudoklassen</h2>
+                </summary>
+                <table border="1">
+                  <tr>
+                    <th colspan="2">Mauszustände</th>
+                  </tr>
+                  <tr>
+                    <td><code>:link</code></td>
+                    <td>
+                      <p>unbesuchter Link</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>:visited</code></td>
+                    <td>
+                      <p>besuchter Link</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>:focus</code></td>
+                    <td>
+                      <p>mit Tab focusierter Link.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>:hover</code></td>
+                    <td>
+                      <p>Link beim Überfahren mit der Maus.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>:active</code></td>
+                    <td>
+                      <p>angeklickter Link</p>
+                    </td>
+                  </tr>
+                </table>
+                <table border="1">
+                  <tr>
+                    <th colspan="2">Auswählen von Kind-Elementen</th>
+                  </tr>
+                  <tr>
+                    <td><code>:nth-child(n)</code></td>
+                    <td>
+                      <p>n-tes Kind-Element</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>:first-child</code></td>
+                    <td>
+                      <p>erstes Kind</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>:last-child</code></td>
+                    <td>
+                      <p>letztes Kind</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>:only-child</code></td>
+                    <td>
+                      <p>einziges Kind</p>
+                    </td>
+                  </tr>
+                </table>
+                <table border="1">
+                  <tr>
+                    <th colspan="2">Auswahlen nach Typ</th>
+                  </tr>
+                  <tr>
+                    <td><code>:nth-of-type(n)</code></td>
+                    <td>
+                      <p>n-tes Kind-element</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>:first-of-type</code></td>
+                    <td>
+                      <p>erstes element eines bestimmten Typs</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>:last-of-type</code></td>
+                    <td>
+                      <p>letztes Element eines bestimmten Typs</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>:only-of-type</code></td>
+                    <td>
+                      <p>einziges Element eines bestimmten Typs</p>
+                    </td>
+                  </tr>
+                </table>
+                <table border="1">
+                  <tr>
+                    <th colspan="2">Auswählen von Formular-Elementen</th>
+                  </tr>
+                  <tr>
+                    <td><code>:enabled</code></td>
+                    <td>
+                      <p>wählt aktive Formularelemente aus</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>:disabled</code></td>
+                    <td>
+                      <p>wählt deaktivierte Formularelemente aus.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>:checked</code></td>
+                    <td>
+                      <p>wählt <strong>angekreuzte</strong> Checkboxen und Radiobuttons aus(HTML-Attribut <code>checked="checked"</code>)</p>
+                    </td>
+                  </tr>
+                </table>
+                <table border="1">
+                  <tr>
+                    <th colspan="2">Weitere Pseudoklassen</th>
+                  </tr>
+                  <tr>
+                    <td><code>:lang(code)</code></td>
+                    <td>
+                      <p>wählt Elemente in einer bestimmten Sprache aus, z.B. deutschsprachige Absätze mit <code>p:lang(de);</code></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>:root</code></td>
+                    <td>
+                      <p>das Stammelement eines Dokuments, bei HTML-Dokumenten also &lt;html&gt;</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>:empty</code></td>
+                    <td>
+                      <p>wählt alle elemente ohne Kindelement aus. Inhalt in From von Text wird dabei benfalls als Kindelement betrachtet, Kommentare jedoch nicht. <br> <strong>Beispiel:</strong><code>span:empty</code> wählt folgende <em>span</em>-Elemente aus:</p>
+                      <p>&lt;span&gt;&lt;/span&gt; <br> &lt;span&gt;&lt;!-- Comment --&gt;&lt;/span&gt;</p>
+                      <p>Folgende jedoch nicht:</p>
+                      <p>&lt;span&gt; &lt;/span&gt; <br> &lt;span&gt;&lt;br&gt;&lt;/span&gt; <br> &lt;span&gt;text&lt;/span&gt;</p>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>:target</code></td>
+                    <td>
+                      <p>wählt ein Zielelement aus, zu dem mittels Anker(zb &lt;a href="#antwort2") gesprungen wurde.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>:not(selector)</code></td>
+                    <td>
+                      <p>Negation. Wählt Elemente aus, wenn sie <strong>nicht</strong> das in Klammern angebene Element sind, z.B: <code>:not(p)</code>(alles ausser Absätzen) oder <code>h1:not(:first-of-type)</code>(alle <em>h1</em>-Überschriften außer der ersten).</p>
+                    </td>
+                  </tr>
+                </table>
+              </details>
+            </article>
+            <article>
+              <details>
+                <summary>
+                  <h2>Pseudoelemente</h2>
+                </summary>
+                <p><strong>Pseudoelemente</strong> wurden in CSS 2 - genau wie Pseudoklassen - mit einem Doppelpunkt gebildet, in CSS 3 mit <strong>zwei Doppelpunkten</strong> Diese unterschiedliche Notation soll helfen, Pseudoelmente von Pseudoklassen zu unterscheiden.</p>
+                <p><strong>CSS 2:</strong><code> p:first-letter</code> <br> <strong>CSS 3:</strong><code> p::first-letter</code></p>
+                <p>Noch nicht alle Browser verstehen die Schreibweise mit zwei Doppelpunkten, Sie können daher auch Pseudoelemente weiterhin mit nur einem Doppelpunkt notieren.Ausnahme: Wenn das Pseudoelement erst in CSS 3 neu eingeführt wurde, müssen Sie es mit zwei Doppelpunkten schreiben()</p>
+                <h3>Initialen und andere Typographische Effekte</h3>
+                <p><mark>Mit Pseudoelementnt lassen sich besondere typographische Effekte etwa für Absätze erzeugen:</mark></p>
+                <ul>
+                  <li>
+                    <p><code>p:first-line</code> &rArr; formatiert die erste Zeile eines Textes anders</p>
+                  </li>
+                  <li>
+                    <p><code>p:first-letter</code> &rArr; formartiert das erste Zeichen des Textes als Initale</p>
+                  </li>
+                </ul>
+                <h3>Pseudoelemente für automatisch erzeugten Inhalt</h3>
+                <p><mark>Sie können in CSS nahezu jedes beliebige Element automatisch Text oder Graphik anhängen.</mark> Diese Texte oder Bilder tauchen nirgends im HTML-Quelltext auf(und sind im Browser nicht anwählbar), sondern werden beim Laden der Seite automatisch generiert. Die Pseudoelemente hierfür lauten:</p>
+                <ul>
+                  <li>
+                    <p><code>:before</code> &rArr; Inhalt, der vor dem betreffenden Element eingefügt wird</p>
+                  </li>
+                  <li>
+                    <p><code>:after</code> &rArr; Inhalt, der nach dem betreffenden eingefügt wird</p>
+                  </li>
+                </ul>
+                <p><strong>Beispiel</strong> Ihr HTML-Dokument enthält externe Links, die auf andere Webseiten führen. Diese Links möchten Sie optisch kennzeichen, indem Sie ihnen ein kleines  Icon anhängen.</p>
+                <p><code><mark>a:after{content: url(super.gif);}</mark></code></p>
+                <p>Alternative kann man dazu auch text einfügen</p>
+                <p><code><mark>a:after{content: " (externer Link)";}</mark></code></p>
+                <p>Man kann auch beides kombinieren.</p>
+                <p><code><mark>a:after{content: url(super.gif) " (externer Link)";}</mark></code></p>
+                <p><code>before:</code>funktioniert nach demselben Prinzip.</p>
+                <table border="1";>
+                  <tr>
+                    <th colspan="2">
+                      <p>Übersicht über Pseudoelemente</p>
+                    </th>
+                  </tr>
+                  <tr>
+                    <td><code>:after</code></td>
+                    <td>
+                      <p>automatisch <em>nach</em> einem Element generierter Inhalt</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>:before</code></td>
+                    <td>
+                      <p>automatisch <em>vor</em> einem Element generierter Inhalt</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>:first-letter</code></td>
+                    <td>
+                      <p>erster Buchstabe eines Elements</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>:first-line</code></td>
+                    <td>
+                      <p>erste Textzeile eines Elements</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>::selection</code></td>
+                    <td>
+                      <p>Textauswahl (CSS 3)</p>
+                    </td>
+                  </tr>
+                </table>
+              </details>
             </article>
         </main>
     </div>
