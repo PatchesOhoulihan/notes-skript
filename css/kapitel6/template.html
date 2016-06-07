@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/master.css">
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>
+            Kapitel 6 - Pseudoklassen und Pseudoelemente.
+        </h1>
+        <main>
+            <article>
+                <details>
+                    <summary>
+                        <h2>1. Pseudoklassen</h2>
+                    </summary>
+                    <p>Mit Hilfe sogenannter <strong>Pseudoklassen</strong> können Sie Vorgaben anhand von Informationen definieren, die entweder außerhalb der Dokumentstruktur liegen oder mit anderen Selektoren nicht ausgedrückt werden können, z.B ein Link, den der Anwender mit der Maus überfährt</p>
+                    <p><mark><strong>Pseudoelemente</strong> stehen nicht als eigene Tags im Quelltext eines HTML-Dokuments, werden von CSS aber so behandelt,</mark> als stünden sie darin z.B "der erste Buchstabe eines Absatzes"</p>
+                    <h3>Verschiedene Zustände für Hyperlinks definieren</h3>
+                    <p>Sie können für Hyperlinks verschiedene Darstellungen definieren, je nachdem, in welchem <strong>Zustand</strong> sie sich gerade befinden. Ein Hyperlink kann folgende Zustände annehmen:</p>
+                    <ul>
+                        <li>
+                            <p>normal(noch nicht besucht)</p>
+                        </li>
+                        <li>
+                            <p>bereits besucht</p>
+                        </li>
+                        <li>
+                            <p>mit der Tabulatortaste fokussiert</p>
+                        </li>
+                        <li>
+                            <p>Maus darüber</p>
+                        </li>
+                        <li>
+                            <p>Maus gedrückt</p>
+                        </li>
+                    </ul>
+                    <p>Dies Zustände definieren Sie mit Hilfe speziell dafür vorgesehener <strong>Pseudoklassen</strong> Diese werden mit einem Doppelpunkt einfach an den Selektor angehängt(ohne Leerzeichen).</p>
+                    <ol>
+                        <li>
+                            <p><code>a:link</code>(noch nicht besuchte Seiten)</p>
+                        </li>
+                        <li>
+                            <p><code>a:visitied</code>(bereits besuchte Seiten)</p>
+                        </li>
+                        <li>
+                            <p><code>a:focus</code>(mit der Tabulatortaste fokusiert.)</p>
+                        </li>
+                        <li>
+                            <p><code>a:hover</code>(Maus darüber)</p>
+                        </li>
+                        <li>
+                            <p><code>a:active</code>(Maus gedrückt)</p>
+                        </li>
+                    </ol>
+                    <p>Beachten Sie, dass dies <strong>KEINE</strong> frei wählbaren Namen sind, sondern fest vorgegebene Schlüsselwörter. <mark> Bei der Definition dieser Pseudoklassen sollten Sie o.g Reihenfolge einhalten, da später notierte Angaben doe zuvor notierten überschreiben.</mark> So könnte sich z.B <code>a:hover auf einem mit der Tastatur ausgewählten Link nicht auswirken, wenn a:focus später notiert wird</code> code</p>
+                    <p>Vor allen der Zustand <code>a:visited</code> führt häufig zu Missverständnissen: Dieser Zustand kennzeichnet nicht die Seite, auf der sich der Besucher gerade befindet. <mark>Vielmehr kennzeichnet a:visited <strong>dauerhaft alle Seiten</strong>, die der User in letzter Zeit besucht hat.</mark> Diese Informationen holt sich der Browser aus dem Verlauf(auch als Chronik oder History bezeichnet). <mark>Dabei ist es unerheblich, ob es sich um einen Link zu einer Unterseite desselben Webangebots oder um einen exteren Link handelt.</mark></p>
+                    <p>Sie müssen nicht zwingend alle Linkzustände definieren. <mark>In der Praxis beschränkt man sich häufig auf <code>:hover</code></mark></p>
+                    <p>Es sollten daher zunächst allgemeine Vorgaben für <strong>Für alle Links gemacht werden.</strong> Dannach werden lediglich mit den Pseudoklassen die Änderungen beim Überfahren mit der Maus definiert.</p>
+                    <p>NOTE: Bedenken Sie jedoch von vornherein, dass die Pseudoklasse <code>:hover</code>auf Touchscreens naturgemäß nicht bzw. nicht wie erwartet funktioniert! viele Touchscreens versuchen zwar, den <code>:hover</code> zu emulieren, indem sie das erste Antippen als <code>:hover</code> und das zweite als Klick werten. Dies ist jedoch von zahlreichen zusätzlichen Faktoren abhängig und muss unbedingt getestet werden.</p>
+                    <h3>Verschiedene Zustände für andere Elemente definieren</h3>
+                    <p><mark>Die Pseudoklassen <code>:focus</code> und <code>:hover</code>gelten nicht nur für Hyperlinks, Sie können sie jedem beliebigen Element zuweisen</mark></p>
+                    <h3>Elemente automatisch durchzählen</h3>
+                    <p>CSS 3 ermöglichst es Ihnen, Elemente anhand ihrer Position im Dokument unterschiedlich zu gestalten. Dafür existieren u.a zwei Pseudoklassen:</p>
+                    <ol>
+                        <li>
+                            <p><code>tag:nth-child(n)</code></p>
+                            <p>Mit dieser Pseudoklasse können Sie Elemente abhängig davon gestalten, das wievielte <strong>Kindelement</strong> eines Containers sie sind. Ein einfaches Beispiel</p>
+                            <p><code>&nbsp;&lt;body&gt;</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;&lt;p&gt;Text&lt;/p&gt;</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;&lt;p&gt;Text&lt;/p&gt;</code><br>
+                            <code>&nbsp;&nbsp;&nbsp;&lt;p&gt;Text&lt;/p&gt;</code><br>
+                            <code>&lt;/body&gt;</code>
+                        </p>
+                        <p>Um nun den dritten Absatz eine andere Textfarbe zu geben, notieren Sie:</p>
+                        </li>
+                        <li>
+                            <p><code>tag:nth-of-type(n)</code></p>
+                        </li>
+                    </ol>
+                    <p>Dafür steht N für eine beliebige Zahl(oder ein Schlüsselwort)</p>
+                </details>
+            </article>
+        </main>
+    </div>
+</body>
+</html>
