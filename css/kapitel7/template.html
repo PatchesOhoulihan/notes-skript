@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/master.css">
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>
+            Kapitel 7 Hintergründe, Konturen und Abstände.
+        </h1>
+        <main>
+            <article>
+                <details>
+                    <summary>
+                        <h2>Hintergrundfarben</h2>
+                    </summary>
+                    <p>Sie können mit CSS für jedes beliebige HTML-Element eine Hintergrundfarbe definieren. <mark>Das funktioniert sowohl für Blockelemente als auch für Inline-Elemente.</mark></p>
+                    <p><code> p{background-color:#d48e80} <br> a:hover{background-color: #3b8ed8}</code></p>
+                    <p><mark>Nun sehen sie deutlich eine der Haupteigenschaften von Blockelementen: Sie nehmen immer die gesamte zur Verfügung stehende Breite in Anspruch, auch wenn der Text selbst wesentlich kürzer ist.</mark></p>
+                </details>
+            </article>
+            <article>
+                <details>
+                    <summary>
+                        <h2>Innenabstände</h2>
+                    </summary>
+                    <p><mark>Den <strong>Innenabstand</strong> eines Elements können Sie mit dem Attribut <em>padding</em> und der Angabe von nummerischen Werten beeinflussen.</mark></p>
+                    <p><code>padding: 5px;</code></p>
+                    <p>Auch diese Werte können Site stattdessen relativ zur Schriftgröße angeben:</p>
+                    <p><code>padding: 0.3em; oder, <br> padding 0.3rem;</code></p>
+                    <p><mark>Sie können auch für jede Seite individuelle Innenabstände definieren.</mark></p>
+                    <p><code>padding-top: 0; <br> padding-bottom:0.3em; <br> padding-left: 0.7em; <br> padding-right: 1em;</code></p>
+                    <p>Geben sie alle vier Werte - durch ein leerzeichen getrennt - im Attribute padding an. Die Reihenfolge hierbei ist im Uhrzeigersinn: oben rechts, unten, links</p>
+                    <p>padding: oben rechts unten links; <br> <code>padding 0 1em 0.3em 0.7em</code></p>
+                    <p><mark>Werte für <em>sind natürlich meist nur dann Sinnvoll, wenn das Element eine sichtbare Kontur oder eine Hintergrundfarbe hat.</em></mark></p>
+                </details>
+            </article>
+        <article>
+            <details>
+                <summary>
+                    <h2>Einbinden von Hintergrundbildern</h2>
+                </summary>
+                <p>Ebenso universell wie Hintergrundfarben lassen sich für jedes Element Grafiken als Hintrgrundbilder einbinden.</p>
+                <p><code>background-image: url(pfad/zur/grafik.jpg)</code></p>
+                <p>Als Dateiformate können Sie entweder <mark>Pixelbilder in den bekannten Formaten JPEG, PNG, oder GIF oder Vektorengrafiken im SVG-Format verwenden</mark></p>
+                <h3>Kachelmuster steuern</h3>
+                <p>Mit CSS lässt sich die Dartstellung von Hintergrundbildern sehr flexibel steuern. So können Sie z.B <mark>die automatische Widerholung abschalten:</mark></p>
+                <p><code>p{background-image: url(grafik.jpg);} <br> background-repeat: no-repeat;</code></p>
+                <table>
+                   <caption>Mögliche Werte für background-repeat.</caption>
+                    <tr>
+                        <td><code>background-repeat:</code></td>
+                        <td>top(oben bündig) <br> bottom(unten bündig) <br> center(horizontal oder vertikal zentriert) <br> left(linksbündig) <br> right(rechtsbündig)</td>
+                    </tr>
+                </table>
+                <h3>Hintergrundbild positionieren</h3>
+                <p>Mit <em>background-position</em> lässt sich die Position des Hintergrundbilds numerisch festlegen. Geben sie dazu zwei Werte durch Leerzeichen getrennt ein. Der erste Wert ist der horizontale Abstand von links, der zweite is der vertikale Abstand von oben:</p>
+                <p>p{background-image: url(grafik.jpg); <br> background-repeat: no-repeat; <br> background-position: 1.5em 3em;}</p>
+                <table>
+                   <caption>Mögliche NICHT nummerische Werte sind</caption>
+                   <tr>
+                    <td><code>background-position:</code></td>
+                    <td>top(oben Bündig) <br> bottom(unten bündig) <br> center(horizontal oder vertikal zentriet) <br> left(linksbündig) <br>right(rechtsbündig)</td>
+                   </tr>
+                </table>
+                <h3>Wasserzeicheneffekt</h3>
+                <p><mark>Mit dem Arttibut <em>background-attachment</em> können Sie festlegen, dass das Hintergrundbild beim Scrollen der Seite stehenbleibt. der Text scrollt also über das Bild hinweg.</mark></p>
+                <p><code>p{background-image: url(grafik.jpg) <br> background-repeat: no-repeat; <br> background-position: 1.5em 3em; <br> background-attachment: fixed;}</code></p>
+                <table>
+                    <td><code>background-attachment:</code></td>
+                    <td>scroll(mitscrollen, Standardeinstellung) <br> fixed(Hintergrundbild bleibt stehen.)</td>
+                </table>
+                <h3>Eigenschaften zusammenfassen</h3>
+                <p>Alle genannten Eigenschaften für Hintergründe können auch mit dem "Sammelattribut" <strong>background</strong> nach dem folgenden Muster angeben. Die einzelnen Werte werden dabei durch Leerzeichen getrennt. <mark>Die Reihenfolge spielt - bis au die beiden Werte für <em>background-position - keine Rolle.</em></mark></p>
+                <p>Syntax: <em>background: color url repeat position-x position-y attachment</em></p>
+                <p><mark>Dabei müssen Sie nicht zwingend alle Werte angeben </mark></p>
+                <h3>Größenangaben für Hintergrundbilder</h3>
+                <p>Seit CSS 3 können Sie auch endlich die Größe von Hintergrundbildern bestimmen. Das Attribut dafür ist <em>background-size</em> <mark>(zurzeit noch mit Vendor Prefix)</mark> und erwartet zwei Werte.(Breite und Höhe) durch leerzeichen getrennt:</p>
+                <p><code>-webkit-background-size:breite höhe; <br> -moz-background-size: breite höhe; <br>background-size: breite höhe</code></p>
+                <p><code>-webkit-background-size: 2em 1em; <br> -moz-background-size: 2em 1em; <br>background-size: 2em 1em;</code></p>
+                <p>In den meisten Fällen sind hier wohl Prozentangaben am sinnvollsten (bezogen auf die Größe des Elements, das das Hintergrundbild enthält). <mark>Um das Seitenverhältnis beizubehalten und das Bild nicht zu verzerren, sollten Sie zudem einen der beiden Werte auf <em>auto</em> setzen:</mark></p>
+                 <p><code>-webkit-background-size:auto 70%; <br> -moz-background-size: auto 70%; <br>background-size: auto 70%</code></p>
+                 <h3>Auomatische Größenanpassung von Hintergrundbildern</h3>
+                 <p>Im Zusammenhang mit flexiblen Layouts, deren Grö</p> 
+            </details>
+        </article>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+#wrapper{
+    max-width: 960px;
+    margin: 0 auto 0 auto;
+    background: white;
+    border: 1px solid red;
+    background-color: skyblue;
+}
+
+body{
+    background: peachpuff;
+    margin-top: 0px;
+}
+
+article{
+    background: cornsilk;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+
+article h3{
+    padding-left: 5px;
+}
+table{
+  border: 1px solid black;
+}
