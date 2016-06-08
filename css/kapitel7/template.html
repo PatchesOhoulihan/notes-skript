@@ -69,8 +69,10 @@
                 <p><mark>Mit dem Arttibut <em>background-attachment</em> können Sie festlegen, dass das Hintergrundbild beim Scrollen der Seite stehenbleibt. der Text scrollt also über das Bild hinweg.</mark></p>
                 <p><code>p{background-image: url(grafik.jpg) <br> background-repeat: no-repeat; <br> background-position: 1.5em 3em; <br> background-attachment: fixed;}</code></p>
                 <table>
+                  <tr>
                     <td><code>background-attachment:</code></td>
                     <td>scroll(mitscrollen, Standardeinstellung) <br> fixed(Hintergrundbild bleibt stehen.)</td>
+                  </tr>
                 </table>
                 <h3>Eigenschaften zusammenfassen</h3>
                 <p>Alle genannten Eigenschaften für Hintergründe können auch mit dem "Sammelattribut" <strong>background</strong> nach dem folgenden Muster angeben. Die einzelnen Werte werden dabei durch Leerzeichen getrennt. <mark>Die Reihenfolge spielt - bis au die beiden Werte für <em>background-position - keine Rolle.</em></mark></p>
@@ -83,8 +85,64 @@
                 <p>In den meisten Fällen sind hier wohl Prozentangaben am sinnvollsten (bezogen auf die Größe des Elements, das das Hintergrundbild enthält). <mark>Um das Seitenverhältnis beizubehalten und das Bild nicht zu verzerren, sollten Sie zudem einen der beiden Werte auf <em>auto</em> setzen:</mark></p>
                  <p><code>-webkit-background-size:auto 70%; <br> -moz-background-size: auto 70%; <br>background-size: auto 70%</code></p>
                  <h3>Auomatische Größenanpassung von Hintergrundbildern</h3>
-                 <p>Im Zusammenhang mit flexiblen Layouts, deren Grö</p> 
+                 <p>Im Zusammenhang mit flexiblen Layouts, deren Grö</p>
+                 <h4>Automatische Größenanpassung von Hintergrundbildern</h4>
+                 <p>Im Zusammenhang mit flexiblen Layouts, deren Größe sich an das jeweilige Gerät anpasst, sind vor allem die beiden Schlüsselwörter <strong>contain</strong> und <strong>cover</strong> nützlich,</p>
+               <ul>
+                 <li>
+                   <p><strong>background-size: contain</strong></p>
+                   <p>passt das Hintergrundbild automatisch so in das Element ein, dass es immer vollständig sichtbar ist U.U entstehen dadurch auch Leerräume, an dennen die Hintergrundfarbe durchscheint</p>
+                 </li>
+                 <li>
+                   <p><mark>background-size:cover </mark></p>
+                   <p>passt das Hintergrundbild so ein, dass es das Element auf jeden Fall vollständig ausfüllt. Ggf werden dadurch teile des Hintergrundbildes abgeschnitten. Welche Teile das sind , können Sie mit background-postion steuern.</p>
+                   <p>Diese automatischen Einpassungen werden auch bei einer Größenänderungen des Browserfenster</p>
+                   <p>Diese Eigenschaft <em>background-size</em> lässt sich zurzeit noch nicht verlässlich in das "Sammelattribute" <em>background</em> integrieren und muss daher separat notiert werden.</p>
+
+                 </li>
+               </ul>
             </details>
+        </article>
+        <article>
+          <details>
+            <summary>
+              <h2>Here Be Dragons: Farbverläufe in CSS</h2>
+            </summary>
+            <p><mark>Eine der beeindruckendsten, gleichzeitig aber auch der komplexesten Funktionen in CSS 3 sind wohl die Farbverläufe</mark>, die in früheren CSS-Versionen ebenfalls mit Pixelbildern realisiert werden mussten. Die Vorteile liegen auf der Hand: Im Gegensatz zu Pixelbildern realisiert werden mussten. Die Vorteile liegen auf der Hand: <mark>Im Gegensatz zu Pixelbildern haben in CSS definierte Farbverläufe keine feste Größe, d.h sie passen ihre Größe - ohne Interpolation - automatisch an die Größe des Elements an. Außerdem muss bei einer Farbänderung nicht jedesmal die Pixelgrafik neu erzeugt und gespeichert werden, sondern es reicht eine kleine änderung in CSS</mark></p>
+            <p>Einen <mark>Farbverlauf weisen Sie in CSS ebenfalls mit der Eigenschaft <em>background-image</em> zu.</mark> Als Wert folgt dann jedoch anstelle der bisher bekannten URL Definition des Verlaufs. Wie in den meisten Grafikprogrammen haben Sie auch hier die Wahl zwischen einem <strong>linearen</strong> und einem <strong>radialen Verlauf:</strong></p>
+            <p><code>background-image: linear-gradient(); <br> background-image: radial-gradient();</code></p>
+            <p>Ärgerlicherweise <mark>müssen auch Farbverläufe zurzeit noch mit <em>Vendor Prefixes</em> versehen werden.</mark> Diesmal <mark>jedoch nicht für die Eigenschaft, sondern für den Wert:</mark></p>
+            <p><code>background-image: -webkit-linear-gradient() <br> background-image: -moz-linear-gradient() <br> background-image: linear-gradient()</code></p>
+            <p><code>background-image: -webkit-radial-gradient() <br> background-image: -moz-radial-gradient() <br> background-image: radial-gradient()</code></p>
+            <h3>Lineare Farbverläufe</h3>
+            <p>Die grundlegende Syntax für <strong>lineare Farbverläufe</strong> sieht folgendermaßen aus(ist aber um zusätzliche Optionen erweiterbar):</p>
+            <p><code>background-image: linear-gradient(Winkel, Anfangsfarbe, Endfarbe)</code></p>
+            <p>NOTE: Die Angaben zum Verlaufswinkel werden in den browserspezifischen Varianten anders interpretiert als in der standardkonformen Variante!</p>
+            <h4>Beispiele</h4>
+            <p><code>background-image: -webkit-linear-gradient(0deg, red, blue); <br> background-image: -moz-linear-gradient(0deg, red, blue) <br> background-image: linear-gradient(90deg, red, blue)</code></p>
+            <p>erzeugt einen horizontalen Verlauf von links(rot) nach rechts(blau)</p>
+            <p><code>background-image: -webkit-linear-gradient(180deg, red, blue); <br> background-image: -moz-linear-gradient(180deg, red, blue) <br> background-image: linear-gradient(-90deg, red, blue)</code></p>
+            <p>erzeugt einen horizontalen Verlauf von rechts(rot) nach links(blau)</p>
+            <p><code>background-image: -webkit-linear-gradient(90deg, red, blue); <br> background-image: -moz-linear-gradient(90deg, red, blue) <br> background-image: linear-gradient(0deg, red, blue)</code></p>
+            <p>erzeugt einen vertikalen Verlauf von unten(rot) nach oben(blau)</p>
+            <p><code>background-image: -webkit-linear-gradient(45deg, red, blue); <br> background-image: -moz-linear-gradient(45deg, red, blue) <br> background-image: linear-gradient(45deg, red, blue)</code></p>
+            <p>erzeugt einen vertikalen Verlauf von unten links(rot) nach oben rechts(blau)</p>
+            <p><code>background-image: -webkit-linear-gradient(-90deg, red, blue); <br> background-image: -moz-linear-gradient(-90deg, red, blue) <br> background-image: linear-gradient(180deg, red, blue)</code></p>
+            <p>erzeugt einen vertikalen Verlauf von oben(rot) nach unten (Blau). Dies ist in allen Varianten <mark>Die Standardeinstellung d.h in diesem Fall kann die Angabe für den Winkel weggelassen werden:</mark></p>
+            <p><code>background-image: -webkit-linear-gradient(red, blue); <br> background-image: -moz-linear-gradient(red, blue) <br> background-image: linear-gradient(red, blue)</code></p>
+            <p>NOTE Anstelle des Winkels können auch Schlüsselwörter wie z.B <em>left, top, Bottom ,right</em> verwendet werden. Aber auch diese verhalten sich in den unterschiedlichen Varianten inkonsistent</p>
+            <h3>Farbangaben</h3>
+            <p>Für die <strong>Farbwerte</strong> <mark>können Sie jede beliebige Notation verwenden. Am häufigsten sind wohl Hex-Werte, aber es sind sogar Alphatransparenzen mit RGBA-Werten möglich:</mark></p>
+            <p><code>background-image: linear-gradient(0deg, #fff, rgba(255,255,255,0.5))</code></p>
+            <p>erzeugt einen vertikalen Verlauf von unten (weiß deckend) nach oben(weiß mit 50%-iger Deckkraft)</p>
+            <p>Sie können natürlich auch mehr als zwei Farben angeben:</p>
+            <p><code>background-image:linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet)</code></p>
+            <p>erzeugt einen horizontalen Verlauf von links nach rechts in Regenbogenfarben.</p>
+            <h3>Color Stops</h3>
+            <p>Und schließlich können Sie <mark>mit sogenannten <em>Color Stops</em> die Postion der Farbübergänge verändern.</mark> Color Stops werden - nach einem Leerzeichen - als Prozentwert hinter die betreffende Farbe geschrieben</p>
+            <p><code>background-image: linear-gradient(90deg, red, blue 15%)</code></p>
+            <p>erzeugt eine horizontalen Verlauf von links nach rechts, wobei der übergang von Rot nach Blau bereits nach 15% des Verlaufs erfolgt, und nicht - wie standardmäßig - erst nach 50%</p>
+          </details>
         </article>
         </main>
     </div>
