@@ -144,6 +144,95 @@
             <p>erzeugt eine horizontalen Verlauf von links nach rechts, wobei der übergang von Rot nach Blau bereits nach 15% des Verlaufs erfolgt, und nicht - wie standardmäßig - erst nach 50%</p>
           </details>
         </article>
+        <article>
+            <details>
+                <summary>
+                    <h2>Radiale Farbverläufe</h2>
+                </summary>
+                <p>Die allgemeine, standardkonforme Syntax für <strong>radiale Verläufe</strong> lautet:</p>
+                <p><code>background-image: radial-gradient(Form at Position-x Position-y,Anfangsfarbe, Endfarbe)</code></p>
+                <p>wobei hier die Optionen für <em>Form</em> und <em>Position</em> optional sind. Werden sie weggelassen, <mark>entsteht ein Verlauf, dessen Zentrum im Mittelpunkt des Elements steht, und der seine elliptischen form an die des Elements anpasst z.B</mark></p>
+                <p><code>background-image: radial-gradient(red, blue);</code></p>
+                <p>Der Standardwert für die <em>Form</em> ist eine ellipse <mark>Mit dem Wert <em>circle</em> lässt sich eine Kreisform erzwingen:</mark></p>
+                <p><code>background-image:radial-gradient(circle, red, blue)</code></p>
+                <p>Zusätzlich können Sie mit der Option <em>at Position-x Position-y</em> den Mittelpunkt des Verlaufs verschieben</p>
+                <p><code>background-image: radial-gradient(circle at 1em 1em, red, blue)</code></p>
+                <p><mark>Analog zum linearn Farbverlauf lassen sich natürlich auch hier die Anzahl der Farben sowie de Color Stops ändern.</mark></p>
+                <p>NOTE: <mark>Auch beim radialen Verlauf hat sich zwischenzeitlich die Syntax geändert! die browserspezifischen Angaben mit Präfix müssen Sie noch nach der alten Syntax notieren:</mark></p>
+                <p><code>background-image:-webkit-radial-gradient(Position-x Position-y, Form, Anfangsfarbe, Endfarbe) <br> -moz-radial-gradient(Position-x Position-y, Form, Anfangsfarbe, Endfarbe)</code></p>
+                <p>Somit müsste die vollständige Angabe eines radialen Verlaufs z.B so aussehen:</p>
+                <p><code>background-image:-webkit-radial-gradient(1 em 1 em, circle, red, blue) <br> -moz-radial-gradient(1 em 1 em, circle, red, blue) <br> background-image: radial-gradient(circle at 1 em 1 em, red, blue)</code></p>
+                <p><mark>Zudem existiert noch eine weitere, völlig andere Syntax zur Erzeugung linearer und radialer Farbverläufe speziell für Webkit-basierte Browser, der Sie im Web vielleicht noch hier und da begegnen:</mark></p>
+                <p><code>background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0,red), color-stop(1,blue))</code></p>
+                <p><mark>Diese experimentelle Syntax stammt noch aus den Anfangszeiten von CSS 3 und ist veraltet.</mark></p>
+                <p>Aufgrund der unterschiedlichen Syntax, sowie die wahrscheinlichkeit das sich diese noch ändert. Aus diesem Grund gibt es einige Website auf dennen man sich den Code generieren lassen kann.</p>
+               <a href="http://www.colorzilla.com/gradient-editor" alt="Colorzilla link" title="Colorzilla">www.colorzilla.com/gradient-editor</a><br>
+               <a href="http://www.cssmatic.com/gradient-generator" alt="CSS-matik Link" title="CSSmatik">www.cssmatic.com/gradient-generator</a>  <br>
+               <a href="http://cssfactory.com/linear-gradient" alt="Linear Gradient Link" title="CSSfactory">http://cssfactory.com/linear-gradient</a>
+            </details>
+        </article>
+        <article>
+            <details>
+                <summary>
+                    <h2>Festlegen von Konturen</h2>
+                </summary>
+                <p>Die können jedem beliebigen Objekt auf ihrer Seite eine Kontur verleihen Dazu stehen Ihnen drei Optionen zur Verfügung:</p>
+                <ol>
+                    <li>
+                        <p><em>borderwidth</em> Konturstärke</p>
+                    </li>
+                    <li>
+                        <p><em>border-style</em> Randstil</p>
+                    </li>
+                    <li>
+                        <p><em>border-color</em> Konturfarbe</p>
+                    </li>
+                </ol>
+                <h3>Konturstärke</h3>
+                <p>Mit <code>h1 {border-width: 1px;}</code> definieren Sie die Konturstärke i.d.R in Pixeln. Sie können jedoch auch für jede der vier Seiten eines Objekts separate Konturstärken definieren:</p>
+                <p><code>h1{border-top-width: 1px <br> border-right-width: 2px; <br> border-bottom-width: 3px; <br> border-left-width: 4px;}</code></p>
+                <p>oder</p>
+                <p><code>Die Reihenfolge hierbei ist wieder oben beginnend im Uhrzeigersinn.</code></p>
+                <p>NOTE: Die Werte, die Sie für <em>border-width</em> angeben, werden in der Gesamtbreite des Elements hinzugefügt.</p>
+                <h3>Randstil</h3>
+                <p>Mit <em>border-style</em> definieren Sie den Rahmentyp. Mögliche Werte sind:</p>
+                <table border="1">
+                    <tr>
+                        <td><code>borderstyle:</code></td>
+                        <td>
+                            <p><code>solid</code> (durchgezogen)</p>
+                            <p><code>dotted</code>(gepunktet)</p>
+                            <p><code>dashed</code> (gestrichtelt)</p>
+                            <p><code>double</code> (doppelt)</p>
+                            <p><code>groove</code> (3D-Effekt)</p>
+                            <p><code>ridge</code> (3D-Effekt)</p>
+                            <p><code>inset</code> (3D-Effekt)</p>
+                            <p><code>outset</code> (3D-Effekt)</p>
+                            <p><code>none</code> (keine Kontur, sinnvoll zum Abschalten vorhandener Konturen)</p>
+                        </td>
+                    </tr>
+                </table>
+                <h3>Alle Kontureigenschaften auf einmal definieren</h3>
+                <p>vereint die properties: <em>border-width border-style und border-color</em></p>
+                <p><code>h1{border: 1px solid red}</code></p>
+            </details>
+        </article>
+        <article>
+            <details>
+                <summary>
+                    <h2>Außenabstände</h2>
+                </summary>
+                <p>Viele Blockelemente -wie zum Beispiel etwa p oder h1 - erzeugen in der Browserdarstellung bekanntlich einen Abstand noch oben und unten. <mark>Diesen Abstand können Sie mit dem Attribut <em>margin</em> beeinflussen</mark></p>
+                <p><code>p{margin: 1em;}</code></p>
+                <p>Die Angabe von <em>margin</em> wirkt sich jedoch wieder auf alle vier Seiten es Elements aus. Sie können auch für jede Seite individuelle Abstände definieren.</p>
+                <p><code>p{ <br> margin-top: 0; <br> margin-bottom: 1em; <br> margin-left: 0.5em; <br> margin-right: 0.5em;</code></p>
+                <p>Oder Sie geben alle vier Werte, durch Leerzeichen getrennt an(beginnend im Uhrzeigersinn(start mit oben))</p>
+                <p><code>p{margin: 0 0.5em 1em 0.5em;}</code></p>
+                <p><mark>In der Praxis wären für Überschriften und Absätze z.B folgende Angaben sinnvoll:</mark></p>
+                <p><code><mark>p,h1,h2,h3,h4,h5,h6{ <br> margin: 0 0 1rem 0; <br>}</mark></code></p>
+                <p>Damit deaktivieren Sie die automatischen Abstände noch oben und fügen einen genau definierten Abstand nach unten ein.</p>
+            </details>
+        </article>
         </main>
     </div>
 </body>

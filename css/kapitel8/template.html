@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/master.css">
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>
+            Kapitel 8 Klassen.
+        </h1>
+        <main>
+            <article>
+                <details>
+                    <summary>
+                        <h2>Trivia</h2>
+                    </summary>
+                        <p>Bisher haben wir kennengelernt, wie wir HTML-Tags mit Hilfe von Selektoren verschiedene Eigenschaften zuweisen können. <mark>Sehr häufig gibt es aber die Anforderung, <em>identische</em> HTML-Elementen <em>unterschiedliche</em> Eigenschaften zuzuweisen.</mark> So möchten Sie z.B einen Absatz erzeugen, der sich durch eine andere Textfarbe von anderen Absätzen abhebt, oder einen Link, der größer als die anderen ist.</p>
+                        <p>Eine Möglichkeit, solche Unterscheidungen zu treffen, haben wir bereits kennengelernt: Die Pseudoklassen <code>:nth-child(n)</code> und <code>nth-of-type(n)</code>. Diese setzen jedoch eine exakt bestimmbare Position des betreffenden Elements im Dokument voraus, was in vielen Fällen nicht gewährleistet ist. Eine robustere Möglichkeit bieten <strong>Klassen</strong>. <mark>Klassen sind frei wählbare Namen, die Sie in einem ersten Schritt dem HTML-Element zuweisen, das Sie gesondert formatieren möchten.</mark></p>
+                        <h4>Beispiel</h4>
+                        <p>Sie haben drei Absätze, von denen der erste und der letzte nach den allgemeinen Vorgaben formatiert werden sollen. Der mittlere jedoch soll in Blauer Farbe fett geschrieben werden. Der HTML-Quelltext sieht so aus:</p>
+                        <p>&lt;p&gt;Dies ist der erste Absatz.&lt;/p&gt;</p>
+                        <p>&lt;p&gt;Dies ist der erste Absatz.&lt;/p&gt;</p>
+                        <p>&lt;p class="hervorgehoben" &gt;Dies ist der erste Absatz.&lt;/p&gt;</p>
+                        <p>&lt;p&gt;Dies ist der erste Absatz.&lt;/p&gt;</p>
+                </details>                
+            </article>
+        </main>
+    </div>
+</body>
+</html>
