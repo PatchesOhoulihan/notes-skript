@@ -22,9 +22,17 @@
                         <p>Sie haben drei Absätze, von denen der erste und der letzte nach den allgemeinen Vorgaben formatiert werden sollen. Der mittlere jedoch soll in Blauer Farbe fett geschrieben werden. Der HTML-Quelltext sieht so aus:</p>
                         <p>&lt;p&gt;Dies ist der erste Absatz.&lt;/p&gt;</p>
                         <p>&lt;p&gt;Dies ist der erste Absatz.&lt;/p&gt;</p>
-                        <p>&lt;p class="hervorgehoben" &gt;Dies ist der erste Absatz.&lt;/p&gt;</p>
-                        <p>&lt;p&gt;Dies ist der erste Absatz.&lt;/p&gt;</p>
-                </details>                
+                        <p>&lt;p class="hervorgehoben" &gt;Dies ist der zweite Absatz.&lt;/p&gt;</p>
+                        <p>&lt;p&gt;Dies ist der dritte Absatz.&lt;/p&gt;</p>
+                        <p>Im betreffenden p-Tag notieren Sie das HTML-Attribut <em>class</em> und vergeben dort einen aussagekräftigen Namen. Der Name darf keine Leer- oder Sonderzeichen enthalten</p>
+                        <p>In den CSS-Vorgaben notieren Sie folgendes: <br><code>p{<br> font-family: Verdana, Helvetica, Arial; <br> color: black; <br> font-size: 1em; <br>} <br> p.hervorgehoben{<br> color:blue; <br> font-weight:bold;<br>}</code></p>
+                        <p><mark>Der Klassenname wird mit einem <strong>Punkt</strong>(ohne Leerzeichen) an den betreffenden Selektor gehängt.</mark> Danach definieren Sie lediglich die Eigenschaft, die den Absatz von den anderen unterscheiden sollen. <mark>Es ist nicht notwendig, noch einmal Vorgaben für Schriftart und größe zu machen, wenn Sie diese nicht ändern wollen.</mark></p>
+                        <p><mark>Sie können eine Klasse so oft und so vielen Elementen zuweisen, wie Sie wollen.</mark></p>
+                        <p>Mit der oben genannten CSS-Syntax p.hervorgehoben ist es allerdings nur möglich, Absätze zu formatieren. Wenn Sie die besonderen Eigenschaften hingegen verschiedenen Elementen in Ihrem Dokument zuweisen wollen, lassen Sie in ihren CSS-Vorgaben den Tag-Namen p vor dem Punkt einfach weg.</p>
+                        <p><code>.hervorgehoben{....}</code></p>
+                        <p>Die Zuweisung von Klassen erfordert also zwei Schritte:</p>
+                        ul>li*p		
+                </details>
             </article>
         </main>
     </div>
