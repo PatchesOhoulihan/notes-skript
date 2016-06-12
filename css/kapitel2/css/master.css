@@ -1,0 +1,28 @@
+#wrapper{
+    max-width: 960px;
+    margin: 0 auto 0 auto;
+    background: white;
+    border: 1px solid red;
+    background: skyblue;
+}
+
+body{
+    background: peachpuff;
+    margin-top: 0px;
+    font-family: Times, verdana, Times;
+    font-size: 17px;
+}
+
+article{
+    background: cornsilk;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+
+article h3{
+    padding-left: 5px;
+}
+table,th,tr,td{
+  border: 1px solid black;
+}

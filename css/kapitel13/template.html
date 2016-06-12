@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/master.css">
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>
+            Kapitel 13 Ändern der Anzeigeart und kontextbedingte Auswahl.
+        </h1>
+        <main>
+            <article>
+                <details>
+                  <summary>
+                    <h2>Ändern der Anzeigeart von Elementen</h2>
+                  </summary>
+                  <p>Wie wir wissen, gibt es in HTML grundsätzlich zwei Arten von Elementen:</p>
+                  <ol>
+                    <li>
+                      <p>Blockelemente, die einen Absatz erzeugen(<em>div, p, h1-h6, header, main, footer nav....</em>)</p>
+                    </li>
+                    <li>
+                      <p>Inline-Elemente, die innerhalb des Fließtextes benutzt werden können(z.B. strong, em, b, i, a, sup....)</p>
+                    </li>
+                  </ol>
+                  <p>Mit CSS können Sie diese Darstellungsart eines Objekts ändern. Dazu benutzen Sie das Attribut <strong>display</strong>. Folgende Angaben sind möglich:</p>
+                  <table>
+                    <caption>Attribute für display</caption>
+                    <tr>
+                      <td>
+                        <p><code>display:</code></p>
+                      </td>
+                        <td>
+                          <p><code>block</code> (<mark>wandelt ein Inline-Element in ein Blockelement um</mark> - das Element erzeugt eine neue Zeile.)</p>
+                          <p><code>inline</code> (<mark>wandelt ein Blockelement in ein Inline-element um</mark> - das Element wird im laufenden Textfluss angezeigt)</p>
+                          <p><code>inline-block</code> (<mark>erzeugt einen Block, für den Breite, Höhe, und Außenabstand angegeben werden können, </mark>) belässt das Element jedoch im laufenden Text, ähnlich einem Bild(img)</p>
+                          <p><code>list-item</code>(<mark>wie block, jedoch mit einem Listenpunkt davor</mark>)</p>
+                          <p><code>none</code>(<mark>Das Element wird nicht angezeigt und nimmt auch keinen Raum mehr in Anspruch.</mark>)</p>
+                        </td>
+                    </tr>
+                  </table>
+                  <p><mark>Zudem haben Sie die Möglichkeit, Elemente so darzustellen, als wären sie Tabellen.</mark> Dadurch können Sie die Vorteile von Tabellen zu Layoutzwecken nutzen, ohne in HTML tatsächlich Tabellen zu verwenden:</p>
+                  <table>
+                    <tr>
+                      <td>
+                        <p><code>display</code></p>
+                      </td>
+                      <td>
+                        <p><code>table <br> table-row <br> table-cell</code></p>
+                      </td>
+                    </tr>
+                  </table>
+                </details>
+            </article>
+            <article>
+              <details>
+                <summary>
+                  <h2>Positionsbedingte Auswahlen</h2>
+                </summary>
+                <h3>Descendant Selector(Nachfahren-Selector)</h3>
+                <p>Es ist nicht unbedingt notwendig, für jedes Element auf ihrer Seite, das gesondert formatiert werden soll, gleich eine eigene Klasse oder ID zu definieren. Sehr oft ist es einfacher(und eleganter), <mark>Elemente abhängig von ihrer Position zu formatieren.</mark></p>
+                <p><mark>Sie können Elementen unterschiedliche Eigenschaften zuweisen, abhängig davon, in welchem <strong>übergeordneten Element(Ancestor, "Vorfahr")</strong> sie enthalten sind.</mark> Notieren Sei dazu einfach in einem neuen Selektor zuerst das Vorfahren-Element und nach einem <strong>Leerzeichen</strong> das Nachfahren-Element, das sie formatieren möchten(Descendant)</p>
+                <p><code>nav a{<br> display:block <br>}</code></p>
+                <p>Diese bedingten Formatierungen können mit allen Arten von CSS-Selektoren und in beliebiger Tiefe verwendet werden.</p>
+                <p>Beispiele</p>
+                <table>
+                  <tr>
+                    <td>
+                      <p><code>div p</code></p>
+                    </td>
+                    <td>
+                      <p> ändert alle Absätze &lt;p&gt;, die sich innerhalb eines beliebigen <em>div-</em>Tags befinden, nicht aber die Absätze außerhalb von <em>div-</em>Tags</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><code>.box h1</code></p>
+                    </td>
+                    <td>
+                      <p>ändert alle Überschriften &lt;h1&gt;, die sich innerhalb von Elementen mit dem Klassenamen <em>.box</em> befinden</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><code>div#nav ul</code></p>
+                    </td>
+                    <td>
+                      <p>ändert alle Listen &lt;ul&gt;, die sich innerhalb des <em>div-</em>Containers mit der ID #navi befinden.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><code>div#menu ul.rot li</code></p>
+                    </td>
+                    <td>
+                      <p>ändert alle Listeneinträge&lt;li&gt; in <em>ul-</em>Listen mit dem Klassennamen .rot, sofern sich diese in einer <em>div-</em>Box mit der ID <em>#menu</em> befinden.</p>
+                    </td>
+                  </tr>
+                </table>
+                <p>NOTE: <mark>Diese art der Selektion ist in vielen Fällen effizienter als die Vergabe unzähliger Klassen und IDs</mark> Bedenken Sie bei der Verwendung solcher Selektoren immer folgende Regel: <strong>Es werden immer nur die Elemente formatiert, die ganz rechts in der Zeile stehen. Im Beispiel:</strong></p>
+                <p><code>div#menu ul.rot li</code></p>
+                <p>wäre das also ausschließlich das <em>li-Element</em> Weder die <em>ul-listen</em> mit der Klasse <em>rot</em> noch das <em>div#menu</em> sind von der Formatierung betroffen.</p>
+                <h3>Child Selector(Kind-selector)</h3>
+                <p><mark>Eine Variante der Nachfahren-Selektoren sind die Kind-Selektoren</mark>, mit denen Sie sehr komfortable Elemente formatieren können, die <strong>direkte "Kinder"</strong> von übergeordnenten <em>Parent-</em>Elementen sind.</p>
+                <p>Die allgemeine Syntax lautet:</p>
+                <p><code>parent &gt; child</code></p>
+                <p>wobei der "Pfeil" mit dem Zeichen für "größer als" gebildet wird.</p>
+                <table>
+                  <caption>
+                    <p><strong>Beispiele</strong></p>
+                  </caption>
+                <tr>
+                  <td>
+                    <p><code>div&nbsp;>&nbsp;p</code></p>
+                  </td>
+                  <td>
+                    <p>ändert alle Absätze &lt;p&gt;, die sich <strong>direkt</strong> innerhalb eines beliebigen <em>div-</em>Tags befinden, nicht aber die Absätze, die sich innerhalb weiterer Elemente befinden:</p>
+                    <p><code>&lt;div&gt;<br> &nbsp; &nbsp;&lt;p&gt;&lt;/p&gt; <br>&lt;/div&gt;</code></p>
+                    <p>wird geändert!</p>
+                    <p><code>&lt;div&gt;<br>&nbsp;&nbsp;&lt;article&gt;<br> &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;&lt;/p&gt;<br>&nbsp;&nbsp;&lt;article&gt; <br>&lt;/div&gt;</code></p>
+                    <p>wird NICHT geändert</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p><code>.box&nbsp;>&nbsp;h1</code></p>
+                  </td>
+                  <td>
+                    <p>ändert alle Überschriften &lt;h1&gt;, die sich direkt innerhalb von Elementen mit dem Klassennamen .box befinden:</p>
+                    <p><code>&lt;div class="box"&gt;<br> &nbsp; &nbsp;&lt;h1&gt;&lt;/h1&gt; <br>&lt;/div&gt;</code></p>
+                    <p>Wird geändert.</p>
+                    <p><code>&lt;div class="box"&gt;<br>&nbsp;&nbsp;&lt;article&gt;<br> &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;&lt;/h1&gt;<br>&nbsp;&nbsp;&lt;article&gt; <br>&lt;/div&gt;</code></p>
+                    <p>wird NICHT geändert</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p><code>ul#navi&nbsp;>&nbsp;li</code></p>
+                  </td>
+                  <td>
+                    <p>ändert alle Listenelemente &lt;li&gt;, die sich direkt innarhalb der &lt;ul&gt;-Liste mit der ID#navi befinden:</p>
+                    <p><code>&lt;ul id="navi"&gt;<br> &nbsp; &nbsp;&lt;li&gt;&lt;/li&gt; <br>&lt;/ul&gt;</code></p>
+                    <p>Wird geändert.</p>
+                    <p><code>&lt;ul id="navi"&gt;<br>&nbsp;&nbsp;&lt;li&gt;<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;/li&gt;<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br>&nbsp;&nbsp;&lt;/li&gt; <br>&lt;/ul&gt;</code></p>
+                    <p>wird NICHT geändert</p>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <p><code>ul#menu&nbsp;>&nbsp;li&nbsp;>&nbsp;a</code></p>
+                  </td>
+                  <td>
+                    <p>ändert alle Links auf der obersten Ebene einer &lt;ul&gt;-Liste mit der ID #menu, nicht aber die Links in verschachtelten Listen:</p>
+                    <p><code>&lt;ul id="menu"&gt;<br>&nbsp;&nbsp;&lt;li&gt;<br> &nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;&lt;/a&gt;<br>&nbsp;&nbsp;&lt;/li&gt; <br>&lt;/ul&gt;</code></p>
+                    <p><code>&lt;ul id="menu"&gt;<br>
+                      &nbsp;&nbsp;&lt;li&gt;<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;&lt;/a&gt;<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&gt;<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a&gt;&lt;/a&gt;<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt;<br>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br>
+                      &nbsp;&nbsp;&lt;/li&gt; <br>
+                      &lt;/ul&gt;</code></p>
+                      <p>ändert nur die äußeren Links, nicht aber die in der verschachtelten Liste.</p>
+                  </td>
+                </tr>
+              </table>
+              <h3>Adjacent Sibling Selector(Selector für "benachbarte Geschwister")</h3>
+              <p>Mit diesem Selektor können Sie Elemente auswählen, die im HTML-Quelltext <strong>unmittelbar nach</strong> einem bestimmten Element(nicht innerhalb) stehen. <mark>Der Kombinator ist hier das Pluszeichen. Die allgemeine Synstax ist:</mark></p>
+              <p>element1 + element2</p>
+              <p>Beispiel: h1 + p{font-weight: bold;} &rArr; formatiert alle Absätze, die im HTML-Quelltext <strong>direkt nach einer h1-Überschrift stehen. Im folgenden Beispiel ist dies ausschließlich der erste Absatz:</strong></p>
+              <p>&lt;h1&gt;Überschrift&lt;/h1&gt;</p>
+              <p>&lt;p&gt;Nur dieser Absatz wird formatiert.&lt;/p&gt;</p>
+              <p>&lt;p&gt;Zweiter Absatz&lt;/p&gt;</p>
+              <p>&lt;p&gt;Dritter Absatz&lt;/p&gt;</p>
+              <p><mark>Leerzeichen im HTML-Quelltext spielen dabei natürlich keine Rolle. Sie werden ignoriert.</mark></p>
+              <h3>General Sibling Selector(Selector für alle nachfolgenden Geschwister.)</h3>
+              <p><mark>Dieser Selector ist mit Vorsicht zu genießen, denn er formatiert <strong>alle genannten Elemente</strong></mark> die im HTML-Quelltext auf ein bestimmtes Element folgen. <mark>Der Kombinator ist die ~ (Tilde)</mark></p>
+              <p><code>element1 ~ element2</code></p>
+              <p><strong>Beispiel </strong> h1~p{font-weight: bold;}</p>
+              <p><mark>formatiert <strong>alle Absätze,</strong> die nach der <em>h1-</em> Überschrift auf derselben Ebene stehen:</mark></p>
+              <p><code>&lt;h1&gt;&lt;&gt;h1&lt;Überschrift/h1&gt;&lt;/h1&gt;<br>&lt;p&gt;Dieser Absatz wird formatiert.&lt;/p&gt;<br>&lt;p&gt;Dieser Absatz wird formatiert&lt;/p&gt;<br>&lt;p&gt;Dieser Absatz wird formatiert&lt;/o&gt;<br>&lt;div&gt;<br>&nbsp;&nbsp;&lt;p&gt;Dieser Absatz wird nicht eingefärbt &lt;/p&gt;<br>&lt;/div&gt;</code></p>
+              <p><mark>Auch hier werden die Leerzeichen natürlich ignoriert.</mark></p>
+              </details>
+            </article>
+            <article>
+              <details>
+                <summary>
+                  <h2>Attribute-Selektoren</h2>
+                </summary>
+                <p>Anders funktionieren die Attribut-Selektoren: Damit können Sie Elemente abhängig davon auswählen, ob sie im HTML-Dokument bestimmte Attribute besitzen. <mark>Attribut-Selektoren stehen in <strong>eckigen Klammern.</strong></mark></p>
+                <h3>Einfacher Attribute-Selektor</h3>
+                <p><code>[attribute]</code></p>
+                <p><strong>Beispiel</strong></p>
+                <p><code>[src]</code></p>
+                <p><mark>Dieser Selektor wählt alle Elemente aus, die das HTML-Attribut <em>src</em> besitzen. Wie zum Beispiel:</mark></p>
+                <p><code>&lt;img src="deinemama.jpg"/&gt; <br>&lt;video src="film.mp4"&gt;&lt;/video&gt;</code></p>
+                <h3>Tag mit Attribut-Selector</h3>
+                <p><code>tag[attribut]</code></p>
+                <p><strong>Beispiel</strong></p>
+                <p><code>input[type]</code></p>
+                <p><mark>wählt alle <em>input-</em>Elemente aus, die das Attribut <em>type</em> haben</mark></p>
+                <p><code>&lt;input type="text"/&gt;<br>&lt;input type="checkbox"/&gt;<br>&lt;input type="submit"/&gt;</code></p>
+                <p>aber NICHT</p>
+                <p><code>&lt;button type="submit"/&gt;<br></code></p>
+                <h3>Wertabhängige Attribut-Selektoren</h3>
+                <p><strong>Operatoren</strong></p>
+                <p>Mit verschiedenen Operatoren anstelle des Gleichheitszeichens können Sie die Auswahl ausweiten:</p>
+                <p><mark>Der ^= Operator wählt alle Elemente aus, die ein Attribute haben, dessen Wert mit bestimmten Zeichen beginnt:</mark></p>
+                <p><code>a[href^=http:]</code></p>
+                <p>wählt alle Links aus, deren Wert im <em>href-</em>Attribut mit <em>http:</em> beginnt z.B:</p>
+                <p>&lt;a href="http://www.youtube.de"&gt;</p>
+                <p>Aber NICHT</p>
+                <p>&lt;a href="../products/kaffeemachine.html"&gt;</p>
+                <p><mark>Der $= Operator wählt alle Elemente aus, die ein Attribut haben, dessen Wert mit einer bestimmten Zeichenfolge <strong>endet</strong></mark></p>
+                <p><code>img[src$=".png"]</code></p>
+                <p>wählt alle Bilder aus, deren Wert im src-Attribut mit <em>.png</em> endet.</p>
+                <p><mark>Der *= Operator wählt alle Elemente aus, die ein Attribut haben, dessen Wert ein bestimmtes Zeichen <strong>enthält</strong></mark></p>
+                <p><code>div[id*="navi"]</code></p>
+                <p>wählt alle <em>div-</em>tags aus deren, ID die Zeichenkette <em>navi</em> enthält.</p>
+                <p><code>&lt;div id="navi"&gt; <br>&lt;div id="hauptnavigation"&gt; <br>&lt;div id="subnavi"&gt; <br>&lt;div id="navigationsmenu"&gt; <br>&lt;div id="navi_unten"&gt; <br></code></p>
+              </details>
+            </article>
+            <article>
+              <details>
+                <summary>
+                  <h2>Der Stern Selektor</h2>
+                </summary>
+                <p>Die Holzhammer-Methode schließlich ist der Stern-Selektor *. <mark>Dieser Selektor wählt <strong>alle Elemente</strong> aus.</mark> Er wird in der Praxis häufig dazu verwendet, um z.B. das Standard-margin des Browsers von sämtlichen Elementent im Dokument zu entfernen:</p>
+                <p><code>*{<br> &nbsp;&nbsp;margin: 0; <br>}</code></p>
+                <p>In diesem Fall müssen natürlich allen Elemtnen(vor allen Absätzen und Überschriften) die gewünschten <em>margins</em> manuell wieder hinzugefügt werden, <mark>Dennoch ist dieses Vorgehen meist effektiver als der umgekehrte Weg, das <em>margin</em> von jedem einzelnen element zu entfernen oder anzupassen.</mark></p>
+              </details>
+            </article>
+        </main>
+    </div>
+</body>
+</html>

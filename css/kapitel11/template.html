@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/master.css">
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>
+            Kapitel 11 IDs und einfache Positionierung.
+        </h1>
+        <main>
+            <article>
+                <details>
+                  <summary>
+                    <h2>Trivia</h2>
+                  </summary>
+                  <p>Auf ganz ähnliche Weise wie Klassen funktionieren <strong>IDs:</strong> <mark>Auch hier Vergeben Sie einen selbstdefinierten Namen, den Sie dem gewünschten HTML-Element zuweisen , um dieses von anderen, gleichartigen HTML-Elementen zu unterscheiden. In den CSS-Vorgaben ändert sich lediglich der Punkt in eine <strong>Raute</strong>, und das HTML-Attribut <em>class</em> wrid durch <em>id</em> ersetzt:</mark></p>
+                  <p><strong>Beispiel</strong></p>
+                  <p>CSS: <br> p#graue_box{background-color: gray;}</p>
+                  <p>HTML: <br> &lt;p id="graue_box"&gt;Absatz mit grauem Hintergrund.&lt;/p&gt;</p>
+                  <p>Auch eine ID können Sie jedem beliebigen HTML-Element zuweisen.</p>
+                  <p>Was ist nun aber der Unterschied zwischen Klassen und IDs? Er liegt in der Logik: Wie wir gesehen haben, können Sie eine bestimmte Klasse so oft und so vielen Elementen auf Ihrer Seite zuweisen, wie Sie möchten. <mark>Eine bestimmte ID hingegen darf nur <strong>ein einziges Mal</strong> in einem HTML-Dokument vorkommen.</mark> Dadurch ist das betreffende Element gegenüber anderen Elementen eindeutig identifizierbar. Dabei spielt es keine Rolle, <strong>welchem</strong> HTML-Element Sie die ID zuweisen. Wichtig ist lediglich, dass nur ein einziges Element diese bestimmte ID trägt.</p>
+                  <p><mark>IDs verwenden Sie also immer dann, wenn Sie wissen, dass ein bestimmtes Gestaltungselement <strong>nur einmal</strong> auf jeder Ihrer Seiten vorkommt.</mark> Klassen hingegen nutzen Sie für Elemente, die in Ihrem Layout <strong>mehrfach</strong> vorkommen.</p>
+                  <p>Aus diesem Grund dienen IDs meist dazu, das Layout einer Seite vorzugeben und sie in verschiedene Bereiche aufzuteilen(Kopfbreich, Inhaltsbereich), während der Inhalt der Seite eher mit Klassen formatiert wird.</p>
+                  <p>IDs werden überdies häufig benötigt, wenn die betreffenden Elemente mit Hilfe von Javascript manipuliert werden sollen.</p>
+                  <h3>HTML-Tags für das Seitenlayout.</h3>
+                  <p>Dieses "Layoutraster" wurde in der Vergangenheit in HTML häufig mit Hilfe von div-Tags erzeugt(ist aber keineswegs auf diese beschränkt). Der <em>div-</em>tag ist ein Blockelement und erzeugt daher - wie etwa der p-Tag - eine neue Zeile. <mark>Er hat gegenüber dem p-Tag jedoch einen entscheidenden Vorteil: er kann weiter Blockelemente enthalten</mark> Dadurch können sie mit Div-Elementen gesonderte, in sich abgeschlossene <strong>Breiche</strong> oder <strong>Abschnitte</strong> definieren, die selbst weitere Elemente wie. Überschriften, Absätze, Listen, Tabellen, aber auch Bilder und sogar weitere div-Elemente enthalten können. Mit CSS formatieren und positioniert können Sie damit jedes Layout realisieren; Navigationsleisten, Textspalten, Infoboxen.</p>
+                  <h3>Neue Tags in HTML-5</h3>
+                  <p>In früheren HTML-Versionen war der div nahezu der einzige, mit dem ein "Layoutraster" möglich war. Ein Nachteil dabei ist, dass den einzelnen Seitenbereichen <em>keine semantische Bedeutung</em> zukommt. Ob Kopfbereich, Hauptnavigation oder Inhalt - alles sind div-Container. Seit HTML 5 gibt es zu diesem Zweck zusätzliche Tags, die die einzelenen Seitenbreiche von vornherein semantisch als solche kennzeichnen.</p>
+                  <table>
+                    <caption>Semantische HTML-5 Tags</caption>
+                    <tr>
+                      <td>
+                        <p>&lt;header&gt;</p>
+                      </td>
+                      <td>
+                        <p>definiert eine Einleutung oder den Kopfbereich eines Dokuments, aber auch eines einzelen Artikels. Es kann z.B Überschriften, aber auch Navigationselemente enthalten. Nicht zu verwechseln mit &lt;head&gt;, dem(unsichtbaren Dateikopf am Beginn jedes HTML-Dokuments)</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p>&lt;nav&gt;</p>
+                      </td>
+                      <td>
+                        <p>kennzeichnet die darin enthaltenen Links als Navigationselemente</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p>&lt;main&gt;</p>
+                      </td>
+                      <td>
+                        <p>kennzeichnet den Haupt-Inhaltsbereich.</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p>&lt;footer&gt;</p>
+                      </td>
+                      <td>
+                        <p>definiert eine Fußzeile. Sie kann z.B. den Autor des Dokuments, Copyright-Informationen, Links zu Nutzungsbedingungen, Kontaktdaten etc. enthalten. Fußzeilen werden in der Regel am unteren Rand des Dokuments platziert(Dies ist jedoch nicht zwingend erforderlich). Ein Dokument kann auch mehr als eine Fußzeile enthalten.</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p>&lt;section&gt;</p>
+                      </td>
+                      <td>
+                        <p>kennzeichnet einen größeren, in sich geschlossen Bereich oder Abschitt, z.B den Bereich unterhalb eines Blog-Beitrages, in dem die User-Kommentare stehen. Wird bis jetzt eher selten verwendet.</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p>&lt;article&gt;</p>
+                      </td>
+                      <td>
+                        <p>kennzeichnet einen unabhängigen,in sich geschlossen Abschnitt(i.d.R innerhalb des Inhaltsbereichs) z.B einen einzelnen Foren- oder Blog-Beitrag, einen User-Kommentar oder die Beschreibung eines bestimmten Produkts in einem Online-Shop.</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p>&lt;aside&gt;</p>
+                      </td>
+                      <td>
+                        <p>definert inhalt, der zum jewiligen Thema passt, aber nicht direkt dazugehört, eine Randbemerkung oder Marginalie. Kann auch zur Erzeugung von Seitenleisten verwendet werden.</p>
+                      </td>
+                    </tr>
+                  </table>
+                  <p>NOTE: Beachten Sie, dass diese sogenannte "strukturellen Tags" ohne CSS-Vorgaben keinerlei optische Veränderung bewirken,<mark> Sie dienen lediglich der logischen Aufteilung Ihres Dokuments</mark></p>
+                  <p>NOTE: Der Internet Explorer bis zur Version 8 hat die Eigenschaft, HTML-Tags, die er nicht kennt, überhaupt nicht darzustellen, selbst wenn diesen mit CSS ein eindeutiges Aussehen und eine eindeutige Position zugewiesen wurde. Deshalb funktionieren die genannten HTML-Layouts in IE erst ab Version 9, da erst diese Version HTML-5 fähig ist. <mark>Um die neuen Tags auch in älteren IE-Versionen darstellen zu können, benötigen Sie spezielle Hilfsmittel, sogenannte Polyfills.(Siehe Kapitel 14.)</mark></p>
+                </details>
+            </article>
+        </main>
+    </div>
+</body>
+</html>

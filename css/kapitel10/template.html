@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/master.css">
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>
+            Kapitel 10 Größenangaben.
+        </h1>
+        <main>
+            <article>
+                <details>
+                  <summary>
+                    <h2>Angaben für Breite und Höhe</h2>
+                  </summary>
+                  <p>Es könne für jedes Element in Ihrem Dokument exakte Größenangaben mit den Attribute <strong>width (breite)</strong> und <strong>height (höhe) </strong> in Verbindung mit numerischen Werten machen. <mark>Es sind auch Prozentangaben sowie die Maßeinheiten em und rem möglich.</mark> Mit letztern können Sie "dynamische" Größenangaben machen, die sich zusammen mit der Schriftgröße ändern.</p>
+                  <p>Beispiel: <br> .nav{<br> width: 30% <br> height:20em <br>}</p>
+                  <p>Wenn Sie jedoch möchten, das sich die Höhe einese Elements <strong>automatisch dem Inhalt anpasst, </strong> sollten Sie in der Praxis das Attribut <em>height</em> in der Regel <strong>weglassen</strong>. <mark> Eine Ausnahme davon bildet beispielsweise der header von Websites, der in der Regel eine feste Höhe hat.</mark></p>
+                  <p>NOTE: Der Breite und der Höhe eines Elements werden nach dem W3C-Standard die Werte, die Sie für padding und border angeben, <strong>hinzugezählt</strong></p>
+                  <p><strong>Beispiel</strong></p>
+                  <p>width: 150px; <br> height: 100px; <br> padding: 5px; <br> border: 1px solid #000</p>
+                  <p>Die gesamtbreite des Elements im Browser beträgt dadurch: <br> <mark>150px + 5px(padding links) + 5px (padding rechts) + 1px (border links) + 1px (border rechts) = <strong>162px</strong></mark> </p>
+                  <p>Die höhe beträgt entsprechend <br> 100px + 5px + 5px + 1px +1px =112px</p>
+                </details>
+            </article>
+            <article>
+              <details>
+                <summary>
+                  <h2>Übersatz</h2>
+                </summary>
+                <p>Wenn Sie eine feste Höhe angeben, kann es passieren, dass der Inhalt nicht mehr ins Element passt (man spricht hierbei von einem Übersatz). Standardmäßig ragt der Inhalt dann über das Element hinaus. In diesem Fall können Sie mit dem Attribut <strong><em>overflow</em></strong> bestimmen, was mit dem Inhalt geschehen soll:</p>
+                  <p>Beispiel: <br> .nav{<br> width: 30% <br> height:20em <br> overflow: auto; <br>}</p>
+                  <table>
+                    <tr>
+                      <td><code>overflow: </code></td>
+                      <td>
+                        <p>visible (der Inhalt ragt gegebenfalls aus dem Element heraus, Standardwert) <br> hidden(der Inhalt wird ggt. abgeschnitten) <br> scroll(der Browser erzeugt Rollbalken für das Element, allerdings auch dann wenn gar keine benötigt werden.) <br> auto (der Browser erzeugt nur Rollbalken für das Element, wenn sie nötig sind)</p>
+                        <p><mark>Vor allem mit <em>overflow:auto</em>können Sie interessante Effekte erzeugen.</mark> Die so ausgezeichneten Elemente erhalten eigene Rollbalken, ähnlich einem iFrame-Fenster. <mark>Beachten Sie, dass der Effekt nur dann sichtbar ist, wenn das betreffende element eine <strong>feste Höhe</strong> hat und der Inahlt nicht mehr hineinpasst.</mark></p>
+                        <p>NOTE: Wenn Sie die Eigenschaft overflow:auto verwenden sollten Sie i.d.R zusätzliche auch die Eigenschaft:</p>
+                        <p>-webkit-overflow-scrolling: touch;</p>
+                        <p>angeben. diese gehört nicht zum W3C-Standard und ist eine proprietäre Eigenschaft für Webkit-basierte Browser. Sie sorgt dafür, <mark>dass das betreffende Element auch auf Webkit-basierten Mobilgeräten mit dem Finger gescrollt werden kann, Dabei wird am Ende auch der bekannte "Gummiband-Effekt erzeugt."</mark></p>
+                      </td>
+                    </tr>
+                  </table>
+                  <h3>Manuelle Größenänderung.</h3>
+                  <p>Zusätzlich(oder alternativ dazu) können Sie dem Anwender auch die Möglichkeit geben, <mark>Elemente mit fester Breite oder höhe selbst zu vergrößern oder zu verkleinern. Dafür steht ihenen das Attribut <strong>resize</strong> zur Verfügung. Mögliche Werte sind:</mark></p>
+                  <table>
+                    <tr>
+                      <td><code>resize:</code></td>
+                      <td>
+                        <p><code>both <br> vertical <br> horizontal <br> none</code>(Standardeinstellung)</p>
+                      </td>
+                    </tr>
+                  </table>
+                  <p>Die so ausgezeichneten Elemente bekommen an der rechten unteren Eche einen Anfasser, mit dem das Element größer und kleiner gezogen werden kann.</p>
+              </details>
+            </article>
+            <article>
+              <details>
+                <summary>
+                  <h2>Mindest und Maximalgrößen</h2>
+                </summary>
+                <p>Analog zu <em>width</em> und <em>height</em> bieten CSS einige praktische Alternativen, so etwa die <strong>Mindestbreite min-width</strong> und die <strong>Mindesthöhe min-height</strong>. Damit kann ein Element eine bestimmte Breite bzw. Höhe nicht mehr unterscheiden, skaliert aber trotzdem mit , wenn der Inhalt länger wird. Analog dazu existieren auch die Eigenschaften <strong>max-height u. max-width</strong></p>
+              </details>
+            </article>
+        </main>
+    </div>
+</body>
+</html>

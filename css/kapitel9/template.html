@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/master.css">
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>
+            Kapitel 9 Textumfluss.
+        </h1>
+        <main>
+            <article>
+                <details>
+                  <summary>
+                    <h2>Trivia</h2>
+                  </summary>
+                  <p>Wie wir wissen, werden in HTML-Elemente im Browser standardmäßig immer untereinander angeordnet. CSS bieten zahlreiche Möglichkeiten, dies zu ändern. Für die eigentsich hier der <strong>Textumfluss</strong> mit Hilfe des Attributs <strong><em>float</em></strong></p>
+                  <p><mark>Dieses Attribute kann die Werte <em>left</em> und <em>right</em> annehmen.</mark> Wenn sie einem Element die <mark>Eigenschaft <em>float:left</em> zuweisen, dann wird dieses Element von <strong>allen nachfolgenden</strong> Elementen <strong>rechts umflossen</strong></mark> , sofern der Platz dafür ausreicht. <mark>Bei float:right wird das Element <strong>links</strong> umflossen.</mark></p>
+                  <p>BSP: <code>img{<br>float:left;<br>}</code></p>
+                  <p>Allerdings wirkt sich das Attribut float auf <strong>alle nachfolgenden Elemente</strong> aus. Wenn sie diese nachfolgenden Elemente wieder über die gesamte Breite darstellen wollen, müssen Sie die <em>float</em> Anweisung für das erste dieser Elemente wieder <em>deaktivieren</em> Dies geschieht über das Attribut <strong>clear</strong> <mark>Das Attribut <em>clear</em> kann die Werte <em>left</em>(linken Umfluss deaktiviern), right(rechten Umfluss deaktivieren) und both (beide deaktivien) annehmen.</mark> Am einfachsten ist meist both:</p>
+                  <p>BSP: <code>img2{<br>clear:both;<br>}</code></p>
+                </details>
+            </article>
+        </main>
+    </div>
+</body>
+</html>

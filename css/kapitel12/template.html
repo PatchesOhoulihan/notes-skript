@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/master.css">
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>
+            Kapitel 12 Positionierung von Elementen.
+        </h1>
+        <main>
+            <article>
+                <details>
+                  <summary>
+                    <h2>Trivia</h2>
+                  </summary>
+                  <p>Mit CSS können Sie jedes Element exakt auf Ihrer Seite positionieren. Dabei haben sie mehrere Möglichkeiten. <mark>Die beiden am häufigsten benutzten sind die <em>statische</em> und die <em>absolute</em> Positionierung. Daneben gibt es noch die <em>relative</em> und die <em>fixierte</em> Positionierung</mark></p>
+                  <p>Zunächst müssen Sie im Attribut <em>position</em> angeben, welche dieser Positierungsmethoden sie verwenden. Beachten Sie, dass Sie damit noch nicht bestimmen, wo genau sich ihr Objekt au der Seite befindet. Sie legen damit lediglich fest, <em>welche Methode</em> Sie zur Positionierng verwenden, d.h auf <em>welche Weise das Objekt</em> positionert werden soll.</p>
+                  <p><strong>Beispiel</strong></p>
+                  <p><code>img#logo{position: static;}</code></p>
+                  <p><code>img#logo{position: relative;}</code></p>
+                  <p><code>img#logo{position: absolute;}</code></p>
+                  <p><code>img#logo{position: fixed;}</code></p>
+                </details>
+            </article>
+            <article>
+              <details>
+                <summary>
+                  <h2>Statische Postionierung</h2>
+                </summary>
+                <p><mark>Die <strong>statische Positionierungsmethode</strong> ist die Standard Methode</mark>, die verwendet wird, wenn Sie nichts anderes angeben. Das bedeutet, diese Methode haben wir bereits die ganze Zeit über verwendet. Sie müssen die Eigenschaft <em>position:static</em> i.d.R nicht explizit angeben.</p>
+                <p><mark>Mit dieser Methode werden Objekte positioniert, indem sie sich gegenseitig verdrängen</mark> und damit an die gewünschte Stelle "drücken", ähnlich wie etwa Blätter auf einer Wasseroberfläche. Sie verwenden dafür üblicherweise Eigenschaften wie <em>width, margin oder float</em></p>
+              </details>
+            </article>
+            <article>
+              <details>
+                <summary>
+                  <h2>Relative Positionierung</h2>
+                </summary>
+                <p>Ähnlich funktioniert die <strong>relative Positionierung</strong>. <mark>Allerdings können Sie mit dieser Methode ein Element mit einem oder mehreren der vier Attribute <em>top, left, right und bottom</em> um einen bestimmten Wert <strong>verschieben.</strong></mark> Wenn Sie diese Methode verwenden möchten, müssen Sie dies explizit angeben.</p>
+                <p>Beispiel</p>
+                <p><code>img#logo{<br>position:relative;<br>top:5px; <br> left:10px <br>}</code></p>
+                <p>dann wird das Element - <strong>gemessen von seiner Normalposition im HTML-Dokument -</strong> um 5px nach unten und 10px nach rechts verschoben.</p>
+                <p><mark>Wenn Sie die Eigenschaft <em>position:relative</em> vergeben, <strong>ohne</strong> zusätzliche Angaben zu <em>top, left, right oder bottom ändert sich nichts an der Darstellung</em></mark> , das Element bleibt an Ort und Stelle. Diesen Umstand werden werden wir uns später zunutze machen....</p>
+              </details>
+            </article>
+            <article>
+              <details>
+                <summary>
+                  <h2>Absolute Positionierung</h2>
+                </summary>
+                <p>Ganz anders verhält es sich mit der <strong>absoluten Positionierung</strong>. <mark>Nachdem Sie diese Methode mit Hilfe des Attributs <em>position:absolute</em> für ein Element festgelegt haben, können Sie es mit einem oder mehreren der vier Attribute <em>top, left right und bottem</em> frei auf ihrer Seite platzieren.</mark></p>
+                  <p><code>img#logo{<br>position:absolute;<br>top:10px; <br> left:20px <br>}</code></p>
+                  <p><mark>Das so positionierte Element wird dabei aus dem normalen Objektfluss <strong>herausgenommen</strong> und auf eine höhere Ebene gesetzt.</mark> Es liegt also vor allen andernen Objekten und kann diese dadurch auch nicht mehr verdrängen.</p>
+                  <p>Jedes Element, das Sie auf diese Weise positionieren, wird dabei auf eine eigene Ebene gesetzt, d.h mehrere absolut positionierte Elemente können sich auch <strong>überlagern</strong> oder <strong>überlappen.</strong></p>
+                  <h3>Festlegen der Ebenenhierachie</h3>
+                  <p>Dabei gilt normalerweise das Element als das vorderste, das im <strong>HTML-Quelltext an letzter Stelle</strong>steht. Diese Ebenenhierachie können Sie jedoch mit dem Attribut <strong>z-index</strong>("Objektindex") und einem numerischen Wert ändern. je höher der Wert, desto weiter vorn liegt das Element:</p>
+                  <p><code>img#logo{<br>position:relative;<br>top:5px; <br> left:10px <br> z-index:1;<br>}</code></p>
+                  <p><code>h1#main-head{<br>position:relative;<br>top:5px; <br> left:10px <br> z-index:2;<br>}</code></p>
+                  <p>Jede höhere Zahl setzt das entsprechende Element um eine Ebene nach vorne. Dabei müssen Sie die Ebenen nicht sequenziell numerieren, d.h auf <em>z-index</em> muss nicht zwingend z-index:2 folgen, sondern es kann gleich 5 oder 20 sein. Noch oben gibt es theoretisch keine Grenzen - Sie könnten einem Element also auch problemlos einen z-index von 9000 zuweisen. Experimente haben gezeigt, dass in den gängigen Browsern die Obergrenze aus technischen Gründen bei 2.147.483.647 liegt</p>
+                  <p>NOTE: Der <em>z-index</em> kann auch bei <em>position:relative</em> verwendet werden, da sich auch auf diese Weise verschobene Objekte überlappen.</p>
+                  <h3>Festlegen des Bezugspunktes der Positionierung</h3>
+                  <p>Bei der absoluten Positionieeung mit <em>top, left</em> etc. gilt als Bezugspunkt <strong>das nächsthöhere Element, das nicht mit position:static positioniert ist.</strong> Falls kein von <em>static</em> abweichend positioniertes Vorfahrenelement existiert, bezieht sich die Positionierung auf das Browserfenster</p>
+                  <p>NOTE: Da die relativen Positionierung keine Veränderung bewirkt, sofern keine Werte für <em>top, left, right und bottom</em> angeben werden, wird sie sehr häufig verwendet, um ein Element als Referenzobjekt für die absolute Positionierung eines seiner Nachfahrenelemente zu definieren.</p>
+                  <h3>Negative Werte</h3>
+                  <p>Mit <em>position:absolute</em> können Sie interessante Effekte erzeugen, wenn Sie für die positionsangeben negative Werte vergeben</p>
+              </details>
+            </article>
+            <article>
+              <details>
+                <summary>
+                  <h2>Fixierte Positionierung</h2>
+                </summary>
+                <p>Eine vierte Positionierungsmöglichkeit ist <em>position:fixed</em>. Diese Positionierungart funktioniert ähnlich wie <em>absolute</em>, das Element <strong>bleibt jedoch an Ort und Stelle</strong>, selbst wenn der übrige Seiteninhalt gescrollt wird. Der Inhalt scrollt also hinter dem betreffenden Element hindruch.</p>
+                <p><mark>Diese Methode ist sinnvoll, wenn Sie eine Navigation erzeugen möchten, die der Anwender imme im Blick hat, auch wenn der übrige Seiteninhalt gescrollt werden muss.</mark></p>
+              </details>
+            </article>
+        </main>
+    </div>
+</body>
+</html>
