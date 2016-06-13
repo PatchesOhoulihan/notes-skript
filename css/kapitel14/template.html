@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/master.css">
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>
+            Kapitel 14 Internet-Explorer Optimierung.
+        </h1>
+        <main>
+            <article>
+                <details>
+                    <summary>
+                        <h2>Alternative CSS Vorgaben für den IE mit Conditional Comments</h2>
+                    </summary>
+                    <p>Der Klotz am Bein jedes Webdesigners und jeder Webdesignerin ist nach wie vor der Internet Explorer. Zwar sind die Versionen &lt; 8 mittlerweile  nicht mehr Marktrelevant, und Sie können sie meist ignorieren. Doch auch der IE9 unterstützt wichtige CSS-Eigenschaften und Selektoren nur rudimentär, fehlerhaft oder garnicht. Vilee unserer Übungen aus deisem Buch sehen in diesem Browser fürchterlich aus.</p>
+                    <p>In manchen Fällen kann es daher nötig sein, speziellle, alternative CSS-Vorgaben auschließlich für den Ie zu machen, da dieser die Standardvorgaben nicht kenn oder fehlerhäft interpretiert. Interessanterweise wird eine Lösung für diese Problem von Microsoft selbst zur Verfügung gestellt, und zwar in Form sogennater <strong>Conditional Comments</strong></p>
+                    <p>Sie ertellen zuächst wie gewohnt Ihre CSS-Vorgaben für die standardkonformen Browser in einer(oder mehreren) externen CSS-Dateien</p>
+                    <p><mark>Danach erstellen Sie eine weitere CSS-Datei, die ausschließlich für den IE(oder sogar nur für eine bestimmte Version des IE) bestimmt ist. Diese CSS-Datei, enthält <strong>ausschließlich</strong> Alternativen für diejenigen Vorgaben aus Ihrer "normalen" CSS-Datei, die der IE nicht oder fehlerhaft interpretiert. Diese CSS-Datei binden Sie im <em>head</em> Ihrer HTML-Seiten <strong>nach</strong> den "normalen"CSS ein.</mark></p>
+                    <p><mark>Sie müssen dafür sorgen, dass andere Browser diese speziellen CSS-Vorgaben nicht sehen. Dies geschieht mit der Hilfe von <em>Conditional Comments</em>, die von Microsoft entwickelt wurden</mark> und deshalb nur vom IE(bis einschließliche Version 9) verstanden werden:</p>
+                    <p><code>&lt;link href="styles.css" rel.. <br>&lt;!--[if IE]&gt;&lt;link href="styles_ie.css" rel... <br>&lt;![endif]--&gt;</code></p>
+                    <p>Achten Sie darauf, das Sie bei &lt;!--[if IE]&gt; und &lt;![endif]--&gt; <strong>nirgendwo</strong> Leerzeichen setzen außer zwischen <em>if</em> und <em>IE</em></p>
+                    <p><mark>Der IE interpretiert hier zunächst - wie alle anderen Browser auch - die CSS-vorgaben.</mark>. Danach erkennt er anhand der Syntax <em>if IE</em>, dass hier noch weitere Vorgaben für ihn kommen(styles_ie.css). Diese Vorgaben <strong>überschreiben</strong> oder <strong>ergänzen</strong> die problematischen Angaben aus der allgemein gültigen CSS-Datei.</p>
+                    <p>Andere Browser ignorieren diese Vorgaben, da es sich für sie um normale HTML-Kommentare handelt. Dadurch ist diese Methode <strong>vollkommen valide</strong></p>
+                    <p>Sie haben die Möglichkeit, zwischen verschiedenen IE-Versionen zu unterscheiden. Folgende Bedingungen stehen ihnen zur Verfügung:</p>
+                    <ul>
+                        <li>
+                            <p><code>[if IE]</code> <strong>alle</strong> IE-Versionen(ab 5.0)</p>
+                        </li>
+                        <li>
+                            <p><code>[if IE x]</code><strong>nur</strong> Version x, z.B. <code>[if IE 9]</code></p>
+                        </li>
+                        <li>
+                            <p><code>[if lt IE x]</code> alle Versionen <strong>vor</strong> x(less than) z.B <code>[if lt IE 9]</code></p>
+                        </li>
+                        <li>
+                            <p><code>[if lte IE x]</code> alle Versionen <strong>bis einschließlich</strong> x(less than or or equals) z.b.[if lte IE 9.999]</p>
+                        </li>
+                        <li>
+                            <p><code>[if gte IE x]</code> alle Versionen <strong>ab</strong> x(greater than or equals) z.B. <code>[if gte IE 8]</code></p>
+                        </li>
+                    </ul>
+                    <p><mark>Diese Angaben können Sie beliebig kombinieren. In der Praxis haben sich hauptsächlich die ersten drei bewährt.</mark></p>
+                </details>
+            </article>
+            <article>
+                <details>
+                    <summary>
+                        <h2>Seitenanzeige im Standardmodus</h2>
+                    </summary>
+                    <p>Seit der Version 8 verfügt der IE über <mark>zwei Darstellungsmodi -den <em>Standardmodus</em> und den sogenannten <em>kompatibilitätsmodus</em>.</mark> Im <mark>Kompatiblitätsmodus emuliert der IE absichtlich Fehldarstellungen und Unzulänglichkeiten älterer IE-Versionen</mark>, um die "korrekte" Darstellung von Websites, die von Amateuren für solche Versionen optimiert wurden, sicherzustellen</p>
+                    <p>Welchen Modus der Browser im Einzelfall benutzt, bleibt weitestgehend dem Anwender überlassen. Wir brauchen hier also eine Möglichkeit, den IE in den Standardmodus zu "zwingen", damit unsere Seiten wie gewünscht dargestellt werden.</p>
+                    <p>code &lt;!--[if IE]&gt;<br> &nbsp;&nbsp; &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"/&gt; <br> &lt;![endif]--&gt;</p>
+                    <p><mark>Dabei steht <em>edge</em> für die neuste Version </mark> . Sie müssen lediglich <mark>darauf achten, den Meta <strong>VOR</strong> jeder Art von verlinkten Dateien(Link oder Script-Tags) zu platzieren. Dann sollte der IE 8(und neuer) die neue, standardkonforme Rendering Engine zur Darstellung Iherer Seiten benutzten.</mark></p>
+                    <p>Auch hier sind die <em>Conditional Comments</em> nötig, <mark>da dieser Meta-Tag seit HTML5 nicht meher valide ist.</mark></p>
+                </details>
+            </article>
+            <article>
+                <details>
+                    <summary>
+                        <h2>HTML 5</h2>
+                    </summary>
+                    <p><mark>Der Internet Explorer hat seit jeher die Eigenheit, HTML-Tags, die er nicht kennt, überhaupt nicht darzustellen</mark>, selbst wenn diesen mit CSS ein eindeutiges Aussehen und eine eindeutige Position zugewiesen wurde. Dieses Verhalten führt seit der Einführung von HTML5 wieder vermehrt zu Problemen: HTML5 hat eine Reihe neuer Tags eingeführt, die der IE bis einschließlich Version 8 nicht kennt. <mark>Das bedeutet, dass HTML5-basierte layouts im IE erst ab version 9 funktionieren.</mark> Doch zum Glück gibt es hier eine Lösung in Form eines <strong>Polyfills</strong></p>
+                    <p>NOTE: <mark>Polyfills sind - meist in JavaScript geschriebene - Codebausteine, die einem Browser Technologien "beibringen", die er nativ nicht beherrscht.</mark> Die Bezeichnung Polyfill leitet sich von Polyfilla ab, dem Namen einer in Großbritannien weit verbreiteten Marke für Mauer-Füllmasse.</p>
+                    <p>Um die neuen Tags auch in älteren IE-Versionen darstellen zu können, benötigen Sie <mark>ein kleines  Javascript, das den IE dazu bringt, HTML5-Tags überhaupt anzuzeigen: HTML5 shiv</mark> Zu finden auf github.com/aFarkas/html5shiv. Diese muss dann <strong>VOR</strong> den Stylesheet eingebunden werden.</p>
+                    <p>&lt;!--[if IE]&gt;<br> &nbsp;&nbsp;&lt;script src="js/html5.js"&gt;&lt;/script&gt; <br> &lt;![endif]--&gt;</p>
+                    <p>NOTE: Bedenken Sie, dass dieses Javascript lediglich dafür sorgt, dass der IE die CSS-Formatierungen für HTML5-Tags darstellen kann. Es macht den IE jedoch <strong>nicht</strong> HTML5-fähig, neuer Funktionen wie etwa der <code>&lt;video&gt;</code>-Tag werden nicht unterstützt.</p>
+                </details>
+            </article>
+        </main>
+    </div>
+</body>
+</html>
