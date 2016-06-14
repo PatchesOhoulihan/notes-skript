@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/master.css">
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>
+            Kapitel 1 Do it (much) better with LESS.
+        </h1>
+        <main>
+            <article>
+                <details>
+                    <summary>
+                        <h2>Die Limitationen von CSS</h2>
+                    </summary>
+                    <p>Durch die immer umfangreicheren Funktionen von CSS 3 werden auch einige Limitationen immer deutlicher, die die Arbeit mit CSS erschweren und unnötig umständlich machen. Solche Limitationen sind:</p>
+                    <ol>
+                        <li>
+                            <h3>In CSS sind keine Variablen möglich</h3>
+                            <p>Stellen Sie sich vor, Sie haben für Ihre Website eine bestimmte Akzentfarbe, z.B. #f60. Wenn Sie diese Farbe verchiedenen Elementen auf Ihrer Seite - etwa Textbereichen oder Konturen - zuweisen möchten, müssen Sie sie jedesmal erneut notieren. Sie müssen bei einer Änderung diese Farbe an <strong>allen Stellen</strong> in Ihrem CSS-dokument einzeln ändern! Wäre es nicht schön, wenn Sie die Farbe nur <strong>einmal</strong> an einer zentralen Stelle in Ihrem Dokument als <em>Variable</em> definieren könnten? Bei einer Änderung der Variablen würde die Farbe in Ihrem gesamten CSS-Dokument automatisch angepasst werden</p>
+                        </li>
+                        <li>
+                            <h3>CSS-Selektoren lassen sich nicht verschachteln</h3>
+                            <p>Bei dem <em>Descendant Selector</em> müssen Sie jedesmal den kompletten Pfad notieren, z.B</p>
+                            <p><code>#header{irgendwas}</code></p>
+                            <p><code>#header nav{irgendwas}</code></p>
+                            <p><code>#header nav ul{irgendwas}</code></p>
+                            <p><code>#header nav ul li{irgendwas}</code></p>
+                            <p><code>#header nav ul li a{irgendwas}</code></p>
+                            <p><code>#header nav ul li a:hover{irgendwas}</code></p>
+                            <p>Hier würde es enorm viel Tipparbeit sparen, wenn Sie die Selektoren - analog zu HTML - <em>verschachteln</em> im Grunde also das DOM direkt abbilden könnten</p>
+                        </li>
+                        <li><h3>Klassen lassen sich nicht andere Selektoren als Eigenschaft zuweisen</h3>
+                            <p>Es kommt häufig vor, dass Sie verschiedene Elementen auf Ihrer Seite immer wieder dieselben Eigenschaften zuweisen möchten. Wäre es nicht enorm praktisch, wenn Sie diese Eigenschaften zentral in einer Klasse speichern und diese Klasse dann ihrerseits den verschiedenen Elementen zuweisen zu könnten</p>
+                            <p>Dies alles ist möglich. Es gibt dafür schon seit geraumer Zeit gleich mehrere konkurrierende Technologien, sogenannte <em>CSS Preprocessoren</em>. Die beiden bekanntesten sind <strong>Less</strong> und <strong>SCSS</strong>. <mark>Die beiden unterscheiden sich mittlerweile fast nur noch in Syntaktischen Details.</mark></p>
+                            <p>eine vollständige Dokumentation aller Funktionen von Less finden Sie übrigens unter <strong><a title="Less Doku" href="http://www.lesscss.org">lesscss.org</a></strong> und <strong><a title="Alternativer link zur Less doku" href="lesscss.de"></a></strong></p>
+                        </li>
+                    </ol>
+                </details>
+            </article>
+            <article><details>
+                <summary>
+                    <h2>Was ist LESS</h2>
+                </summary>
+                <p>LESS-Dateien können genauso wie CSS-Dateien in jedem beliebigen Editor erzeugt werden. Die Syntax von LESS <strong>erweitert</strong> die Syntax von CSS um die oben genannten Funktionen. So können Sie in LESS folgendes schreiben, um wie in Beispiel 1 eine Variable für eine globale Farbe zu definieren.</p>
+                <p><code>@meine_farbe: #f60</code></p>
+                <p><code>h1{color: @meine_farbe}</code></p>
+                <p><code>header{border: 1px solid @meine_farbe}</code></p>
+                <p>In Zukunft müssen Sie nur noch den Wert der Variablen <em>@meine_farbe</em> ändern, um diese Farbe in Ihrem gesamten Dokument anzupassen.</p>
+                <p>#header{<br>&nbsp;&nbsp;nav{<br>&nbsp;&nbsp;&nbsp;&nbsp;ul{<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;} <br>}</p>
+                <p><mark>Die Verschachtelung der Selektoren entspricht exakt dem HTML-DOM und ist dadurch verständlicher, vor allem aber auch kürzer!</mark></p>
+                <p><code>.box{<br> &nbsp;&nbsp;border: 1px solid #666 <br>&nbsp;&nbsp;margin-bottom: 1rem;<br>&nbsp;&nbsp;background-color:silver;}</code></p>
+                <p><code>div.loginbox{<br>&nbsp;&nbsp;}</code></p>
+                </details>
+            </article>
+        </main>
+    </div>
+</body>
+</html>
