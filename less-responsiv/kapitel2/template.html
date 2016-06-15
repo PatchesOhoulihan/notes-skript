@@ -32,13 +32,73 @@
                     <p>Auch folgender Code wäre möglich.</p>
                     <p>BSP: <code>@myShadow: 2px 2px 4px rgba(0,0,0,0.4)</code></p>
                     <p><strong>LESS-Variablen im Überblick:</strong></p>
+                    <ul>
+                      <li>
+                        <p>Die Verwendung einer Variablen besteht immer aus zwei Schritten</p>
+                        <ol>
+                          <li>
+                            <p>Deklaration: Das <strong>einmalige</strong> Anlegen der Variablen, i.d.R am Anfang des LESS-Dokuments</p>
+                            <p><code>@meineVariable: wert;</code></p>
+                          </li>
+                          <li>
+                            <p>Aufruf: Das <strong>beliebige häufige Zuweisen</strong> der Variablen als <strong>Wert</strong> für Eigenschaften.</p>
+                            <p><code>selektor{<br> eigenschaft: @meineVariable; <br>}</code></p>
+                          </li>
+                        </ol>
+                      </li>
+                      <li>
+                        <p>Varibalen sind frei wählbar, dürfen aber -wie immer- keine Leer oder Sonderzeichen enthalten. Sie können zur besseren Lesbarkeit halber in <strong>camelCase</strong> notieren: <code>@diesIstEinLangerVariablenName</code></p>
+                      </li>
+                      <li>
+                        <p>Variablen können theoretisch überall im Dokument stehen. Meist ist es aber sinnvoll, sie am Beginn des Dokuments zu notieren oder sogar in eine eigene Datei auszulagern</p>
+                      </li>
+                      <li>
+                        <p>Beachten Sie jedoch: <mark>Wenn Sie eine Variable <strong>außerhalb von Selektoren</strong> anlegen, können Sie sie überall in Ihrem Projekt verwenden.</mark> Man spricht in diesem Fall von Globalen Variablen. <mark>Wenn Sie aber eine Variable innerhalb eines Selektors anlegen, gilt diese nur dort</mark> Außerhalb des Selektors ist diese Variable unbekannt. Solche Variablen werden lokale Variablen genannt</p>
+                        <p><code>@globaleVariable: #fff <br> h1{<br>@lokaleVariable #000 <br>} <br> h2{<br>@globalevariable//kann verwendet werden <br> @lokaleVariable // ist unbekannt <br>}</code></p>
+
+                      </li>
+                    </ul>
                 </details>
                 <details>
                     <summary>
                         <h3>Mit Variablen rechnen</h3>
                     </summary>
-                    <p>dfghasdfghasd</p>
+                    <p>Der Clou: LESS kann auch rechnen! <mark>Sie können Variablen miteinander oder mit Zahlen addieren, subtrahieren, multiplizieren oder dividieren</mark> Dabei werden die jeweils verwendeten Maßeinheiten(px em % etc.) beibehalten.</p>
+                    <p>TODO: Übungsaufgaben einfügen.</p>
                 </details>
+            </article>
+            <article>
+              <details>
+                <summary><h2>Variationen</h2></summary>
+                <p>Zudem bietet LESS eine menge nützlicher Funktionen, Werte zu variieren</p>
+                <p>In unserer Übung haben wir eine Variable @linkColor mit dem Farbwert #f60 definiert. Diese Akzentfarbe soll nun auch als Hintergrundfarbe für den <em>#content</em> verwendet werden, ist dafür aber viel zu dunekl und zu stark gestättigt. <mark>LESS bietet die Möglichkeit, die Farbe aufzuhellen:</mark></p>
+                <p><code>#content{<br>background-color: lighten(@linkColor,45%) <br>}</code></p>
+                <p>Der Ausdruck bedeutet "Helle die Farbe @linkColor um 45% auf". In der kompilierten CSS-Datei erscheint die Farbe als <code>background-color: #fff0e5</code></p>
+                <p><mark>Anstelle der Variablen @linkColor können Sie natürlich auch direkt einen Farbwert in die runden Klammern eingeben </mark></p>
+                <p>LESS bietet eine Vielzahl solcher Funktionen</p>
+                <p><strong>Farboperationen:</strong></p>
+                <p><code>saturate(farbe, prozentwert)</code> Sättigung erhöhen. <br>
+                <code>desaturate(farbe, prozentwert)</code> sättigung vermindern <br>
+                <code>lighten(farbe, prozentwert)</code> aufhellen <br>
+                <code>darken(farbe, prozentwert)</code> abdunklen
+                <code>fade(farbe, prozentwert)</code> Deckkraft verringern(regibt RGBA-Werte)
+                <code>grayscale(farbe)</code> in Graustufen konvertiern.</p>
+                <p>Andere Funktionen</p>
+                <p><code>convert(wert, maßeinheit)</code> rechnet einen Wert von einer Maßeinheit in eine andere um z.b <code>convert(9s, ms)</code></p>
+                <p><code>unit(wert)</code> oder <code>Unit(wert, maßeinheit)</code> ändert bzw. entfernt die Maßeinheit hinter einem Wert(ohne Umrechnung) <br> bsp. unit(5em) = 5 <br> unit(5,px) = 5px</p>
+                <h3>Maskieren unbekannter Syntax</h3>
+                <p>Es kann im Einzelfall vorkommen, dass Sie Syntay verwenden müssen, die der LESS-Compiler nicht versteht, weil sie noch nicht dem CSS Standard entspricht. Dann schlägt die kompilierung fehl und Sie erhalten eine Fehlermeldung.</p>
+                <p>In diesem Fall haben Sie die Möglichkeit, den betreffenden Codebereich mit einer tilde ~ am Anfang sowie Anführungszeichen zu maskieren</p>
+                <p>LESS:</p>
+                <p>filter: ~"ms:hasalwaysItsownstyle"</p>
+                <p>Der so gekennzeichnete Codebereich wird unbesehen in die CSS-Datei übernommen</p>
+                <p>CSS:</p>
+                <p>filter:mshasalwaysItsownstlye</p>
+                <h3>Verwende von Variablen in maskierten Strings</h3>
+                <p>Trotzdem können Sie in solchen Strings Variablen verwenden. Diese werden dort mit geschweiften Klammern gekennzeichnet: @{variable}. Sie werden trotz der Maskierung ausgelesen: </p>
+                <p>@meinText: "Stuff" <br> filter: ~"ms:irgendwasblabla{meinText}"</p>
+
+              </details>
             </article>
         </main>
     </div>
