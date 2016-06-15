@@ -53,7 +53,45 @@
                 <p>#header{<br>&nbsp;&nbsp;nav{<br>&nbsp;&nbsp;&nbsp;&nbsp;ul{<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>&nbsp;&nbsp;} <br>}</p>
                 <p><mark>Die Verschachtelung der Selektoren entspricht exakt dem HTML-DOM und ist dadurch verständlicher, vor allem aber auch kürzer!</mark></p>
                 <p><code>.box{<br> &nbsp;&nbsp;border: 1px solid #666 <br>&nbsp;&nbsp;margin-bottom: 1rem;<br>&nbsp;&nbsp;background-color:silver;}</code></p>
-                <p><code>div.loginbox{<br>&nbsp;&nbsp;}</code></p>
+                <p><code>div.loginbox{<br>&nbsp;&nbsp;<br>.box <br>}</code></p>
+                <p><mark>Das <em>div</em>-Element übernehmen dadruch automatisch sämtliche Eigenschaften der Klasse <em>box</em>.</mark> Auch hier müssen die Eigenschaften von nun an nur noch einmal zentral in der Klasse <em>box</em> geändert werden.</p>
+                <p>Durch diese Syntax sind LESS-Dokumente jedoch keine gültigen CSS-Dokumente mehr und würden von keinen Browser verstanden werden. <mark>Deshalb müssen LESS-Dokumente zunächst in "normale" CSS-Dokumente rückübersetzt(kompilert) werden</mark>, bevor sie in ein HTML-Dokument eingebunden werden können.</p>
+                </details>
+            </article>
+            <article>
+                <details>
+                    <summary>
+                        <h2>Wie funktioniert LESS</h2>
+                    </summary>
+                    <p><mark>Zu diesem Zweck gibt es eine ganze Reihe von Programmen(Compiler) mit unterschiedlichen Funktionsumfang</mark> Eine umfangreiche Liste verschiedener Betriebssysteme finden Sie unter <a href="http://lessscss.org/usage/guis-for-less">Less Compiler</a>. In diesem Buch wird <strong>Koala</strong> für Mac, Windows und Linux verwendet.</p>
+                        <p>NOTE: In einigen Editoren ist ein LESS-Compiler bereits integriert bzw. in <em>Adobe Brackets</em>. In diesem Fall werden externe Compiler wie Koala natürlich nicht benötigt.</p>
+                        <p><mark>Es folgt eine beschreibung von Koala, siehe Script Seite 16.</mark></p>
+                        <p>NOTE: Unter <em>Komprimieren</em> versteht man in diesem Fall das Entfernen sämtlicher unnötiger Leerzeichen und Zeilenumbrüche aus der Datei. Der Quelltext wird dadurch nahezu unlesbar, was aber hier natürlich keine Rolle spielt, da ja nicht Sie den Code lesen müssen, sondern nur der Browser, und dem sind Leerzeichen und Zeilenumbrüche egal.</p>
+                        <p>Solange das Programm geöffnet ist, werden sämtliche Ordner in der Liste überwacht, d.h jedesmal, wenn sie eine LESS-Datei in einem beliebigen Editor bearbeiten und speichern, wird diese automatisch kompiliert, und es wird eine entsprechende CSS-Datei im selben Ordner erzeugt. Gleichnamige CSS-Dateien werden dabei überschrieben.</p>
+                        <p>Geht etwas schief, wird vom Compiler eine Fehlermeldung angezeigt.</p>
+                        <p>In der resultierenden CSS-Datei gehen natürlich alle Vorteile von LESS wieder verloren, doh das stört uns nicht, da diese Datei nur für den Browser gedacht ist Wir arbeiten ja weiterhin in der LESS-Datei.</p>
+                        <p>Dadurch, dass bei jedem Speichern der LESS-Dateien die CSS-Dateien automatisch aktualisiert werden, verlieren Sie auch nicht die Möglichkeit Ihre Änderungen sofort im Browser zu testen.</p>
+                        <p>NOTE: Zusammenfassend bedeutet dies:</p>
+                        <ol>
+                            <li>
+                                <p><mark>Alle Ordner, in denen sich LESS-Dateien befinden, müssen zunächst dem Compiler hinzugefügt werden.</mark></p>
+                            </li>
+                            <li>
+                                <p><mark>Immer, wenn Sie eine Less-Datei im Editor bearbeiten, muss der Compiler im Hintergrund geöffnet sein.</mark></p>
+                            </li>
+                            <li>
+                                <p><mark>In Ihren HTML-Dateien binden Sie weiterhin wie gewohnt die automatisch erzeugten CSS-Dateien ein und nicht die Less-Dateien</mark></p>
+                            </li>
+                            <li>
+                                <p><mark>Die CSS-Dateien können auf wunsch auch komprimiert werden,</mark> da sie ja niemals direkt bearbeitet werden müssen</p>
+                            </li>
+                            <li>
+                                <p><mark>Die LESS-Syntax ist eine <em>Erweiterung</em> der CSS-Syntax und voll abwärtskompatiel.</mark> Das bedeutet, jede gültige CSS-Datei ist auch gleichzeitig eine gültige LESS-Datei - nur eben ohne die Vorteile. Um also eine CSS-Datei nachträglich mit Less aufzupeppen, müssen Sie nur die Dateiendung von .css in .less ändern.</p>
+                            </li>
+                        </ol>
+                        <h3>Kommentare in LESS</h3>
+                        <p>In Less sind - wie in Javascript - auch einzeilige Kommentare mit zwei Schrägstrichen // am Anfang möglich.</p>
+                        <p><mark>LESS-Kommentare mit // werden nicht in die kompilierte CSS-Datei übernommen. Kommentare mit /**/ bleiben hingegen erhalten. Letzteres ist z.B. nützlich, Letzters ist z.B. nützlich, wenn Sie in Ihre CSS-Dateien Copyright-Informationen integrieren möchten.</mark></p>
                 </details>
             </article>
         </main>
