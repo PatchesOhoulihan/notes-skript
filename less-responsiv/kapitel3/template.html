@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/master.css">
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>
+            Kapitel 3 Verschachtelte Selektoren.
+        </h1>
+        <main>
+            <article>
+                <details>
+                    <summary>
+                        <h2>Verschachteln von kombinierten Selektoren</h2>
+                    </summary>
+                    <p>LESS bietet die Möglichkeit, kombinierte Selektoren wie den <em>Descendant</em> oder den Child Selektor - analog zu HTML - zu verschachteln, im Grunde also das DOM direkt abzubilden.</p>
+                    <p>Beispiele</p>
+                    <table>
+                       <tr>
+                           <th>CSS</th>
+                           <th>LESS</th>
+                       </tr>
+                        <tr>
+                            <td><code>nav ul {}</code></td>
+                            <td><code>nav{<br>&nbsp;&nbsp;ul{} <br>}</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>nav ul li{}</code></td>
+                            <td><code>nav{<br>&nbsp;&nbsp;ul{<br>&nbsp;&nbsp;&nbsp;&nbsp;li{} <br> &nbsp;&nbsp;}</code><br>}</td>
+                        </tr>
+                        <tr>
+                            <td><code>nav &gt; ul{}</code></td>
+                            <td><code>nav {<br> &nbsp;&nbsp; &gt; ul{} <br>}</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>nav + ul{}</code></td>
+                            <td><code>nav {<br> &nbsp;&nbsp; + ul{} <br>}</code></td>
+                        </tr>
+                    </table>
+                    <p>Dies macht den Code verständlicher, bei umfangreichen Vorgaben vor allem aber auch kürzer. Wenn Sie in CSS z.B schreiben.</p>
+                    <p>Wie Sie sehen, ist hier jedoch eine saubere Einrückung zwingende Voraussetzung, um den Code noch zu verstehen.</p>
+                </details>
+            </article>
+            <article>
+                <details>
+                    <summary>
+                        <h2>Verschachteln von Pseudoklassen und Pseudoelementen</h2>
+                    </summary>
+                    <table>
+                        <tr>
+                            <th>
+                                <p>CSS</p>
+                            </th>
+                            <th>
+                                <p>LESS</p>
+                            </th>
+                        </tr>
+                            <tr>
+                                <td>
+                                    <p><code>a{//Eigenschaften} <br> a:hover{//Eigenschaften}</code></p>
+                                </td>
+                                <td>
+                                    <p><code>a{<br>&nbsp;&nbsp; &and;:hover{//Eigenschaften}<br>}</code></p>
+                                </td>
+                            </tr>
+                    </table>
+                    <p>Achten Sie auf das &and; Zeichen! Dies ist die zwingende Vorraussetzung dafür, dass die Pseudoformate <strong>ohne Leerzeichen</strong> an den Selektor angehängt werden. Ohne das &and;-Zeichen würde der Selektor <em>a:hover</em> in der kompilierten CSS-Datei so aussehen:</p>
+                    <p><code>a :hover</code></p>
+                </details>
+            </article>
+        </main>
+    </div>
+</body>
+</html>
