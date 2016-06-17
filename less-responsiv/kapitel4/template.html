@@ -25,7 +25,43 @@
                     <p>.myClass{//Eigenschaften}</p>
                     <p>div{.myClass}</p>
                     <p>p{.myClass}</p>
-                    
+                    <p>Die Selektoren <em>div</em> und <em>p</em> übernehmen alle Eigenschaften der Klasse <em>myClass</em>. <mark>In der kompilierten CSS-Datei werden die Eigenschaften der Klasse in die entsprechenden Selektoren <em>kopiert</em></mark> Diese verwendung von klassen nennt man <strong>Mixins</strong></p>
+                    <p>Auch mixins können verschachtelt werden</p>
+                    <p><code>.myClass{<br>font-weight: bold; <br> li{<br>&nbsp;&nbsp; a{color:red;<br> &nbsp;&nbsp;} <br>} <br>}</code></p>
+                    <p>Sowohl die <em>ul</em> als auch ihre <em>li</em> übernehmen die in <em>myClass</em> definierten Eigenschaften. In der kompilierten CSS-Datei wird daraus Folgendes</p>
+                    <p><code> ul {<br> font-weight: bold; <br>}</code></p>
+                    <p><code> ul li{<br> font-weight: bold; <br>}</code></p>
+                    <p><code>.clearfix{<br>&nbsp;&nbsp;&amp;:after{<br> &nbsp;&nbsp;&nbsp;&nbsp;content:".";<br>&nbsp;&nbsp;&nbsp;&nbsp;display: block;<br>&nbsp;&nbsp;&nbsp;&nbsp;height: 0;<br> &nbsp;&nbsp;&nbsp;&nbsp;height:0;<br>&nbsp;&nbsp;&nbsp;&nbsp;line-height:0;<br>&nbsp;&nbsp;&nbsp;&nbsp;clear:both <br> &nbsp;&nbsp;&nbsp;&nbsp;visibility:hidden; <br> &nbsp;&nbsp;}<br> }</code></p>
+                    <p>Mixins können auf zwei Weisen gebildet werden:</p>
+                    <p>Nun können Sie den <em>Clearfix</em> beliebigen Selektoren als Mixin zuweisen. Die Zuweisung der Klasse in HTML entfällt:</p>
+                    <p>nav{<br>&nbsp;&nbsp;.clearfix; <br> &nbsp;&nbsp;//weitere Eigenschaften <br>}</p>
+                </details>
+                <details>
+                    <summary>
+                        <h2>Zwei Varianten von Mixins</h2>
+                    </summary>
+                    <p>Mixins können auf zwei Weisen gebildet werden:</p>
+                    <ul>
+                        <li>
+                            <p>Entweder wie oben gezeigt als normale CSS-Klassen:</p>
+                            
+                        </li>
+                        <li>
+                            <p>oder - besser - mit runden Klammern(ohne Leerzeichen) nach dem Klassennamen:</p>
+                            <p>.myClass(){<br>&nbsp;&nbsp;//Eigenschaften <br>}</p>
+                            <p>Der Unterschied: <mark>Mixins mit runden Klammern werden <strong>nicht</strong> als Klassen in die kompilierte CSS-Datei übernommen, d.h sie stehen auch <strong>nicht in HTML</strong> zur Verfügung! Damit haben Sie die Möglichkeit, Mixins, die Sie ausschließlich in LESS als "Objektstile" verwenden, von normalen CSS-Klassen zu unterscheiden. Außerdem wird dadurch die resultierenden CSS-Datei um einiges kleiner. Vor allem aber erlauben die unden Klammern - wie wir noch sehen werden - optional die Übergabe von Parametern, d.h Sie können damit <strong>Mixins mit Variablen Werten</strong> gestalten.</mark></p>
+                            
+                        </li>
+                    </ul>
+                </details>
+                <details>
+                    <summary>
+                        <h2>Parametrische Mixins</h2>
+                    </summary>
+                    <p>Mixins eignen sich auch hervorragend dazu, Eigenschaften mit Herstellerpräfix auszulagern, Sehen wir uns folgendes Beispiel an:</p>
+                    <p>Wann immer Sie ein Vendor Prefix verwenden müssen, müssen Sie die Eigenschaft 3 mal notieren. Für jedes prefix einmal, mit einem Mixin kann man sich das sparen.</p>
+                    <p><code>.myClass(){<br>&nbsp;&nbsp;-webkit-border-radius:9px;<br>&nbsp;&nbsp;-moz-border-radius:px5;<br>&nbsp;&nbsp;border-radius:5px; <br>}</code></p>
+                    2
                 </details>
             </article>
         </main>
