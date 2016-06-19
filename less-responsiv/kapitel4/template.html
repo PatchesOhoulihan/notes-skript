@@ -44,13 +44,13 @@
                     <ul>
                         <li>
                             <p>Entweder wie oben gezeigt als normale CSS-Klassen:</p>
-                            
+
                         </li>
                         <li>
                             <p>oder - besser - mit runden Klammern(ohne Leerzeichen) nach dem Klassennamen:</p>
                             <p>.myClass(){<br>&nbsp;&nbsp;//Eigenschaften <br>}</p>
                             <p>Der Unterschied: <mark>Mixins mit runden Klammern werden <strong>nicht</strong> als Klassen in die kompilierte CSS-Datei übernommen, d.h sie stehen auch <strong>nicht in HTML</strong> zur Verfügung! Damit haben Sie die Möglichkeit, Mixins, die Sie ausschließlich in LESS als "Objektstile" verwenden, von normalen CSS-Klassen zu unterscheiden. Außerdem wird dadurch die resultierenden CSS-Datei um einiges kleiner. Vor allem aber erlauben die unden Klammern - wie wir noch sehen werden - optional die Übergabe von Parametern, d.h Sie können damit <strong>Mixins mit Variablen Werten</strong> gestalten.</mark></p>
-                            
+
                         </li>
                     </ul>
                 </details>
@@ -61,7 +61,31 @@
                     <p>Mixins eignen sich auch hervorragend dazu, Eigenschaften mit Herstellerpräfix auszulagern, Sehen wir uns folgendes Beispiel an:</p>
                     <p>Wann immer Sie ein Vendor Prefix verwenden müssen, müssen Sie die Eigenschaft 3 mal notieren. Für jedes prefix einmal, mit einem Mixin kann man sich das sparen.</p>
                     <p><code>.myClass(){<br>&nbsp;&nbsp;-webkit-border-radius:9px;<br>&nbsp;&nbsp;-moz-border-radius:px5;<br>&nbsp;&nbsp;border-radius:5px; <br>}</code></p>
-                    2
+                    <p><code>something{.myClass()}</code></p>
+                    <p>Natürlich können Sie auch hier die Klasse nennen, wie Sie möchten, aber in diesem Fall ist es äußerst sinnvoll, sie so zu nenn wie die CSS-Eigenschaft</p>
+                    <p>Nun haben wir jedoch ein Problem: Alle Elemente, denen das Mixin something zugewiesen wurde, haben exakt die selben eigenschaften. Sollen diese Eigenschaften "varieren", lässt sich das mit Hilfe von <strong>Variablen</strong> lösen, die Sie in den runden Klammern angeben können</p>
+                    <p><code>Deklaration: .border-radius(@radius){//Eigenschaften}</code></p>
+                    <p><code>Call: something{.border-radius(5px);}</code></p>
+                    <p>In der Definition des Mixins <em>.border-radius()</em> wird die Variable <em>@radius</em> - in diesem Fall <strong>Parameter</strong> genannt - zunächst in den runden Klammern angelegt und anschließend auch den Eigenschaften usw. als WErt zugewiesen. <mark>Sie muss <strong>nicht</strong> wie normale Variablen zusätzlich am Beginn des Dokuments definiert werden.</mark> Der Variablenname ist wie immer frei wählbar.</p>
+                    <p>Beim Aufruf des Mixins in den Selektoren <em>header</em> und <em>footer</em> können Sie nun den Parameter durch denn jeweils gewünschten Wert ersetzen.</p>
+                    <h3>Standardwerte für Parameter</h3>
+                    <p>Nun kann es aber vorkommen, dass Sie den meisten Elementen auf Iherer Webiste einen Eckradius von 5px zuweisen möchten, und nur ein paar wenigen einen anderen Wert. In diesem Fall können Sie einen <strong>Default</strong>(Standartwert) vergeben.</p>
+                    <p><code>Definition: .border-radius(@radius: 5px){<br>
+                      &nbsp;&nbsp;border-radius: @radius;<br>
+                    }</code></p>
+                    <p><code>Call: something{ <br>.border-radius()}</code> verwendet den default Parameter 5px oder <code>something{ <br> &nbsp;&nbsp;.border-radius(9px)}</code> verwendet den explizit angebenen Wert.</p>
+                    <h3>Mehrere Parameter</h3>
+                    <p>In einigen Fällen wollen Sie vielleicht mehrere Werte eines Mixins variabel gestalten z.B sowohl <em>margin</em> als auch <em>padding</em>. <mark>Notieren Sie in diesem Fall die Variablen in den runden Klammern einfach nacheinander <strong>durch Semikola getrennt:</strong></mark></p>
+                    <p><code>definition: .mixin(@margin; @padding){}</code> <br> <code>call: something{<br> &nbsp;&nbsp;.mixin(20px; 3px);}</code></p>
+                    <h4>CSS-Eigenschaften mit mehreren Werten</h4>
+                    <p>Auch gibt es in CSS viele Eigenschaften, die mehrere Werte aufeinmal erwarten, so z.B <em>border, background</em> oder <em>box-shadow</em>. Letzterer erwartet i.d.R vier Werte, auch hierfür können Sie Variablen auf dieselbe Weise angeben:</p>
+                    <p><code>.box-shadow(@offsetX;@offsetY;@blur; @color;){<br> &nbsp;&nbsp;box-shadow: @offsetX @offsetY @blur @color <br>}</code></p>
+                    <p>Die Zuweisung der Variablen als Werte zu den Eigenschaften erfolgt wieder nach der CSS-Syntax mit Leerzeichen. Hier dürfen sie keine Semikola verwenden.</p>
+                    <h4>Das Schlüsselwort @arguments</h4>
+                    <p><mark>Wem das zu umständlich erscheint, der kann es sich auch einfacher machen: Notieren Sie in den rudnen Klammern anstelle der Parameter einfach drei Punkte,</mark> und vergeben Sie den Eigenschaften als Wert das Schlüsselwort <strong><em>@arguments:</em></strong></p>
+                    <p><code>.box-shadow(...){ <br> &nbsp;&nbsp;-webkit-box-shadow:@arguments;<br> &nbsp;&nbsp;-moz-box-shadow:@arguments;<br> &nbsp;&nbsp;box-shadow:@arguments; <br>}</code></p>
+                    <p><mark>NOTE: Beachten Sie, dass @arguments kein frei wählbarer Variablename ist, sonderen ein von LESS vordefiniertes Schlüsselwort.</mark></p>
+                    <p>Diese Vorgehensweise hat noch einen zusätzlichen Vorteil: <mark> Sie erlaubt eine variable Zahl an Parametern Die Eigenschaft box-shadow etwa akzeptiert noch einen weiteren, optionalen Wert <em>inset</em>(für einen Schatten nach innen). dieser könnte in der ersten Variante mit einer festen Zahl an parametern nicht verwendet werden.</mark> </p>
                 </details>
             </article>
         </main>

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/master.css">
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>
+            Kapitel 7 Grafische Effekte.
+        </h1>
+        <main>
+            <article>
+                <details>
+                  <summary>
+                    <h2>Trivia</h2>
+                  </summary>
+                  <p>In CSS-3 wurden zahlreiche neue Funktionen eingeführt, mit denen Sie Elemente auf ähnliche Weise manipulieren können, wie Sie es bisher nur von Grafik- oder Bildbearbeitungsprogrammen kennen. Dazu gehören z.B <strong>Transformation</strong>(Formänderung), <strong>masken</strong> und <strong>Filter</strong>. <mark>Dabei sind die Manipulationen natürlich nicht auf Bilder beschränkt, sondern können auf nahezu beliebige HTML-Elemente angewendet werden.</mark></p>
+                  <p><mark>Beispiele und Übungen dazu finden Sie gesammelt im Ordner css3_advanced</mark> im Begleitmaterial zu diesem Buch. Für eine einheitliche Gestaltung der Beispiele und Übungen wurden die Foramtierungen z.T in externe LESS-Dateien ausgelagert.(Ordner design im Ordner styles), die von mehreren Übungen gemeinsam benutzt werden. Diese Dateien sind für die Übungen nicht direkt relevant. Sie sollten jedoch in der Ordnerstruktur beibehalten.</p>
+                </details>
+            </article>
+            <article>
+              <details>
+                <summary>
+                  <h2>Transformationen</h2>
+                </summary>
+                <p>Vielleicht kenn Sie bereits das Menü <em>Transformatieren</em> in Photoshop oder Illustrator. Die Formänderungen, die Sie damit auf Bilder und Grafiken anwenden können, stehen nun auch in CSS zur Manipulation von HTML-Elementen zur Verfügung: <strong>Rotieren</strong>(rotate),<strong>skalieren</strong>(scale),<strong>neigen</strong>(skew) und <strong>versetzen</strong>(translate). <mark>Die CSS-Eigenschaft dafür lautet sinnigerweise <strong>transform</strong> z.Z wieder mit Herstellerpräfix.</mark></p>
+                <p><code>-webkit-transform:funktion(parameter)<br>-moz-transform:funktion(parameter) <br>transform:funktion(parameter)</code></p>
+                <p>Nach dem Doppelpunkt steht die gewünschte <strong>Art der Transformation</strong>, dahinter(ohne Leerzeichen) in runden Klammern die <strong>Parameter</strong> für die Transformation</p>
+                <p><strong>Beispiele(Ohne Herstellerpräfix)</strong></p>
+                <p><code>transform: rotate(45deg);</code>, Rotation um 45 Grad <br> <code>transform:scale(1.5);</code> <br> <code>transform:skewX(-30deg)</code>Neigung um -30 Grad auf der x-Achse</p>
+                <table>
+                  <caption>Folgende Transformationen stehen u.a zur Verfügung</caption>
+                  <tr>
+                    <th>Transformationen</th>
+                    <th>Beschreibung</th>
+                    <th>Parameter/Maßeinheit</th>
+                  </tr>
+                  <tr>
+                    <td><code>rotate(winkel)</code></td>
+                    <td>
+                      <p>2D-Rotation</p>
+                    </td>
+                    <td rowspan="4">
+                      <p>Grad(degree) z.b <br><code>transform:rotate(30deg)</code></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>rotateX(winkel)</code></td>
+                    <td>
+                      <p>3D-Rotation entlang der y-Achse.</p>
+                    </td>
+                    <td>
+                      <p></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>rotateY(winkel)</code></td>
+                    <td>
+                      <p>3D-Rotation entlang der y-Achse</p>
+                    </td>
+                    <td>
+                      <p></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>rotateZ(winkel)</code></td>
+                    <td>
+                      <p>3D-Rotation entlang der z-Achse</p>
+                    </td>
+                    <td>
+                      <p></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>scale(x,y)</code></td>
+                    <td>
+                      <p>2D-Skalierung</p>
+                    </td>
+                    <td rowspan="4">
+                      <p>Dezimalwerte(1 entspricht 100%) <br><code>transform:scaleY(0.5)</code> <br>50%ige, vertikale Verkleinerung</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>scaleX(x)</code></td>
+                    <td>
+                      <p>Skalierung entlang der X-achse</p>
+                    </td>
+                    <td>
+                      <p></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>scaleY(y)</code></td>
+                    <td>
+                      <p>Skalierung entlang der y-achse</p>
+                    </td>
+                    <td>
+                      <p></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>ScaleZ(y)</code></td>
+                    <td>
+                      <p>Skalierung entlang der z-achse</p>
+                    </td>
+                    <td>
+                      <p></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>skew(x-winkel,y-winkel)</code></td>
+                    <td>
+                      <p>2D-Neigung entlang der x-achse und y-achse</p>
+                    </td>
+                    <td rowspan="3">
+                      <p>Grad(degree) z.B<br><code>transform:skewX(10deg)</code></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>skewX(winkel)</code></td>
+                    <td>
+                      <p>2D-Neigung entlang der x-Achse</p>
+                    </td>
+                    <td>
+                      <p></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>skewY(winkel)</code></td>
+                    <td>
+                      <p>2D-Neigung entlang der y-Achse</p>
+                    </td>
+                    <td>
+                      <p></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>translate(x,y)</code></td>
+                    <td>
+                      <p>2D-Versatz</p>
+                    </td>
+                    <td rowspan="4">
+                      <p>Längenmaße(px, em usw) z.B <br><code>transform: translate(10px, 20px)</code></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>translateX(x)</code></td>
+                    <td>
+                      <p>Versatz auf der x-Achse</p>
+                    </td>
+                    <td>
+                      <p></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>translateY(y)</code></td>
+                    <td>
+                      <p>Versatz auf der y-Achse</p>
+                    </td>
+                    <td>
+                      <p></p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><code>translateZ(z)</code></td>
+                    <td>
+                      <p>Versatz auf der y-Achse</p>
+                    </td>
+                    <td>
+                      <p></p>
+                    </td>
+                  </tr>
+                </table>
+                <h3>Unterschiede zu anderen Eigenschaften</h3>
+                <p><mark>Hier stellt sich naturlich die Frage, was eine Transformation mit <em>scale</em> von einer Größenänderung mit <em>width</em> oder <em>height</em> unterscheidet.</mark> Die Unterschiede sind folgende:</p>
+                <ul>
+                  <li>
+                    <p><mark>Die Eigenschaft <em>transform</em> verändert ein Element nur virtuell und wirkt eher wie ein Effektfilter:</mark> Das Element wird zwar im Browser größer angezeigt, hat aber intern noch seine Originalgröße- etwa so, als würden Sie es durch eine Lupe betrachten. So wirkt sich <em>scale</em> auch nicht auf die umgebenden elemente aus.(Sie werden durch die Skalierung nicht verdrängt.)</p>
+                  </li>
+                  <li>
+                    <p>Mit <em>scale</em> wird <strong>das Element mitsamt seinem Inhalt</strong>(einschließlich des Textes) skaliert. Sie können z.B. mit scaleX eine Element samt Text <em>horizontal</em> verzerren, was mit width nicht möglich ist.</p>
+                  </li>
+                </ul>
+                <p>Ähnliches gilt analog auch für <em>translate</em> im Vergleich zu einer Verschiebung z.B mit <em>position:relative;</em></p>
+                <h3>Den Transformationspunkt festlegen</h3>
+                <p>Die Eigenschaft <strong>transform-origin</strong> in den drei browserspezifischen Varianten. Mit dieser Eigenschaft können Sie den Referenz bzw. Mittelpunkt für die Transformation festlegen.</p>
+                <p>Die allgemeine Syntax lautet:</p>
+                <p><code>transform-origin: x-Achse y-Achse;</code></p>
+                <table>
+                  <caption>Mögliche Werte sind:</caption>
+                  <tr>
+                    <td>x-Achse</td>
+                    <td>y-Achse</td>
+                  </tr>
+                  <tr>
+                    <td><p><code>left <br> right <br> center <br></code>längenmaß(px em % usw)</p></td>
+                    <td><p><code>top <br> bottom <br> center <br></code>längenmaß(px em % usw)</p></td>
+                  </tr>
+                </table>
+                <p>So würde etwa bei der Vorgabe</p>
+                <p><code>transform-origin: left top; <br>transform: scale(2);</code></p>
+                <p>ein Element ausgehend von der linken oberen Ecke um 200% nach rechts unten skaliert werden.</p>
+              </details>
+            </article>
+            <article>
+              <details>
+                <summary>
+                  <h2>Filter(Webkit)</h2>
+                </summary>
+                <p>Eine erstaunliche neue Funktion in CSS 3 sind die <strong>Filter</strong>, die man bisher ebenfalls nur aus Bildbearbeitungsprogrammen kannte, Sie sind zwar <mark>primär zur Manipulation von Bildern <code>&lt;img&gt;</code> gedacht, können aber auch auf beliebige andere HTML-Elemente angewendet werden. Die Syntax lautet:</mark></p>
+                <p>filter: filterfunktion(parameter);</p>
+                <p><mark>Zur Zeit(November 2014) werden die Filter <strong>ausschließlich von Webkit-basierten Browsern</strong> unterstüzt und müssen daher mit dem entsprechenden Herstellerpräfix versehen werden: </mark></p>
+                <p>NOTE Firefox unterstützt zur Zeit nur SVG-Filter. Das sind Filter, die in einer externen Dati mit SVG-Syntax definiert werden müssen und mit CSS eingebunden werden können.</p>
+                <table>
+                  <caption></caption>
+                  <tr>
+                    <td>
+                      <p><code>blur(radius)</code></p>
+                    </td>
+                    <td>
+                      <p>Weichzeichner</p>
+                    </td>
+                    <td>
+                      <p>Längenmaße(px, em usw),0 = keine Weichzeichnung</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><code>brightness(wert)</code></p>
+                    </td>
+                    <td>
+                      <p>Helligkeit</p>
+                    </td>
+                    <td>
+                      <p>Dezimalwerte(1 entspricht 100% = keine Änderung, Werte &lt; 1 verringern die Helligkeit, höhere Werte erhöhen sie)</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><code>contrast(wert)</code></p>
+                    </td>
+                    <td>
+                      <p>Kontrast</p>
+                    </td>
+                    <td>
+                      <p>Dezimalwerte(1 entspricht 100% = keine Änderung, Werte 1 &lt; verringern den Kontrast, höhere Werte erhöhen ihn)</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><code>drop-shadow(x,y,weichheit,farbe)</code></p>
+                    </td>
+                    <td>
+                      <p>Schlagschatten</p>
+                    </td>
+                    <td>
+                      <p>wie box-shadow</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><code>grayscale(wert)</code></p>
+                    </td>
+                    <td>
+                      <p>Graustufen</p>
+                    </td>
+                    <td>
+                      <p>Dezimalwerte(1 entspricht 100% = vollständige Reduktion in Graustufen, 0 = keine Änderung)</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><code>hue-rotate(winkel)</code></p>
+                    </td>
+                    <td>
+                      <p>Farbton-Rotation</p>
+                    </td>
+                    <td>
+                      <p>Grad(degree) im Farbkreis 0deg = keine Änderung</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><code>invert(wert)</code></p>
+                    </td>
+                    <td>
+                      <p>Invertieren</p>
+                    </td>
+                    <td>
+                      <p>Dezimalwerte(1 entspricht 100% = vollständige invertierung, 0 = keine Änderung.)</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><code>opacity(wert)</code></p>
+                    </td>
+                    <td>
+                      <p>deckkraft</p>
+                    </td>
+                    <td>
+                      <p>Dezimalwert(1 entspricht 100% = vollständig deckend, 0 =vollständig Transparent)</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><code>saturate(Wert)</code></p>
+                    </td>
+                    <td>
+                      <p>Sättigung</p>
+                    </td>
+                    <td>
+                      <p>Dezimalwerte(1 entspricht 100% = keine Änderung, Werte &lt; 1 verringern die Sättigung höhere Werte erhöhen sie)</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><code>sepia(wert)</code></p>
+                    </td>
+                    <td>
+                      <p>Sepia</p>
+                    </td>
+                    <td>
+                      <p>Dezimalwerte(1 entspricht 100% = vollständige Umwandelung in Sepia, 0= keine Änderung)</p>
+                    </td>
+                  </tr>
+                </table>
+                <h3>Unterschiede zu anderen Eigenschaften</h3>
+                <p>Die Filter <em>opacity()</em> und <em>drop-shadow()</em> scheinen auf den ersten Blick identisch mit den bekannten Eigenschaften <em>opacity</em> und <em>box-shadow</em> zu sein. <mark>Der Unterschied ist jedoch, dass einige Browser für die Filter <strong>Hardwarebeschleunigung</strong> nutzen, was die Leistung enorm erhöht.</mark></p>
+                <p>Beim Filter <em>drop-shadow()</em> gibt es jedoch noch einen weitern Unterschied zur Eigenschaft <em>box-shadow</em>. Er wird auf alle Transparenten Bereiche eines Elements angewendet, einschließlich des Textes:</p>
+
+              </details>
+            </article>
+            <article>
+              <details>
+                <summary>
+                  <h2>Masken(Webkit)</h2>
+                </summary>
+                <p><mark>Auch die masken funktionieren zur Zeit nur in Webkit-basierten Browsern</mark> Damit haben sie die <mark>Möglichkeit, ein HTML-Element mit einer beliebigen Form zu maskieren.</mark> d.h das Element ist nur noch <strong>innerhalb der Form</strong> zu sehen. Die Form fungiert gleichsam als Stanze, um das Element "auszuschneiden". Das Prinzip ist in etwa vergleichbar mit den Schnittmasken in Photoshop:</p>
+                <h3>Bildmasken</h3>
+                <p>Bei Bildmasken kann <mark>die Maskenform ein beliebiges externes Bild(Pixel- oder Vektorgrafik) oder ein CSS-Farbverlauf(gradient) sein.</mark> Im Falle einer Pixelgrafik oder eines Verlaufs muss das Bild allerdings transparente Bereiche enthalten, sodass für Bilder in der Praxis <mark>ausschließlich des <strong>PNG-Format</strong> in Frage kommt.</mark> Die Farbe spielt dabei keine Rolle.</p>
+                <p><mark>Dabei ist der Vorteil von Pixelgrafiken oder Verläufen, dass sie auch weiche Übergänge von deckend nach transparent enthalten können. Der Vorteil von SVG-Grafiken ist ihre verlustfreie Skalierbarkeit</mark></p>
+                <p>Bildmasken werden mit ganz ähnlichen eigenschaften eingebunden wie Hintergrundbilder:</p>
+                <p>-webkit-mask-image <br> -webkit-mask-position <br> -webkit-mark-repeat <br> -webkit-mask-attachment <br> -webkit-mask-size</p>
+                <h3>Clipping</h3>
+                <p>Ganz anders funktioniert das <strong>Clipping</strong> Damit können Sie lediglich <strong>Hintergrundbilder</strong> maskieren. <mark>Die Eigenschaft dafür lautet auch entsprechend <em>background-clip</em></mark></p>
+                <p>Eigentlich können Sie mit der Eigenschaft <em>background-clip</em> nur den Ausdehnungsbereich von Hintergrundbildern bestimmen. Sie erlaubt folgende Eigenschaften:</p>
+                <table>
+                  <tr>
+                    <td>
+                      <p><code>background-clip:</code></p>
+                    </td>
+                    <td>
+                      <p><code>border-box</code>, der Hintergrund erstreckt sich bis hinter die Kontur, standard einstellung <br> <code>padding-box</code>, der Hintergrund erstreckt sich zur Kontur, aber über das padding <br> <code>content-box</code>, der Hintergrund erstreckt sich nur bis zum Padding.</p>
+                    </td>
+                  </tr>
+                </table>
+                <p>Dies funktioniert in allen modernen Browsern ohne Herstellerpräfix</p>
+                <p>Webkit-Browser erweitern diese Eigenschaft jedoch um folgenden Wert:</p>
+                <p><code>-webkit-background-clip:text</code></p>
+                <p>Damit können Sie Hintergrundbilder mit dem im Element enthaltenen Text maskieren:</p>
+              </details>
+            </article>
+
+        </main>
+    </div>
+</body>
+</html>

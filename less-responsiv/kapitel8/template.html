@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/master.css">
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>
+            Kapitel 8 Keyframe-Animationen.
+        </h1>
+        <main>
+            <article>
+                <details>
+                  <summary>
+                    <h2>Das Grundprinzip von CSS-Animationen</h2>
+                  </summary>
+                  <p>Neben den bereits bekannten <em>transitions</em> können Sie in CSS 3 auch <strong>selbstlaufende Animationen</strong> erstellen, wie es bisher nur mit animierten GIFs, Flash oder Javascript möglich war.<mark> Dabei sind Sie nicht auf Bilder beschränkt, sondern Sie können jedes beliebige HTML-Element animieren. </mark></p>
+                  <p>Im Unterschied zu den <em>transitions</em> benötigen CSS-Animationen nicht zweinded ein Ereignis(z.B hover) als Auslöser, sondern sie können von alleine starten und endlos abgespielt werden.</p>
+                  <p>Das Prinzip ist einfach: Bei einer CSS-Animation werden Eigenschaften über die Zeit hinweg verändert. So können Sie z.B die Eigenschaft opacity animieren, um ein Element ein- oder auszublenden, oder Sie ändern die Eigenschaften <em>left oder right</em> eines absolut positionierten Elements, um es horizontal üver die Webseite zu bewegen.</p>
+                  <p>Ähnlich wie in anderen Animationsprogrammen müssen sie dabei nicht - wie etwa im Daumenkino oder einer klassischen Stop-motion-Animation(Trickfim)- jeden einzelen Bewegungsschritt explizit angeben, sondern Sie definieren nur die Momente im Verlauf der Animation, an denen sich etwas ändern soll. Im einfachsten Fall sind das lediglich der Anfangs- und Endpunkt der Animation.</p>
+                  <p><strong>Beispiel:</strong></p>
+                  <p>ein element soll von links nach rechts über die Seite wandern. In diesem Fall müssen Sie nur die Start- und die Endposition des Elements angeben, <mark>die Zwischenschritte werden vom Browser automatisch berechnet. Diese automatische Berechnung von Zwischenschritten nennt man auch Tweening.</mark>. Die <mark>manuell definierten Start- und Endpunkte der Animation nennt man <strong>Keyframes</strong></mark></p>
+                  <p>Eine Animation wird in CSS also mit Hilfe von <em>Keyframes erzeugt.</em> Mit Keyframes definieren Sie, welche Eigenschaft zu welchem Zeitpunkt geändert werden soll.</p>
+                </details>
+            </article>
+            <article>
+              <details>
+                <summary>
+                  <h2>Animation definieren</h2>
+                </summary>
+                <h3>Die @keyframe-Regel</h3>
+                <p>Zu diesem Zweck steht in CSS die @-Regel @keyframes zur Verfügung. Das bedeutet, eine Animation wird zunächst <strong>unabhängig von einer bestimmten Element oder Selektor</strong> definiert. Das hat den Vorteil, dass Sie die Animation danach beliebig vielen Elementen zuweisen können.</p>
+                <p>Ärgerlicherweise müssen Sie die keyframes zur Zeit wieder mit Herstellerpräfixen versehen, d.h Sie müssen jede Animation dreimal definieren.</p>
+                <p>Um eine auf diese Weise erstellte Animation eindeutig identifiezieren und anschließend einem Element zuweisen zu können, benötigen sie einen eindeutigen, selbstdefinierten Namen.</p>
+                <p><code>@-webkit-keyframes einblenden{<br> //Definitionen <br>}<br> @-moz-keyframes einblenden{<br> //Definitionen <br>}<br>@keyframes einblenden{<br> //Definitionen <br>} <br></code></p>
+                <h3>Keyframes definieren</h3>
+                <p>Danach folgt die Definition der einzelnen Keyframes(Animationsschritte). <mark>Dies geschieht entweder mit Prozentwerten(bezogen auf die verstriche Zeit) oder einfach mit den Schlüsselwörtern from und to</mark> Um z.B. ein Element langsam einzublenden, notieren Sie(jeweils in den drei herstellerspezifischen Varianten) entweder:</p>
+                <p><code>@keyframes einblenden{<br>&nbsp;&nbsp;0%{<br> &nbsp;&nbsp;&nbsp;&nbsp;opacity: 0;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;100%{<br> &nbsp;&nbsp;&nbsp;&nbsp;opacity: 100%;<br>&nbsp;&nbsp;}<br>}</code></p>
+                <p><code>@keyframes einblenden{<br>&nbsp;&nbsp;from{<br> &nbsp;&nbsp;&nbsp;&nbsp;opacity: 0;<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;to{<br> &nbsp;&nbsp;&nbsp;&nbsp;opacity: 100%;<br>&nbsp;&nbsp;}<br>}</code></p>
+                <p><mark>die Variante mit Prozentwerten hat den Vorteil, dass Sie nicht auf den Anfangs- und Endpunkt beschränkt sind, sondern beliebig viele Zwischenschritte einbauen können</mark>, an denen sich die Animation ändern kann.</p>
+                <p>Auch sind Sie natürlich <mark>nicht auf eine Eigenschaft pro Keyframe beschränkt,</mark> sondern Sie können in jedem Keyframe beliebig viele Eigenschaften auf einmal ändern. Um z.B. unser Elemente beim Einbinden auch gleichzeitig zu vergrößern</p>
+                <p><code>@keyframes einblenden{<br>&nbsp;&nbsp;from{<br> &nbsp;&nbsp;&nbsp;&nbsp;opacity: 0;<br>&nbsp;&nbsp;&nbsp;&nbsp;transform:scale(0);<br>&nbsp;&nbsp;}<br>&nbsp;&nbsp;to{<br> &nbsp;&nbsp;&nbsp;&nbsp;opacity: 100%; <br>&nbsp;&nbsp;&nbsp;&nbsp;transform:scale(1);<br>&nbsp;&nbsp;}<br>}</code></p>
+                <p>TODO: Auslagern im mixin Seite 59, WTF?</p>
+              </details>
+            </article>
+            <article>
+              <details>
+                <summary>
+                  <h2>Animation zuweisen</h2>
+                </summary>
+                <p>Die Animation mit dem Namen huepfen kann nun beliebigen Selektoren zugewiesen werden. <mark>Dies geschieht mit der Eigenschaft <em>animation</em>,</mark> ebenfalls wieder mit Vendor Specific Prefixes. Die allgemeine Syntax lautet;</p>
+                <p><code>selektor{<br> &nbsp;&nbsp;-webkit-animation: vorgaben <br>&nbsp;&nbsp;-moz-animation: vorgaben <br>&nbsp;&nbsp;animation: vorgaben <br>}</code></p>
+                <p>Neben dem Namen können Sie noch eine Menge weiterer Vorgaben für die Animation machen:</p>
+                <p><code>animation: name dauer beschleunigung verzögerung wiederholung richtung füllmodus play-pause</code></p>
+                <p><mark>Tatsächlich ist die Eigenschaft <em>animation</em> eine Sammeleigenschaft</mark>, für folgende Einzel-Eigenschaften</p>
+                <table>
+                  <tr>
+                    <th><p>Eigenschaft</p></th>
+                    <th><p>Beschreibung</p></th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><code>animation-name</code></p>
+                    </td>
+                    <td>
+                      <p><strong>Name</strong>, der @keyframes-Animation</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><code>animation-duration</code></p>
+                    </td>
+                    <td>
+                      <p><strong>Dauer</strong>, der Animation in Sekunden oder Millisekunden.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><code>animation-timing-function</code></p>
+                    </td>
+                    <td>
+                      <p><strong>Beschleunigung</strong> oder Verlangsamung der Bewegung(Kurve)</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><code>animation-delay</code></p>
+                    </td>
+                    <td>
+                      <p><strong>Verzögerung</strong>, bevor die Animation beginnt.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><code>Animation-iteration-count</code></p>
+                    </td>
+                    <td>
+                      <p><strong>Anzahl der Wiederholungen</strong> der Animation</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><code>animation-direction</code></p>
+                    </td>
+                    <td>
+                      <p><strong>Richtung</strong>, der Animation(vorwärts/rückwärts)</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><code>animation-fill-mode</code></p>
+                    </td>
+                    <td>
+                      <p><strong>Füllmodus</strong> Zustand des Elements, nachdem die Animation zu Ende ist.</p>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p><code>animation-play-state</code></p>
+                    </td>
+                    <td>
+                      <p><strong>Play/Pause</strong>, Animation starten/anhalten.</p>
+                    </td>
+                  </tr>
+                </table>
+              </details>
+            </article>
+            <article>
+              <details>
+                <summary>
+                  <h2>Einzelbildanimation</h2>
+                </summary>
+                <p><mark>Wie wir gesehen haben, können wir nahezu jedes beliebige CSS-Eigenschaft animieren(Ausnahme sind solche die per Definition keine Zwischenschritte besitzten(display:block)</mark>, so auch die eigenschaft <em>Background-position</em> <mark>Damit ist es möglich, <strong>Einzelbildanimationen</strong> nach dem klassischen Trickfilm-Prinzip(und damit qualitativ höherwertige Alternativen zu GIF-Animationen zu erzeugen.)</mark> Der Schlüssel dazu sind - wie wir sehen werden - die <em>timing-functions</em></p>
+                <p>Voraussetzung dafür ist ein <strong>Hintergrund-Sprite</strong>, das alle Einzelbilder der Animation(auch Frames genannt) enthält.</p>
+                <p>Der springenden Punkt ist die timing-function. Neben <em>linear</em> <em>ease</em> usw. gibt es auch noch die Anweisung, die Animation in <em>Sprüngen</em> oder <em>Einzelschritten</em> abzuspielen <mark>Die Funktion lautet steps()</mark>, wobei Sie in die runden Klammern die Anzahl der einzelschritte notieren müssen.</p>
+                <p><strong>Beispiel</strong></p>
+                <p><code>.animation(bewegen 1s steps(8,end) infinite)</code></p>
+                <p>Unsere Animation besteht aus 9 Einzelbilder, wobei das erste und das letzte identisch sind. Da in diesem Fall der Übergang vom letzten zurück zum ersten Bild eine sichbare Verzögerung in der Animation bewirken würde, muss eines der beiden ausgelassen werden. Deshalb notieren wir nur <em>8 steps</em> und bestimmen mit dem zweiten Wert, welches der Beiden Bilder -das erste(start) oder das letzte(end)- enterst werden soll.</p>
+              </details>
+            </article>
+        </main>
+    </div>
+</body>
+</html>
