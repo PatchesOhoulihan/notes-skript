@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/master.css">
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="wrapper">
+        <h1>
+            Kapitel 10 Media Queries.
+        </h1>
+        <main>
+            <article>
+                <details>
+                  <summary>
+                    <h2>Wann werden Media Queries benötigt</h2>
+                  </summary>
+                  <p>Eingangs wurde bereits erwähnt, das Weblayouts, die auf Desktop-Monitoren gut aussehen, für Smartphones häufig nicht geeignet sind. Dies kann unterschiedliche Gründe haben, <mark>die "üblichen Verdächtigen" hierfür sind jedoch Elemente, die nebeneinander angeordnet sind, wie horizontale Menüleisten oder mehrspaltige Layouts. Auf Smartphones - vor allem im Hochformat - werden Elemente sinnvollerweise eher untereinander angeordnet.</mark></p>
+                  <p>In solchen Fällen kommen wir mit Breitenangaben in Prozent nicht mehr weiter - hierfür benötigen wir umfassendere Layoutanpassungen. Dafür stehen in CSS ide <strong>Media Queries(Medienabfragen) zur Verfügung. Damit können Sie für verschiedene Bildschirm bzw. Viewport Größen unterschiedliche Layouts definieren.</strong></p>
+                </details>
+            </article>
+            <article>
+              <details>
+                <summary>
+                  <h2>Medientypen und Media Queries</h2>
+                </summary>
+                <p>Sie kennen bereits die <strong>Medientypen, die Sie bei beim Einbinden von CSS im head Ihrer HTML-Dateien angeben können.</strong></p>
+                <p>&lt;link href="styles.css" rel="stylesheet" type="text/css" media="screen"/></p>
+                <p><mark>Damit können Sie angeben, dass die eingebundene CSS-Datei nur für die <strong>Bildschirmdarstellung</strong> gilt(im Gegensatz etwa zum Druck, media="print")</mark></p>
+                <p>Dieselbe Angabe ist alternative dazu auch mit CSS möglich:</p>
+                <p><code>@media screen{<br> &nbsp;&nbsp;//Eigenschaften; <br>}</code></p>
+                <p>Innerhalb der geschweiften Klammern stehen dann die Selektoren un Eigenschaften, die nur für die Bildschirmdarstellung gelten, z.B</p>
+                <p><code>@media screen{ <br> &nbsp;&nbsp;body{<br> &nbsp;&nbsp;&nbsp;&nbsp;background-color: black;<br> &nbsp;&nbsp;}}</code></p>
+                <p>Dabei bezieht sich jedoch die Angabe <em>screen</em> - egal ob in HTML oder CSS notiert - auf <strong>alle Arten</strong> von Bildschrimen, sowohl auf Desktop-Monitore als auch auf Smartphone-Displays(Die Angabe media="handheld" bezog sich auf klassische Mobiletelefone u dgl. - meist noch mit monochromen Bildschirmen - und ist heute veraltet. Smartphones und Tablets hingegen gelten ebenfalls als Computerbildschirme screen). Deshalb wurden in CSS3 zusätzliche Unterscheidungsmöglichkeiten u.a anhand der Bildschirmgröße, eingeführt, die <strong>Media Queries</strong>. Auch diese können Sie entweder in HTML oder CSS notieren</p>
+                <p><strong>HTML:</strong></p>
+                <p><code>&lt; link href="styles.css" rel="stylessheet" type="text/css" media="screen and (max-device-width: 1034px)" /&gt;</code></p>
+                <p><strong>CSS:</strong></p>
+                <p><code>@media screen and (max-device-width: 1034px){<br> &nbsp;&nbsp;//Eigenschaften; <br>}</code></p>
+                <p><mark>Hier wird der medientyp screen mit bestinnten Merkmalen(sogennannten Media Features hier die Maximalbreite) verknüpft.</mark> die im Beispiel angegenben CSS-Vorgaben <mark>gelten also nur für Bildschirme mit einer Maximalbreite von 1034px, nicht aber für größere Monitore</mark></p>
+                <p>NOTE: Bisweilen sieht man hier noch den Zusatz only</p>
+                <p><code>@media only screen and(max-device-width: 1034)</code></p>
+                <p><mark>Das Schlüsselwort only dient lediglich dazu, die Angaben vor älteren Browsern zu verbergen. Es ist heute kaum mehr notwendig.</mark></p>
+                <h3>HTML oder CSS</h3>
+                <p>Der Unterschied, ob Sie die media Queries in die Verknüpfung im head Ihrer HTML-Datei oder in die CSS-Datei notieren, liegt auf der Hand: Im ersten Fall gelten die Vorgabn der <strong>gesamten verknüpften CSS-Datei</strong> nur für eine Bestimmte Bildschirmgröße. <mark>Sie bräuchten dann für jede Bildschirmgröße eine separate CSS-Datei.</mark></p>
+                <p>Im zweiten Fall können Sie in <strong>einer einzigen CSS-Datei</strong> in beliebig vielen @media-Blöcken unterschiedliche Vorgaben für verschiedene Bildschirmgrößen machen. <mark>da in diesem Fall nur ein CSS-Dokument geladen werden muss, werden auch die HTTP-Requests verringert und dadurch die Ladezeiten beschleunigt</mark></p>
+                <p>Ich empfehle Ihnen deshalb folgende Vorgehensweise: Notieren Sie die einfachen Medientypen weiterhin in die HTML-Verknüpfung, z.B</p>
+                <p><code>&lt;link href="screen.css" rel="stylesheet" type="text/css" media="screen" &gt;</code></p>
+                <p><code>&lt;link href="print.css" rel="stylesheet" type="text/css" media="print" &gt;</code></p>
+                <p>In die screen.css kommen dann die alternativen Vorgaben für verschiedene Bildschirmgrößen. Dort ist die Angabe <em>screen</em> nun nicht mehr notwendig und kann weggelassen werden. Bleibt noch folgende Syntax:</p>
+                  <p><code>@media (max-device-width: 1024px){ <br> &nbsp;&nbsp;//Vorgaben}</code></p>
+                  <p><code>@media (max-device-width: 800px){ <br> &nbsp;&nbsp;//Vorgaben}</code></p>
+              </details>
+            </article>
+        </main>
+    </div>
+</body>
+</html>
