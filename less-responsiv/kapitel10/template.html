@@ -152,7 +152,12 @@
                             <p>LESS erlaubt noch eine dritte, sehr elegante Variante: Damit können Sie die Media Queries in den <strong>jeweiligen Selektor verschachteln</strong>. Dies ist mit normalem CSS nicht möglich und hat den Vorteil, dass Sie alle Vorgaben für einen Selektor beieinander stehen haben. Unser obriges Beispiel mit den drei Boxen könnte dann so aussehen:</p>
                         </li>
                     </ol>
-                    
+                    <p>LESS:</p>
+                    <p><code>aritcle{<br>&nbsp;&nbsp;background-color: silver; <br>&nbsp;&nbsp;width:30%; <br>&nbsp;&nbsp;margin-right: 3%; &nbsp;&nbsp;float: left; &nbsp;&nbsp;@media(max-width: 800px){<br>&nbsp;&nbsp;&nbsp;&nbsp;width: auto; <br>&nbsp;&nbsp;&nbsp;&nbsp;margin: 0 0 1rem 0; &nbsp;&nbsp;&nbsp;&nbsp;float: none;&nbsp;&nbsp;} <br>}</code></p>
+                    <p>Da Sie bei dieser Variante die Breitenangabe in jedem Selekor immer wieder aufs Neue verwenden, können Sie sie sogar in eine Variable auslagern. Diese muss allerdings mit einer Tilde am Anfang und Anführungszeichen <em>maskiert</em> werden.</p>
+                    <p><code>@mobile: ~"(max-width: 800px)"</code></p>
+                    <p><code>aritcle{<br>&nbsp;&nbsp;background-color: silver; <br>&nbsp;&nbsp;width:30%; <br>&nbsp;&nbsp;margin-right: 3%; &nbsp;&nbsp;float: left; &nbsp;&nbsp;@media(max-width: 800px){<br>&nbsp;&nbsp;&nbsp;&nbsp;width: auto; <br>&nbsp;&nbsp;&nbsp;&nbsp;margin: 0 0 1rem 0; &nbsp;&nbsp;&nbsp;&nbsp;float: none;&nbsp;&nbsp;} <br>}</code></p>
+                    <p>Allerdings kann diese Verschachtelung bei umfangreichen Vorgaben auch unübersichtlich werden. Wir werden deshalb in der folgenden Übung die <strong>zweite Variante</strong> nutzen und unsere Media Queries in eine separate Datei auslagern.</p>
                 </details>
             </article>
         </main>
