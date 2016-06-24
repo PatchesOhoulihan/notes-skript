@@ -1,0 +1,143 @@
+//main: style.less
+
+/*
+-----------------------------------------------------------------------------------------
+| Media
+-----------------------------------------------------------------------------------------
+*/
+
+@media (max-width: 950px){
+    #extensions-wrapper{
+        .content{
+            .extension-item{
+                width: 48%;
+                margin-bottom: 4%;
+                
+                &:nth-child(even){
+                    margin-right: 0;
+                }
+                &:nth-child(odd){
+                    margin-right: 4%;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 700px){
+    .content{
+        padding: 100px 25px;
+    }
+    
+    #start-wrapper, #buy-wrapper{
+        .content{
+            padding: 100px 50px;
+        }
+    }
+}
+
+@media(max-width: 640px){
+    #info-wrapper{
+        .content{
+            p{
+                /*Nimmt den Platz den das Eltern Element zur verfügung stellt. Arbeiten mit Prozent kann dazu führen das sich der Wert an den Viewport orientiert.*/
+                width: auto;
+            }
+        }
+    }
+    #pricing-wrapper{
+        .content{
+            article{
+                float: none;
+                width: auto;
+                margin: 0 auto 100px auto;
+                max-width: 400px;
+                
+                &:last-child{
+                    margin-right: auto;
+                    margin-bottom: 0;
+                }
+                div{
+                    margin-bottom: 10px;
+                }
+                p{
+                    padding: 0;
+                    min-height: auto;
+                    
+                    &:last-child{
+                        margin-top: 15px;
+                        padding-top: 15px;
+                    }
+                }
+            }
+        }
+    }
+    #nav-wrapper{
+        font-size: @miniFontSize;
+    }
+    #extensions-wrapper{
+        .content{
+            .extension-item{
+                width: auto;
+                margin-bottom: 15%;
+                float: none;
+                margin-right: 0 !important;
+            }
+        }
+    }
+}
+
+@media(max-width:480px){
+    
+    #nav-wrapper{
+       position: fixed;
+        z-index: 9999;
+        width: 100%;
+        top:0;
+        left:0;
+        margin-top: 0;
+    }
+    
+    #support-wrapper{
+        font-size: @miniFontSize;
+        width: 180px;
+        top: 150px;
+        right:-180px;
+        
+        .support-btn{
+            padding: 5px 10px;
+            top: 25px;
+            left: -49px;
+        }
+    }
+}
+
+@media(max-width:350px){
+    .content #buy-wrapper .content{
+        padding: 50px 25px;
+    }
+    html{
+        font-size: 14px;
+    }
+    #nav-wrapper{
+        nav{
+            ul{
+                li{
+                    margin: 5px 0;
+                    
+                    .nav-hover{
+                        top:-5px;
+                    }
+                }
+            }
+        }
+    }
+    #support-wrapper{
+        font-size: 16px * @miniFontSize;
+    }
+    #start-wrapper{
+        padding-top: 5%;
+    }
+    .download-btn{
+        font-size: 0.8;
+    }
+}

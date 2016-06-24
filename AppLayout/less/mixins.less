@@ -1,0 +1,31 @@
+//main:style.less
+
+
+/*
+-----------------------------------------------------------------------------------------
+| Mixins
+-----------------------------------------------------------------------------------------
+*/
+
+.transition(...){
+    transition: @arguments;
+    -webkit-transition: @arguments;
+    -moz-transition: @arguments;
+}
+
+.transform(@degree){
+    transform: rotate(@degree);
+    -webkit-transform: rotate(@degree);
+    -moz-transform: rotate(@degree);
+}
+
+.clearfix(){
+    &:after{
+        clear:both;
+        content: "";
+        display: block;
+        height:0;
+        line-height: 0;
+        visibility: hidden;
+    }
+}
