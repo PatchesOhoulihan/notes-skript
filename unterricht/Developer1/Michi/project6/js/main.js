@@ -58,29 +58,5 @@ document.querySelector('.css').style.color = "red";
 
 
 
-//Verschiebe die Box mit einem Switch
 
-let move = () => {
-    
-    do{
-         
-        let direction = prompt('Richtung? (wsad)');
-
-        switch(direction){
-            case 'w': document.querySelector('#box').style.marginTop = '-100px';
-            break;
-            case 's': document.querySelector('#box').style.marginTop = '100px';
-            break;
-            case 'a': document.queryselector('#box').style.marignLeft = '-100px';
-            break;
-            case 'd': document.querySelector('#box').style.marginLeft = '100px';
-
-        }
-
-        document.querySelector('#box').style.top    
-    
-    }while(confirm("Nochmal?"));
-}
-
-move();
 
