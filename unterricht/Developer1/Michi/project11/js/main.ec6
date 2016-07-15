@@ -1,0 +1,86 @@
+
+//OBJEKT definition nicht vergessen dies ist die definition für EIN Objekt
+
+let auto = new Object();
+//Variable
+auto.marke = 'Ford';
+auto.model = 'Mustang';
+auto.farbe = 'Rot';
+auto.km = 1238564;
+
+//Methode
+auto.fahren = (distanz) =>{
+    auto.km += distanz;
+}
+
+console.log(auto);
+
+//(Call bei reference) Wenn man ein Objekt einer Variablen zuweist wird nur eine Referenz auf das alte Objekt erstellt.
+let neuesAuto = auto;
+
+console.log('Hier kommt das neue Auto: ');
+console.log(neuesAuto);
+
+
+//Wenn Variable in (() =>{})() Definiert ist sie nicht mehr im Globalscope und kann nicht mehr direkt in der Console(mit console.log() aufgerufen werden)
+
+
+
+
+//KLASSEN definition Blaupause aus der unendlich viele Objekte erstellen kann. Klassen fangen immer groß an 
+class Fighter{
+    constructor(x){
+        this.name = x;
+        this.str = Math.floor(Math.random() * (30 - 10 + 1)) + 10;
+        this.dex = Math.floor(Math.random() * (30 - 10 + 1)) + 10;
+        this.hp = 100;
+        
+        //If you define a variable with a let the Variable is declared private.
+        let hf= 12;
+        this.hit = (opponent) => {
+            let dmg = Math.floor(Math.random() * (this.str - this.str/4 + 1) + this.str/4);
+            
+            let evadeChance = opponent.dex * (Math.random()*8)
+            if(evadeChance <= 50){
+                opponent.hp -= dmg;
+                console.log("HIT!: " + dmg);
+                console.log("HP!: " + opponent.hp);
+            }
+            else{
+                console.log("MISS!");
+                console.log(hf);
+            }
+        }
+        this.updateList = () => {
+            let list document.querySelector('#player ul');
+            list.children[0].children[0].innerHTML = this.name;
+            list.children[1].children[0].innerHTML = this.str;
+            list.children[2].children[0].innerHTML = this.dex;
+            list.children[3].children[0].innerHTML = this.hp;
+        }
+    }
+}
+
+let player1 = new fighter();
+
+//Objekte aus Klassen initialisieren:
+let f1 = new Fighter('Hans');
+console.log("Name des ersten Kämpfers: ");
+console.log(f1);
+
+let f2 = new Fighter('Manni');
+console.log("Name des zweiten Kämpfers: ");
+console.log(f2);
+
+console.log("Time for a Fight: ");
+f1.hit(f2)
+console.log("Is this variable private: " + f1.hf);
+
+
+//wiring the The Stuff up
+
+document.querySelector('#create-fighter').addEventListener('click', () => {
+    player1 = new Fighter(document.querySelector('#player ul'));
+    player1.updateList();
+});
+

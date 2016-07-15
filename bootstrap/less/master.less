@@ -1,0 +1,36 @@
+//out: ../css/master.css
+
+@light-blue: #c5f1f2;
+@dark-blue: #296F71;
+@vanila: #eeecc3;
+@std-font-color: #333;
+@light-font-color: #fefefe;
+
+
+body{
+    
+    color: @std-font-color;
+    header, main, footer{
+        min-height: 500px;
+    }
+    
+    header{
+        background-color: @vanila;
+        padding-top: 70px;
+        
+    }
+    
+    main{
+        background-color: @light-blue;
+        background-top: 50px;
+    }
+    
+    aside{
+         min-height: 500px;
+    }
+    
+    footer{
+        background-color: @dark-blue;
+        color: @light-font-color;
+    }
+}

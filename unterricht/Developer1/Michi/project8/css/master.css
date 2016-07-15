@@ -1,0 +1,24 @@
+#box {
+    width: 100px;
+    height: 100px;
+    background: red;
+    position: absolute;
+    transition: all 0.4;
+}
+
+.neueKlasse{
+    background: green,
+    
+}
+
+.hidden{
+    opacity: 0;
+}
+
+.red{
+    color: red;
+}
+
+p{
+    transition: all 0.75s;
+}
