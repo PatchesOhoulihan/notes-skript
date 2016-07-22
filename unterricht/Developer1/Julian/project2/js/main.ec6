@@ -1,0 +1,74 @@
+(() =>{
+    //Define an Object with the currrent date
+    const NOW = new Date();
+    
+    //Define an Date Object with a specific date,
+    const END = new Date(2016,6,17,0,0);
+    
+    //Formatted Date
+    console.log(NOW);
+    
+    //Millisecunden(Unix Time);
+    console.log(NOW.getTime());
+    
+    
+    //function Variables
+     let secondsOutput = 0;
+     let minuteOutput = 0;
+     let hoursOutput = 0;
+     let dayOutput = 0;
+     let difference;
+     let interval;
+    
+    let getTimeFromNowToEnd = () =>{
+        difference = END - NOW;
+        
+        if(difference > 0)
+        {
+            let temp = Math.round(difference / 1000);
+            secondsOutput = checkOutputDigits(temp % 60);
+
+            //Minutes Output
+            temp = Math.floor(temp/60);
+            minuteOutput = checkOutputDigits(temp % 60);
+
+            //Hours output
+            temp = Math.floor(temp/60);
+            hoursOutput = checkOutputDigits(temp % 24);
+
+            temp = Math.floor(temp / 24);
+            dayOutput = checkOutputDigits(temp);
+
+            NOW.setTime(NOW.getTime() +1000);
+
+            console.log("Tage: " + dayOutput + " Stunden: " + hoursOutput + " minuten: " + minuteOutput + " sekunden:  " + secondsOutput);
+        }else{
+             clearInterval(interval);
+             document.querySelector('#container').innerHTML = "<h1>Viel Erfolg bei der Prüfung </h1>"
+             document.querySelector("body").classList.add("end");
+        }
+       
+       
+    }
+    
+    let checkOutputDigits = (number) => {
+        //Tenäre Operator
+        return (number < 10)? "0" + number : number;
+    };
+    
+    let checkOutputDigitsShort = number => (number < 10)? "0" + number : number;
+    
+    updateOutput = (days, hours, minutes, seconds) => {
+        document.querySelector('#days').innerHTML = days;
+        document.querySelector('#hours').innerHTML = hours;
+        document.querySelector('#minutes').innerHTML = minutes;
+        document.querySelector('#seconds').innerHTML = seconds;
+    }
+    
+    let startTimer = () => {
+        getTimeFromNowToEnd();
+        updateOutput(dayOutput,hoursOutput,minuteOutput,secondsOutput);   
+    }
+    
+    interval=setInterval(startTimer, 1000);
+})();

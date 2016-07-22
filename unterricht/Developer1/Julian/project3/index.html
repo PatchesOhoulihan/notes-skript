@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form Validierung</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <script src="js/jquery-1.11.3.min.js" type="text/javascript" async></script>
+        <script src="js/script.js" type="text/javascript" defer></script>
+    </head>
+    <body>
+        <main>             
+            <section id="container">
+                <h1>Individuelle Beratung gewünscht?</h1>
+                <form id="formular" action="#">
+                    <div class="input-wrapper">
+                        <input type="text" id="mailInput" name="mailInput" placeholder="Mail"/>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="radio" name="gender" value="male" id="male" checked="checked">
+                        <label for="male"><span id="radio-male"></span>Herr</label>
+                        <input type="radio" name="gender" value="female" id="female">
+                        <label for="female"><span id="radio-female"></span>Frau</label>
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="text" id="nameInput" name="nameInput" placeholder="Vorname" />
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="text" id="surnameInput" name="surnameInput" placeholder="Nachname" />
+                    </div>
+                    
+                    <button id="senden">
+                        <p>Senden</p>
+                    </button>
+                </form>
+            </section>
+        </main>
+    </body>
+</html>

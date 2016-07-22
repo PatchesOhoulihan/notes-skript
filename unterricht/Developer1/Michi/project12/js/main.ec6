@@ -1,0 +1,50 @@
+(() => {
+ 
+    let fruits = Array.from(document.querySelectorAll('.fruit'));
+    
+    let search = () => {
+        
+        let input = new RegExp(document.querySelector('#suche').value, 'i');
+        
+        fruits.forEach((element) => {
+            if(input.test(element.innerText)){
+                element.classList.remove('hidden');
+            }
+            else{
+                element.classList.add('hidden');   
+            }
+        });
+    }
+
+    let imgs = Array.from(document.querySelectorAll('#slider img'));
+    let pos = 0;
+    
+    let next = () => {
+        document.querySelector('#slider').style.left = (pos * (-960)) + 'px'; 
+         pos++;
+    }
+    
+    let prev = () => {
+        document.querySelector('#slider').style.left = (pos * (-960)) + 'px';
+         pos--;
+    }
+    
+    let direction = next;
+    let autoSlide = () => {
+        
+        if(pos <= 0){
+            
+            direction = next;
+            
+        }else if(pos >= imgs.length -1){
+            direction = prev;
+        }
+        
+        direction();
+        setTimeout(autoSlide, 2000);
+    }
+    
+    //Do something
+    autoSlide();
+    document.querySelector('#suche').addEventListener('keyup', search);
+    })()
