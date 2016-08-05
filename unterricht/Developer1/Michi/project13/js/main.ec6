@@ -1,0 +1,82 @@
+(() => {
+ 
+    let fruits = Array.from(document.querySelectorAll('.fruit'));
+    
+    let search = () => {
+        
+        let input = new RegExp(document.querySelector('#suche').value, 'i');
+        
+        fruits.forEach((element) => {
+            if(input.test(element.innerText)){
+                element.classList.remove('hidden');
+            }
+            else{
+                element.classList.add('hidden');   
+            }
+        });
+    }
+
+    let imgs = Array.from(document.querySelectorAll('#slider img'));
+    let pos = 0;
+    
+    let next = () => {
+        document.querySelector('#slider').style.left = (pos * (-960)) + 'px'; 
+         pos++;
+    }
+    
+    let prev = () => {
+        document.querySelector('#slider').style.left = (pos * (-960)) + 'px';
+         pos--;
+    }
+    
+    let direction = next;
+    let autoSlide = () => {
+        
+        if(pos <= 0){
+            
+            direction = next;
+            
+        }else if(pos >= imgs.length -1){
+            direction = prev;
+        }
+        
+        direction();
+        setTimeout(autoSlide, 2000);
+    }
+    
+    //Do something this da shit
+    autoSlide();
+    
+    document.querySelector('#suche').addEventListener('keyup', search);
+    
+     let hoverImg = document.querySelector('.hoverImg');
+    
+    fruits.forEach(function (element) {
+        element.children[0].addEventListener('mousemove', function (event) {
+            hoverImg.style.display = 'block';
+            hoverImg.style.opacity = 1;
+            hoverImg.src = element.children[0].getAttribute('href');
+            hoverImg.style.top = event.pageY + 15 + 'px';
+            hoverImg.style.left = event.pageX + 15 + 'px';
+        });
+        element.children[0].children[0].addEventListener('mouseout', (event) =>{
+             hoverImg.style.opacity = 0.0;
+            setTimeout(() => {
+                hoverImg.style.display = "none";  
+            }, 1000);
+           
+        });
+    });
+    
+    
+//    fruits.forEach((element) => {
+//        element.children[0].addEventListener('click', (event) => {
+//            document.querySelector('#layerImg').children[0].src = element.children[0].getAttribute('src');
+//            document.querySelector('#boxlayer').classList.remove('hidden');
+//        });
+//    });
+//    
+//    document.querySelector('#layer-close').addEventListener('click', () => {
+//        document.querySelector('#boxlayer').classList.add('hidden');
+//    })
+})()

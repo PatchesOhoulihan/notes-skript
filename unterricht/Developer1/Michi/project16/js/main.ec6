@@ -1,0 +1,18 @@
+(() => {
+    
+    let $ = document.querySelector.bind(document);
+    let $$ = document.querySelectorAll.bind(document);
+    
+    let navElements = Array.from($$('.nav'));
+    
+    console.log(navElements);
+    
+    navElements.forEach((element) => {
+       element.addEventListener('click', () => {
+           let temp = element.nextElementSibling;
+           console.warn(temp);
+           element.nextElementSibling.classList.toggle('hidden');
+       }); 
+    });
+    
+})()

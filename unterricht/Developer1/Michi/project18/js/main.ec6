@@ -1,0 +1,43 @@
+(()=>{
+    
+ let $ = (document).querySelector.bind(document);
+
+ class Todo{
+     
+    constructor(text){
+        this.text = text;
+        this.date = new Date();
+        this.isChecked = false;
+    }
+    
+//  get date(){
+//    return this.date;
+//  }
+//
+//  get isChecked(){
+//      return this.isChecked;
+//  }
+//    
+//  set isChecked(newValue){
+//      return this.isChecked = newValue;
+//  }
+}
+
+let todoList = [];
+    
+$('#submitBtn').addEventListener('click', ()=>{
+    let input = $('#todoInput').value;
+    todoList.push(new Todo(input));
+    console.log(todoList);
+    updateTable();
+});
+    let updateTable = () => {
+        todoList.forEach((element, index) => {
+            $('#mrTBody').innerHTML += `<tr><td>${index+1}</td><td>${element.text}</td><td>${element.date}</td><td><button type="button" class='btn btn-success'><span class="glyphicon glyphicon-ok"></span></button>
+                             <button type="button" class='btn btn-danger'><span class="glyphicon glyphicon-trash"></span></button></td></tr>`
+        });
+    } 
+})();
+
+
+

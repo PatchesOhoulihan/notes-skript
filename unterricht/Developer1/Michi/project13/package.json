@@ -1,0 +1,18 @@
+{
+  "name": "bauer-horst",
+  "version": "1.0.0",
+  "description": "Bauer Horst awesome Store",
+  "main": "index.js",
+  "scripts": {
+    "test": "none"
+  },
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "keywords": [
+    "none"
+  ],
+  "author": "Schmalte/Michi",
+  "license": "ISC"
+}

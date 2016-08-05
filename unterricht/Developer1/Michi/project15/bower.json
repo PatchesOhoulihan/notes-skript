@@ -1,0 +1,21 @@
+{
+  "name": "Jquery experiments",
+  "description": "none",
+  "main": "index.html",
+  "authors": [
+    "Schmalte"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "none"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "nodemodules",
+    "bowercomponents",
+    "test",
+    "tests"
+  ]
+}

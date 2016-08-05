@@ -1,0 +1,61 @@
+//main: style.less
+
+/*--------------------------------------------------------
+| Content
+----------------------------------------------------------*/
+#site-wrapper{
+    max-width: 960px;
+    margin: 0 auto 0 auto;
+    background: ghostwhite;
+}
+
+
+#galerie{
+    .pic-row{
+        text-align: center;
+        margin: 0 auto 30px auto;
+    }
+    img{
+        width: 30%;
+        height: 250px;
+        border-style: solid;
+border-width: 0px;
+-moz-border-image: url(http://img06.deviantart.net/4f95/i/2009/362/c/2/grunge_fantasy_border_by_marylise.jpg) 0 stretch;
+-webkit-border-image: url(http://img06.deviantart.net/4f95/i/2009/362/c/2/grunge_fantasy_border_by_marylise.jpg) 0 stretch;
+-o-border-image: url(http://img06.deviantart.net/4f95/i/2009/362/c/2/grunge_fantasy_border_by_marylise.jpg) 0 stretch;
+border-image: url(http://img06.deviantart.net/4f95/i/2009/362/c/2/grunge_fantasy_border_by_marylise.jpg) 0 fill stretch;
+        
+         &:nth-child(2){
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+    }
+}
+
+#hero-nav{
+    img{
+        width: 700px;
+        height: 500px;
+        display:block;
+        margin: 0 auto 0 auto;
+        border-style: solid;
+border-width: 12px 0px 16px 27px;
+-moz-border-image: url(http://img06.deviantart.net/4f95/i/2009/362/c/2/grunge_fantasy_border_by_marylise.jpg) 12 0 16 27 repeat;
+-webkit-border-image: url(http://img06.deviantart.net/4f95/i/2009/362/c/2/grunge_fantasy_border_by_marylise.jpg) 12 0 16 27 repeat;
+-o-border-image: url(http://img06.deviantart.net/4f95/i/2009/362/c/2/grunge_fantasy_border_by_marylise.jpg) 12 0 16 27 repeat;
+border-image: url(http://img06.deviantart.net/4f95/i/2009/362/c/2/grunge_fantasy_border_by_marylise.jpg) 12 0 16 27 fill repeat;
+    }
+    
+    #hero-control{
+        text-align: center;
+        margin: 0 auto 0 auto;
+    }
+    
+    p,input{
+        display: inline-block;
+    }
+}
+
+.error{
+    box-shadow: 0 0 3px 1pc rgba(255,0,0,0.75);
+}

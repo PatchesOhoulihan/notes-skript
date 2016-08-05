@@ -1,0 +1,24 @@
+{
+  "name": "todo liste",
+  "homepage": "https://github.com/PatchesOhoulihan/notes-skript",
+  "description": "single page application todo",
+  "main": "index.html",
+  "keywords": [
+    "none"
+  ],
+  "authors": [
+    "Schmalte"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
