@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+     <link rel="stylesheet" href="css/master.css">
+    <title>Document</title>
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+                <ul class="nav nav-pills">
+                    <li><a href="">Main Index</a></li>
+                    <li><a href="kap1.html">less intro</a></li>
+                    <li><a href="kap2.html">Variablen</a></li>
+                    <li><a href="kap3.html">Versch. Selektoren</a></li>
+                    <li><a href="kap4.html">Mixins</a></li>
+                    <li class="active"><a href="#">Aufteilung in Dateien</a></li>
+                    <li><a href="#">Übung (missing)</a></li>
+                    <li><a href="kap7.html">Effekte</a></li>
+                    <li><a href="kap8.html">Keyframe Ani.</a></li>
+                    <li><a href="kap9.html">Responsive</a></li>
+                    <li><a href="kap10.html">Media Queries</a></li>
+                </ul>
+    </nav>
+    <div class="container">
+        <h1>
+            Kapitel 5 Aufteilung in mehrere Dateien.
+        </h1>
+        <main>
+            <article>
+                <details>
+                  <summary>
+                    <h2>Die @import-Regel</h2>
+                  </summary>
+                  <p>Diese Dateien werden alle in eine "Master-Datei" <strong>importiert</strong>. Die Möglichkeiten dazu bietet CSS bereits nativ, die @-Regel dafür lautet <strong>@import</strong> In LESS wurde diese Funktionalität erweitert.</p>
+                </details>
+            </article>
+            <article>
+              <details>
+                <summary>
+                  <h2>Syntax</h2>
+                </summary>
+                <p>Bei komplexeren Projekten kann es nützlich sein, CSS-Vorgaben in meherere Dateien aufzuteilen, um sie übersichtlich zu halten. Dies gilt in noch höherem Maße für LESS-Projekte. So wäre z.B folgende Aufteilung sinnvoll:</p>
+                <ul>
+                  <li>
+                    <p>Eine LESS-Datei für die Variablen.</p>
+                  </li>
+                  <li>
+                    <p>Eine LESS-Datei für die mit @font-face eingebetteten Schriftarten</p>
+                  </li>
+                  <li>
+                    <p>Eine LESS-Datei für die grundlegenden Formatierungen der HTML-Tags(<em>body, p strong etx</em>) basierend z.B auf der normalize.css</p>
+                  </li>
+                  <li>
+                    <p>eine LESS-Datei für das Grundlayout(Positionierung der Elemente auf der Seite)</p>
+                  </li>
+                  <li>
+                    <p>(mindestens) eine LESS-Datei für die Gestaltung einzelner Inhaltsbereiche und Interface-Elemente</p>
+                  </li>
+                  <li>
+                    <p>eine LESS-Datei für die Gestaltung von Formularen,</p>
+                  </li>
+                  <li>
+                    <p>eine LESS-Datei für die Mixins</p>
+                  </li>
+                </ul>
+                <p>Diese Dateien speichern Sie am besten in einem Unterordner namens <em>less</em> innerhalb des Stylesheet-Verzeichnisses</p>
+                <p>Die grundlegende Syntax, um eine LESS-(oder CSS) Datei in eine andere zu importieren, lautet:</p>
+                <p><code>@import "pfad/zur/datei";</code></p>
+                <p>wobei Sie in die Anführungszeichen einen Pfad noch dem gewohnten Schema notieren müssen also z.B.</p>
+                <p><code>@import "less/variables.less"</code></p>
+                <p>Es gibt dabei jedoch ein paar Unterschiede zwischen dem Import von CSS- und LESS-Dateien:</p>
+                <ul>
+                  <li>
+                    <p>Die <em>@import</em>-Regeln müssen - im Gegensatz zu CSS - in LESS-Dateien nicht zwingend am Beginn des Dokumentes stehen.</p>
+                  </li>
+                  <li>
+                    <p>Alle importierten LESS-Dateien werden in die "Master-Datei" kompiliert,<mark> d.h die resultierende CSS-Datei kompiliert.</mark> d.h die resultierende CSS-Datei enthält alle Vorgaben aus allen Dateien. Sie ist daher auch die einzige, die in den HTML-Dateien verlinkt und auf den Webserver hochgeladen werden muss.</p>
+                  </li>
+                  <li>
+                    <p><mark>Deshalb müssen die Pfade(zu Hintergrundbilder und fonts) in den zu importierenden LESS-Dateien immer <strong>ausgehend von der Master-Datei</strong> notiert werden</mark>, auch wenn Sie sie in einem Unterordner abspeichern.</p>
+                  </li>
+                </ul>
+              </details>
+            </article>
+        </main>
+    </div>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/master.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+                <ul class="nav nav-pills">
+                    <li><a href="">Main Index</a></li>
+                    <li><a href="kap1.html">less intro</a></li>
+                    <li><a href="kap2.html">Variablen</a></li>
+                    <li><a href="kap3.html">Versch. Selektoren</a></li>
+                    <li><a href="kap4.html">Mixins</a></li>
+                    <li><a href="kap5.html">Aufteilung in Dateien</a></li>
+                    <li><a href="#">Übung (missing)</a></li>
+                    <li><a href="kap7.html">Effekte</a></li>
+                    <li><a href="kap8.html">Keyframe Ani.</a></li>
+                    <li class="active"><a href="#">Responsive</a></li>
+                    <li><a href="kap10.html">Media Queries</a></li>
+                </ul>
+    </nav>
+    <div class="container">
+        <h1>
+            Kapitel 9 Grundlagen des Responsive Designs.
+        </h1>
+        <main>
+            <article>
+                <details>
+                  <summary>
+                    <h2>Triva</h2>
+                  </summary>
+                  <p>Eine essentielle Herausforderung im modernen Webdesign ist die Vielfalt von Geräten, die heutzutage zum surfen im Web benutzt werden. Eine Website, die auf einem großen Desktop-Monitor gut aussieht, ist auf einem kleinen Smartphone-Display mit Touchscreen u.U kaum benutzbar. Deshalb müssen moderne Weblayouts <em>flexibel</em> sein, sie müssen sich an die verschiedenen Bildschirmgrößen anpassen. Man spricht deshalb von anpassungsfähigen oder reaktionsfähigen Designs, auf Englisch <strong>Responsive Designs</strong></p>
+                  <p><mark>Das Prinzip dabei ist, dass jedes Gerät - ob Desktop-Pc oder Smartphone - grundsätzlich die identischen Inhalte, also dieselben HTML-Dokumente, angezeigt bekommt. Lediglich die Darstellung der Inhalte passt sich dem jeweiligen Gerät an.</mark> Das bedeutet, dass Sie hier mehr denn je auf eine strikte Trennung zwischen Inhalt(HTML) und Design(CSS) achten müssen.</p>
+                  <p>Auch die Reaktionsfähigkeit selbst wird mit CSS realisiert. <mark>Dies geschieht mit Hilfe sogenannter <strong>Media Queries</strong></mark>, mit deren Hilfe sie <strong>Layout-Alternativen</strong> für verschiedene Bildschirmgrößen definieren können.</p>
+                  <p>NOTE: Neben dem Prinzip <em>Responsive Design</em> gibt es natürlich noch andere Möglichkeiten, Webinhalte für mobile Geräte breitzustellen: Zum einen die Gestaltung einer völlig unabhängigen Website, die auch unter einer anderen URL erreichbar ist(oftmals beginnend mit mobile oder einfach m anstelle von www), oder aber die Eintwicklung nativer Apps für bestimmte Geräte. Responsive Design gehört hier jedoch zu den effizentesten(und kostengünstigsten) Varianten.</p>
+                </details>
+            </article>
+            <article>
+              <details>
+                <summary>
+                  <h2>Anpassung des Viewports</h2>
+                </summary>
+                <p>Der <strong>Viewport</strong> ist der Bereich innerhalb eines Browserfensters, der die eigentliche Website enthält(ohne Titel, Adresszeile). Dieser Viewport verhält sich auf Desktop - und mobilen Browsern unterschiedlich, wenn eine Website zu groß ist, um vollständig hineinzupassen: Auf dem Desktop-PCs werden dann einfach Scrollbalken erzeugt, in mobilen Browsern auf Touchscreens wird die Website stattdessen <strong>verkleinert</strong> sodass möglichst vile davon zu sehen ist. Dies führt natürlich im Normalfall dazu, dass die Texte kaum mehr lesbar sind: Der Benutzer muss Teile der Webseite mit den Fingern wieder heranzoomen.</p>
+                <p><mark>Auf IOS und vielen anderen Geräten wird die Breite des Viewports standardmäßig auf 980px skaliert, d.h webiste werden so verkleinert, dass 980px davon in den Viewport passen</mark>(dieser Wert galt lange Zeit als druchschnittliche Standardbreite für Websites)</p>
+                <p>Dieses Verhalten müssen wir deaktivieren. <mark> Die Grundvoraussetzung für responsive Design ist, dass der Viewport immer die <strong>Originalgröße</strong> des jeweiligen Geräts hat, d.h dass ein Pixel der Website einem Gerätepixel entspricht.</mark></p>
+                <p>Dies geschieht interessanterweise nicht mit CSS, sondern in HTML mit hilfe eines Meta-Tags:</p>
+                <p><code>&lt;meta name="viewport" content="width=device-width, initial-scale="1.0" /&gt;</code></p>
+                <p><mark>Als dritter Wert neben <em>width="device-width"</em> und <em>initial-scale=1.0</em> wäre theoretisch auch noch <em>user-scaleable="no"</em> möglich. Damit könnten Sie das manuelle Zoomen mit zwei Fingern komplett deaktivieren.</mark> Dies ist in der Praxis selten sinnvoll, denn warum sollte man den Benutzern dieses Feature nehmen?(Diese Angabe ist eher für Apps gedacht, die die nativen Interface-Elemente des Geräts verwenden. Solche Oberflächen müssen in der Regel nicht gezoomt werden)</p>
+                <p>NOTE: Dieser Meta-Tag wirkt sich nur auf Mobilendgeräte aus. Auf Desktop-Browser hat er keinerlei Einfluss.</p>
+                <p><strong>Beispiel</strong> siehe Begleitmaterial Ordner viewport</p>
+                <p>NOTE: Diesen Meta-Tag müssen sie von nun an im head jeder Ihrer HTML-Dateien notieren.</p>
+              </details>
+            </article>
+            <article>
+              <details>
+                <summary>
+                  <h2>Mobile Webseiten testen.</h2>
+                </summary>
+                <p>Das Beispiel aus dem Begleitmaterial(Ordner viewports) können sie auch live testen. Sie benötigen dafür allerdings zwei Dinge:</p>
+                <ul>
+                  <li><p>Eine Webserver-Software wie z.B. den in Mac-Systemen enthaltenen Apache-Webserver oder alternativ XAMPP</p></li>
+                  <li>
+                    <p>Ein smartphone oder Tablet oder den IOS-Simulator für Mac</p>
+                  </li>
+                </ul>
+                <p>NOTE: Auf neueren Mac-Systemen hat Apple die Systemeinstellungen zum Starten des ApacheWebservers entfernt. Diese kann jedoch nachinstalliert werden. unter <a href="http://clickontyler.com/web-sharing/">clickontyler.com</a></p>
+                <p>Kopieren Sie dann den Ordner viewports ins Stammverzeichnis des Webservers auf Ihrem Computer und starten Sie den Server. Rufen Sie nun die lokale Adresse im Browser Ihres Smartphones(die Geräte müssen im selben Netz sein.) oder des IOS-Simulators auf.</p>
+              </details>
+            </article>
+            <article>
+              <details>
+                <summary>
+                  <h2>Fluid Content, Liquid Layouts und Flexible Images</h2>
+                </summary>
+                <p><mark>Ich hatte eingangs bereits erwähnt, dass moderne Websites <em>flexible</em> sein müssen. Das Besondere daran ist, dass HTML-Seiten <em>ohne CSS-Vorgaben</em> dies bereits von Haus aus sind</mark> Bei einer Veränderung der Fenstergröße umbricht sämtlicher Text einer HTML-Seite neu, sodass er auf den meisten Bildschirmen immer gut lesbar bleibt. Lediglich die Bilder behalten ihre Originale-größe.</p>
+                <p>Erst mit CSS wurden die Weblayouts in der Vergangenheit statisch. Designer haben angefangen, mit festen Breiten in Pixeln zu arbeiten. Dies hat zwar die Gestaltung und exakte Platzierung der layoutelemente enorm erleichtert, ist aber dem Umstand geschuldet, dass die meisten Designer ihre Wurzeln im Print-Design haben und - bewusst oder unbewusst - dieses Prinzip auch auf Webseiten übertragen haben: Alles brauchte einen festen Platz</p>
+                <p>Erst in jüngerer Zeit, mit der Verbreitung winziger Smartphone Smartphone-displays, hat man eingesehen, dass dies der falsche Weg war. Websites sind kiene Print-Dokumente und folgen ganz anderen Regeln.</p>
+                <p><mark>Die Aufgabe ist deshalb, bei der Gestaltung von Websites mit CSS die Flexibiltät der HTML-Seiten beizubehalten und sogar zu optimieren.</mark> die Schlagworte sind hier <strong>Liquid Layouts</strong> und <strong>Flexible Images</strong>. Und das beste daran: Das haben wir bereits die ganze Zeit über getan!</p>
+                <p><mark>Wir haben für die Breitenangaben sowohl im Body und einzelnen Textspalten als auch für die Bilder Prozentwerte benutzt. Dadurch skalieren diese elemente bei einer Änderung der Fenstergröße bereits mit und passen sich auch an kleinere Bildschirme an.</mark> Mit zusätzlichen Angaben von <em>min-width</em> und <em>max-width</em> haben wir die Breite auf einen bestimmten Toleranzbereich eingeschränkt.</p>
+                <p><mark>Für Schriftgrößen und Höhenangaben haben wir die Maßeinheiten <strong>em oder rem</strong> verwendet. Dadurch passen sich diese Größen an die Standardschriftgröße des jeweiligen Browsers an und skalieren bei einer Änderung der Schriftgröße automatisch mit.</mark></p>
+                <p>NOTE: Diese Vorarbeiten sind für ein <em>Responsive Design</em> bereits die halbe Miete! Nur dort, wo Sie damit nicht weiterkommen, benötigen Sie tiefergreifende Layoutänderungen mit <em>Media Queries.</em></p>
+              </details>
+            </article>
+        </main>
+    </div>
+</body>
+</html>

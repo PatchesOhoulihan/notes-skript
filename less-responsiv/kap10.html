@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="css/master.css">
+
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+      <nav class="navbar navbar-default navbar-fixed-top">
+                <ul class="nav nav-pills">
+                    <li><a href="">Main Index</a></li>
+                    <li><a href="kap1.html">less intro</a></li>
+                    <li><a href="kap2.html">Variablen</a></li>
+                    <li><a href="kap3.html">Versch. Selektoren</a></li>
+                    <li><a href="kap4.html">Mixins</a></li>
+                    <li><a href="kap5.html">Aufteilung in Dateien</a></li>
+                    <li><a href="#">Übung (missing)</a></li>
+                    <li><a href="kap7.html">Effekte</a></li>
+                    <li><a href="kap8.html">Keyframe Ani.</a></li>
+                    <li><a href="kap9.html">Responsive</a></li>
+                    <li class="active"><a href="#">Media Queries</a></li>
+                </ul>
+    </nav>
+    <div class="container">
+        <h1>
+            Kapitel 10 Media Queries.
+        </h1>
+        <main>
+            <article>
+                <details>
+                  <summary>
+                    <h2>Wann werden Media Queries benötigt</h2>
+                  </summary>
+                  <p>Eingangs wurde bereits erwähnt, das Weblayouts, die auf Desktop-Monitoren gut aussehen, für Smartphones häufig nicht geeignet sind. Dies kann unterschiedliche Gründe haben, <mark>die "üblichen Verdächtigen" hierfür sind jedoch Elemente, die nebeneinander angeordnet sind, wie horizontale Menüleisten oder mehrspaltige Layouts. Auf Smartphones - vor allem im Hochformat - werden Elemente sinnvollerweise eher untereinander angeordnet.</mark></p>
+                  <p>In solchen Fällen kommen wir mit Breitenangaben in Prozent nicht mehr weiter - hierfür benötigen wir umfassendere Layoutanpassungen. Dafür stehen in CSS ide <strong>Media Queries(Medienabfragen) zur Verfügung. Damit können Sie für verschiedene Bildschirm bzw. Viewport Größen unterschiedliche Layouts definieren.</strong></p>
+                </details>
+                <hr>
+            </article>
+            <article>
+              <details>
+                <summary>
+                  <h2>Medientypen und Media Queries</h2>
+                </summary>
+                <p>Sie kennen bereits die <strong>Medientypen, die Sie bei beim Einbinden von CSS im head Ihrer HTML-Dateien angeben können.</strong></p>
+                <p>&lt;link href="styles.css" rel="stylesheet" type="text/css" media="screen"/&gt;</p>
+                <p><mark>Damit können Sie angeben, dass die eingebundene CSS-Datei nur für die <strong>Bildschirmdarstellung</strong> gilt(im Gegensatz etwa zum Druck, media="print")</mark></p>
+                <p>Dieselbe Angabe ist alternative dazu auch mit CSS möglich:</p>
+                <p><code>@media screen{<br> &nbsp;&nbsp;//Eigenschaften; <br>}</code></p>
+                <p>Innerhalb der geschweiften Klammern stehen dann die Selektoren un Eigenschaften, die nur für die Bildschirmdarstellung gelten, z.B</p>
+                <p><code>@media screen{ <br> &nbsp;&nbsp;body{<br> &nbsp;&nbsp;&nbsp;&nbsp;background-color: black;<br> &nbsp;&nbsp;}}</code></p>
+                <p>Dabei bezieht sich jedoch die Angabe <em>screen</em> - egal ob in HTML oder CSS notiert - auf <strong>alle Arten</strong> von Bildschrimen, sowohl auf Desktop-Monitore als auch auf Smartphone-Displays(Die Angabe media="handheld" bezog sich auf klassische Mobiletelefone u dgl. - meist noch mit monochromen Bildschirmen - und ist heute veraltet. Smartphones und Tablets hingegen gelten ebenfalls als Computerbildschirme screen). Deshalb wurden in CSS3 zusätzliche Unterscheidungsmöglichkeiten u.a anhand der Bildschirmgröße, eingeführt, die <strong>Media Queries</strong>. Auch diese können Sie entweder in HTML oder CSS notieren</p>
+                <p><strong>HTML:</strong></p>
+                <p><code>&lt; link href="styles.css" rel="stylessheet" type="text/css" media="screen and (max-device-width: 1034px)" /&gt;</code></p>
+                <p><strong>CSS:</strong></p>
+                <p><code>@media screen and (max-device-width: 1034px){<br> &nbsp;&nbsp;//Eigenschaften; <br>}</code></p>
+                <p><mark>Hier wird der medientyp screen mit bestinnten Merkmalen(sogennannten Media Features hier die Maximalbreite) verknüpft.</mark> die im Beispiel angegenben CSS-Vorgaben <mark>gelten also nur für Bildschirme mit einer Maximalbreite von 1034px, nicht aber für größere Monitore</mark></p>
+                <p>NOTE: Bisweilen sieht man hier noch den Zusatz only</p>
+                <p><code>@media only screen and(max-device-width: 1034)</code></p>
+                <p><mark>Das Schlüsselwort only dient lediglich dazu, die Angaben vor älteren Browsern zu verbergen. Es ist heute kaum mehr notwendig.</mark></p>
+                <h3>HTML oder CSS</h3>
+                <p>Der Unterschied, ob Sie die media Queries in die Verknüpfung im head Ihrer HTML-Datei oder in die CSS-Datei notieren, liegt auf der Hand: Im ersten Fall gelten die Vorgabn der <strong>gesamten verknüpften CSS-Datei</strong> nur für eine Bestimmte Bildschirmgröße. <mark>Sie bräuchten dann für jede Bildschirmgröße eine separate CSS-Datei.</mark></p>
+                <p>Im zweiten Fall können Sie in <strong>einer einzigen CSS-Datei</strong> in beliebig vielen @media-Blöcken unterschiedliche Vorgaben für verschiedene Bildschirmgrößen machen. <mark>da in diesem Fall nur ein CSS-Dokument geladen werden muss, werden auch die HTTP-Requests verringert und dadurch die Ladezeiten beschleunigt</mark></p>
+                <p>Ich empfehle Ihnen deshalb folgende Vorgehensweise: Notieren Sie die einfachen Medientypen weiterhin in die HTML-Verknüpfung, z.B</p>
+                <p><code>&lt;link href="screen.css" rel="stylesheet" type="text/css" media="screen" &gt;</code></p>
+                <p><code>&lt;link href="print.css" rel="stylesheet" type="text/css" media="print" &gt;</code></p>
+                <p>In die screen.css kommen dann die alternativen Vorgaben für verschiedene Bildschirmgrößen. Dort ist die Angabe <em>screen</em> nun nicht mehr notwendig und kann weggelassen werden. Bleibt noch folgende Syntax:</p>
+                  <p><code>@media (max-device-width: 1024px){ <br> &nbsp;&nbsp;//Vorgaben}</code></p>
+                  <p><code>@media (max-device-width: 800px){ <br> &nbsp;&nbsp;//Vorgaben}</code></p>
+                  <h3>Bildschirmgröße und Viewportgröße</h3>
+                  <p>Mit dieser Syntax haben Sie nun die Möglichkeit, in einer einzigen CSS-Datei für jedes beliebige Element Ihrer Website beliebig viele Layout- und Designvarianten zu definieren. Dabei haben Sie die Wahl, ob Sie dafür die <strong>Bildschirmgröße</strong> oder die <strong>Viewport-größe</strong> zugrundelegen.</p>
+                  <p>Folgende Größenangaben stehen u.a zur Verfügung(die Pixelwerte sind natürlich nur Beispielwerte):</p>
+                  <table class="table table-bordered">
+                      <tr>
+                          <th>Größenangaben für den Viewport</th>
+                          <th>Größenangaben für den Bildschirm</th>
+                      </tr>
+                      <tr>
+                          <td>
+                              <p><code>@media(width: 1024px) <br> @media(min-width: 1024px) <br> @media(max-width: 1024px)</code></p>
+                          </td>
+                          <td>
+                              <p><code>@media(device-width:: 1024px) <br>@media(min-device-width: 1024px) <br> @media(max-device-width: 1024px)</code></p>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>
+                              <p><code>@media(height: 768px) <br> @media(min-height: 768px) <br> @media(max-height)</code></p>
+                          </td>
+                          <td>
+                              <p><code>@media(device-height:768px) <br> @media(min-device-height: 768px) <br> @media(max-device-height: 768px)</code></p>
+                          </td>
+                      </tr>
+                  </table>
+                  <p><strong>Bildschirmgröße device</strong></p>
+                  <p>Die <strong>device</strong>-Varianten beziehen sich auf die <strong>Bildschirmgröße</strong> des jeweiligen Geräts(Computermonitor, Smartphone), unabhängig von der tatsächlichen Fenstergröße des Browsers. Dadurch haben diese Varianten jedoch zwei gravierende Nachteile:</p>
+                  <ol>
+                      <li>
+                          <p>
+                              Sie können nicht direkt am Arbeitsrechner getestet werden.
+                          </p>
+                      </li>
+                      <li>
+                          <p>
+                              <mark>Sie unterscheiden nicht zwischen Hoch- und Querformat eines Mobilgerätes, d.h wenn Sie ein Mobiltelefon hochkant halten, ist die <em>max-device-width</em> trotzdem die Breite des Querformats.</mark>
+                          </p>
+                          <p>Für dieses Problem gäbe es die folgende Lösung:</p>
+                          <p><code>@media(max-device-width: 1024px) and (orientation: portrait){<br> &nbsp;&nbsp;/*Vorgaben*/}</code></p>
+                          <p><code>@media(max-device-width: 1024px) and (orientation: landscape){<br> &nbsp;&nbsp;/*Vorgaben*/}</code></p>
+                           <p>Damit könnten Sie abfragen, ob der Benutzer das Gerät gerade im Hoch- oder im Querformat hält, und auch dafür unterschiedliche Layouts definieren. Dies bedeutet jedoch zusätzlichen Aufwand in unseren ohnehin schon recht komplexen CSS-Vorgaben.</p>
+                      </li>
+                  </ol>
+                  <p><strong>Viewport-Größe</strong></p>
+                  <p>Ich empfehle Ihnen deshalb die Verwendung der <strong>Viewport-Varianten</strong>(ohne Device). Diese haben ensprechende zwei Vorteile:</p>
+                  <ol>
+                      <li>
+                          <p>Sie können direkt am Arbeitsrechner durch einfaches Ändern der Breite des Browserfensters getestet werden.</p>
+                      </li>
+                      <li>
+                          <p>Sie reagieren somit auch automatisch auf einen Wechsel zwischen Hoch- und Querformat, da sie sich auf die tatsächliche, aktuelle Größe des Viewport - auch bei Mobilgeräten - beziehen, unabhängig von den Bildschirmabmessungen.</p>
+                      </li>
+                  </ol>
+                </details>
+                <hr>
+            </article>
+            <article>
+                <details>
+                    <summary>
+                        <h2>Verwendung von Media Queries: Breakpoints</h2>
+                    </summary>
+                    <p><mark>Bei den Größenangaben orientieren Sie sich in der Regel natürlich primär an der <strong>Breite</strong> des Viewports und nicht an der Höhe.</mark> Dabei sind Sie auch <strong>in keiner Weise beschränkt</strong> auf bestimmte Standardauflösungen oder die Abmessungen bestimmter Geräte, sondern Sie definieren <strong>für jede Webseite individuell</strong> die verschiedenen Breiten, an denen sich das Layout ändern der Seite ändern soll. Diese sebstdefinierten Breitenangeaben nennt man acu h <strong>Breakpoints</strong></p>
+                    <p>In der Praxis hat sich folgendes Vorgehen bewährt:</p>
+                    <ol>
+                        <li>
+                            <p>Sie definieren zunächst wie gewohnt(ohne Media Queries) in CSS/LESS sämtliche Layout und Designvorgaben Ihrer</p>
+                        </li>
+                        <li>
+                            <p>Dann ziehen Sie ganz einfach das Browserfenster keiner bis zu einer Breite, an der das Layout nicht mehr gut aussieht(wenn z.B textspalten zu schmal werden oder horizontalle Menüleisten umbrechen)</p>
+                            <p>NOTE: Zu diesem Zweck bieten die meisten modernen Browser nützliche Hilfsmittel an. So gibt es z.B in Firefox im Menü Extras &rArr; Web-Entwickler die Option Bildschirmgrößen testen. Dort können Sie komfortabel verschiedene Viewport-Größen ausprobieren und ablesen.</p>
+                        </li>
+                        <li>
+                            <p>Für diese Breite notieren Sie eine neue @media-Regel(Breakpoint) für die <strong>max-width</strong> und notieren dort sämtliche notwendigen Änderungen für sämtliche betroffenenen Selektoren(Eigenschaften, die sich nicht ändern sollen, müssen Sie nicht nochmals notieren). <mark>Verwendung der <em>max-width</em> gelten die Änderungen für alle Viewports, deren Breite kleiner oder gleich der angebenen ist.</mark></p>
+                        </li>
+                        <li>
+                            <p>Dann ziehen Sie das Browserfenster noch kleiner bis zum nächsten Layout-Bruh und notieren für diese Breite den nächsten Breakpoint. Sie sollten dabei natürlich darauf achten, so viel wie nötige, aber so wenige wie möglich zu setzen.</p>
+                        </li>
+                    </ol>
+                    <p>NOTE: Viele Designer bevorzugen heutzutage den umgekehrten Weg nach dem Prinzip Mobile First. Dabei wird zunächst eine minimaltistische Version des Layouts für Mobilegeräte entwickelt und erst danach für größere Bildschirme erweitert. Dieses Vorgehen hat jedoch den Nachteil, dass die Desktop-Varianten oftmals wie enorm vergrößerte SmartphoneWebsites mit riesigen Schriften und spärlichen Inhalten aussehen. Auch ist diese Variante für Anfänger weniger gut geeignet.</p>
+                    <p>Ein einfaches Beispiel: Ihr HTML-Dokument enthält drei &lt;article&gt;-Elemente, die Sie in CSS mit float:left nebeneinander gesetzt haben</p>
+                    <p>Wenn Sie das Browserfenster zusammenschieben, stellen Sie fest, dass die Boxen bei einer Breite von 800px zu schmal werden. Sie beschließen also, dass die Boxen ab dieser Breite nicht mehr nebeneinander, sondern untereinader stehen sollen:</p>
+                    <p>Das CSS dafür könnte so aussehen:</p>
+                    <p>article{ <br> &nbsp;&nbsp;background-color: silver; <br> &nbsp;&nbsp;width:30%; <br> &nbsp;&nbsp;margin-right: 3%; <br> &nbsp;&nbsp;float: left;}</p>
+                    <p>@media(max-width: 800px){<br> &nbsp;&nbsp;article{<br>&nbsp;&nbsp;&nbsp;&nbsp;width: auto; <br> &nbsp;&nbsp;&nbsp;&nbsp;margin 00 1rem 0; <br> &nbsp;&nbsp;&nbsp;&nbsp; float: none; <br>&nbsp;&nbsp;} <br>}</p>
+                </details>
+                <hr>
+            </article>
+            <article>
+                <details>
+                    <summary>
+                        <h2>Einbinden von Media Queries</h2>
+                    </summary>
+                    <p>Für die Einbindunug von Media Queries gibt es mehrere Möglichkeiten. Dies ist zum einen abhängig vom Umfang der CSS Vorgaben und zum anderen davon, ob Sie Less verwenden.</p>
+                    <ol>
+                        <li>
+                            <p>Für kleinere Projekte mit nur einer CSS-Datei können Sie die Media Queries zusammen ans Ende der CSS-Datei notieren.</p>
+                        </li>
+                        <li>
+                            <p>Für umfangreichere Projekte lohnt sich die Auslagerung der Media Queries zusammen in eine separate Datei. Diese wird dann im head der HTML-Datei oder in CSS/LESS mit @import eingebunden. Im Falle von Less werden die Media Queries dann zusammen  mit den anderen Vorgaben in eine einzige CSS-Datei kompiliert.</p>
+                        </li>
+                        <li>
+                            <p>LESS erlaubt noch eine dritte, sehr elegante Variante: Damit können Sie die Media Queries in den <strong>jeweiligen Selektor verschachteln</strong>. Dies ist mit normalem CSS nicht möglich und hat den Vorteil, dass Sie alle Vorgaben für einen Selektor beieinander stehen haben. Unser obriges Beispiel mit den drei Boxen könnte dann so aussehen:</p>
+                        </li>
+                    </ol>
+                    <p>LESS:</p>
+                    <p><code>aritcle{<br>&nbsp;&nbsp;background-color: silver; <br>&nbsp;&nbsp;width:30%; <br>&nbsp;&nbsp;margin-right: 3%; &nbsp;&nbsp;float: left; &nbsp;&nbsp;@media(max-width: 800px){<br>&nbsp;&nbsp;&nbsp;&nbsp;width: auto; <br>&nbsp;&nbsp;&nbsp;&nbsp;margin: 0 0 1rem 0; &nbsp;&nbsp;&nbsp;&nbsp;float: none;&nbsp;&nbsp;} <br>}</code></p>
+                    <p>Da Sie bei dieser Variante die Breitenangabe in jedem Selekor immer wieder aufs Neue verwenden, können Sie sie sogar in eine Variable auslagern. Diese muss allerdings mit einer Tilde am Anfang und Anführungszeichen <em>maskiert</em> werden.</p>
+                    <p><code>@mobile: ~"(max-width: 800px)"</code></p>
+                    <p><code>aritcle{<br>&nbsp;&nbsp;background-color: silver; <br>&nbsp;&nbsp;width:30%; <br>&nbsp;&nbsp;margin-right: 3%; &nbsp;&nbsp;float: left; &nbsp;&nbsp;@media(max-width: 800px){<br>&nbsp;&nbsp;&nbsp;&nbsp;width: auto; <br>&nbsp;&nbsp;&nbsp;&nbsp;margin: 0 0 1rem 0; &nbsp;&nbsp;&nbsp;&nbsp;float: none;&nbsp;&nbsp;} <br>}</code></p>
+                    <p>Allerdings kann diese Verschachtelung bei umfangreichen Vorgaben auch unübersichtlich werden. Wir werden deshalb in der folgenden Übung die <strong>zweite Variante</strong> nutzen und unsere Media Queries in eine separate Datei auslagern.</p>
+                </details>
+                <hr>
+            </article>
+        </main>
+    </div>
+</body>
+</html>
